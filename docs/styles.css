@@ -1,0 +1,82 @@
+:root {
+    --callout-tip-color: #00A047;
+    --callout-important-color: #CC1914; 
+    --callout-note-color: #704214;
+    --callout-warning-color: #1d1470;
+    --callout-caution-color: #7e2b63;
+    --background-color: rgba(236, 233, 240, 0.95);
+  }
+
+div.callout-note.callout {
+    border-color: var(--callout-note-color);
+}
+
+div.callout-tip.callout {
+    border-color: var(--callout-tip-color);
+}
+
+div.callout-warning.callout {
+    border-color: var(--callout-warning-color);
+}
+
+div.callout-important.callout {
+    border-color: var(--callout-important-color);
+}
+
+div.callout-caution.callout {
+    border-color: var(--callout-caution-color);
+}
+
+div.callout-note.callout-style-default>.callout-header {
+    background-color: rgb(from var(--callout-note-color) r g b / 0.2);
+}
+
+div.callout-tip.callout-style-default>.callout-header {
+    background-color: rgb(from var(--callout-tip-color) r g b / 0.2);
+}
+
+div.callout-warning.callout-style-default>.callout-header {
+    background-color: rgb(from var(--callout-warning-color) r g b / 0.2);
+}
+
+div.callout-important.callout-style-default>.callout-header {
+    background-color: rgb(from var(--callout-important-color) r g b / 0.2);
+}
+
+div.callout-caution.callout-style-default>.callout-header {
+    background-color: rgb(from var(--callout-caution-color) r g b / 0.2);
+}
+
+.callout.callout-style-default {
+    border-left-width: 5pt;
+    border-right-width: 2pt;
+    border-top-width: 2pt;
+    border-bottom-width: 2pt;
+}
+
+.theorem.example {
+    border: 2pt solid var(--callout-warning-color);
+    padding: 0.5em;
+    margin-bottom: 1em;
+}
+    
+
+body {
+    background-color: var(--background-color);
+}
+
+div.sidebar.sidebar-navigation.rollup.quarto-sidebar-toggle-contents, nav.sidebar.sidebar-navigation:not(.rollup) {
+    background-color: var(--background-color);
+}
+
+figure.figure {
+    border-style: groove;
+    border-color: #c3b7ce;
+    border-width: medium;
+    padding: 10pt;
+    border-radius: 3pt;
+}
+
+.callout-title-container {
+    font-weight: bold;
+}
