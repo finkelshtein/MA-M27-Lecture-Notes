@@ -250,8 +250,8 @@ window.Quarto = {
 \newcommand{\dy}{\,\mathrm{d}y}
 \newcommand{\eps}{\varepsilon}
 \]</span></p>
-<p>Useful resources for linear regression are <em>Theory and Problems of Probability and Statistics</em> by M.R.Spiegel and <em>How to Use Statistics</em> by S.Lakin. Furthermore, useful resources for logistic regression are <em>Generalised Linear Models</em> by P.McCullagh and J.A.Nelder, and <em>Using Multivariate Statistics</em> by B.G.Tabachnick and L.S.Fidell. The material taught in this chapter will also be met from a machine learning perspective in <em>MA-M17 Modelling and Machine Learning</em> — please see chapters 5 and 6 of <em>Essential Math for Data Science</em> by T.Nield if you would like an insight into this.</p>
-<div id="cell-fig-scatter-data-lin-regr" class="cell" data-message="false" data-execution_count="1">
+<p>Useful resources for linear regression are <em>Theory and Problems of Probability and Statistics</em> by M.R.Spiegel and <em>How to Use Statistics</em> by S.Lakin. Furthermore, useful resources for logistic regression are <em>Generalised Linear Models</em> by P.McCullagh and J.A.Nelder, and <em>Using Multivariate Statistics</em> by B.G.Tabachnick and L.S.Fidell. The material taught in this chapter will also be met from a machine learning perspective in <em>MA-M28 Modelling and Machine Learning</em> — please see chapters 5 and 6 of <em>Essential Math for Data Science</em> by T.Nield if you would like an insight into this.</p>
+<div id="cell-fig-scatter-data-lin-regr" class="cell" data-message="false" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div id="fig-scatter-data-lin-regr" class="quarto-float quarto-figure quarto-figure-center anchored" width="332" height="223">
 <figure class="quarto-float quarto-float-fig figure">
@@ -270,7 +270,7 @@ Figure&nbsp;4.1
 <section id="the-method-of-least-squares" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="the-method-of-least-squares"><span class="header-section-number">4.1</span> The Method of Least Squares</h2>
 <p>Once a statistical model has been set up, its parameters must be estimated from the data. The method of least squares can provide good such estimates. The method minimises the sum of squared residuals, i.e.&nbsp;it minimises the sum of the square of the differences between an observed value and the value produced by the model. We will concentrate on linear least squares which will provide the theory behind simple linear regression.</p>
-<div id="cell-fig-Residuals" class="cell" data-message="false" data-execution_count="2">
+<div id="cell-fig-Residuals" class="cell" data-message="false" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div id="fig-residuals" class="quarto-float quarto-figure quarto-figure-center anchored" width="308" height="203">
 <figure class="quarto-float quarto-float-fig figure">
@@ -494,7 +494,7 @@ Then, the link function we use is<br>
 \text{logit}(p)=\ln(odds)=\ln\left(\frac{p}{1-p}\right).      
 \]</span><br>
 The graph of this function is as follows:</p>
-<div id="cell-fig-logit" class="cell" data-message="false" data-execution_count="3">
+<div id="cell-fig-logit" class="cell" data-message="false" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div id="fig-logit" class="quarto-float quarto-figure quarto-figure-center anchored" width="320" height="217">
 <figure class="quarto-float quarto-float-fig figure">
@@ -525,7 +525,7 @@ y=\beta_0+\beta_1x_1+\cdots+\beta_nx_n,
 \end{aligned}
 \]</span></p>
 <p>This is an example of a sigmoid function, the graph of which is as follows:</p>
-<div id="cell-fig-sigmoid" class="cell" data-message="false" data-execution_count="4">
+<div id="cell-fig-sigmoid" class="cell" data-message="false" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div id="fig-sigmoid" class="quarto-float quarto-figure quarto-figure-center anchored" width="265" height="180">
 <figure class="quarto-float quarto-float-fig figure">

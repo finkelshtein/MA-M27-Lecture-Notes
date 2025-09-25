@@ -80,3 +80,7 @@ figure.figure {
 .callout-title-container {
     font-weight: bold;
 }
+
+.callout.callout-style-default .callout-body{
+    font-size: 1rem;
+}
