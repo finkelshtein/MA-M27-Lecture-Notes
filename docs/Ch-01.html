@@ -548,9 +548,9 @@ s^2&amp;=\frac{\sum_{i=1}^n(x_i-\bar{x})^2}{n-1}\\
 <p><span class="theorem-title"><strong>Example 1.24</strong></span> In this example we consider the weight of Golden Retrievers. See below for examples of histograms for this data.</p>
 <p>This histogram does not reveal any meaningful shape to our data. The reason is because our bins are too small.</p>
 </div>
-<div id="cell-fig-hist-right-bins" class="cell" data-message="false" data-execution_count="1">
+<div id="cell-fig-hist-right-bins" class="cell" data-message="false" data-execution_count="2">
 <div class="cell-output cell-output-display">
-<div id="fig-hist-right-bins" class="quarto-float quarto-figure quarto-figure-center anchored" height="422" width="560">
+<div id="fig-hist-right-bins" class="quarto-float quarto-figure quarto-figure-center anchored" width="560" height="422">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-hist-right-bins-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="Ch-01_files/figure-html/fig-hist-right-bins-output-1.png" id="fig-hist-right-bins" width="560" height="422" class="figure-img">
@@ -580,9 +580,9 @@ Figure&nbsp;1.1
 <div id="exm-EX_med_bar" class="theorem example">
 <p><span class="theorem-title"><strong>Example 1.26</strong></span> Let us use the data in <a href="#exm-EX_Med" class="quarto-xref">Example&nbsp;<span>1.13</span></a> to produce the following box plot.</p>
 </div>
-<div id="cell-fig-box-plot-data" class="cell" data-message="false" data-execution_count="2">
+<div id="cell-fig-box-plot-data" class="cell" data-message="false" data-execution_count="3">
 <div class="cell-output cell-output-display">
-<div id="fig-box-plot-data" class="quarto-float quarto-figure quarto-figure-center anchored" height="411" width="566">
+<div id="fig-box-plot-data" class="quarto-float quarto-figure quarto-figure-center anchored" width="566" height="411">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-box-plot-data-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="Ch-01_files/figure-html/fig-box-plot-data-output-1.png" id="fig-box-plot-data" width="566" height="411" class="figure-img">
@@ -594,13 +594,28 @@ Figure&nbsp;1.2
 </div>
 </div>
 </div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Remark 1.27
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Recall that the box plot visualises, in particular, the rectangle bound by the lower and upper quartiles: <span class="math inline">\(Q_1\)</span> and <span class="math inline">\(Q_3\)</span>, whereas the coloured line represents the median <span class="math inline">\(Q_2\)</span>. We know that <span class="math inline">\(Q_2\)</span> is calculated differently if the sample has even or odd number of elements. By definition, recall, <span class="math inline">\(Q_1\)</span> and <span class="math inline">\(Q_3\)</span> are medians of the lower half and upper halves of the ordered sample. However, it’s a question of agreement whether to include the median <span class="math inline">\(Q_2\)</span> to both halves or not, in the case when the number of elelements is odd. For example, let the data be <span class="math display">\[
+1,2,3,4,5,6,7.
+\]</span> The median is <span class="math inline">\(4\)</span>, i.e.&nbsp;<span class="math inline">\(Q_2=4\)</span>. Now, we may say that the lower half is <span class="math inline">\(1,2,3\)</span>, its median is <span class="math inline">\(2\)</span>, i.e.&nbsp;<span class="math inline">\(Q_1=2\)</span>, similarly then the upper half is <span class="math inline">\(5,6,7\)</span>, hence, <span class="math inline">\(Q_3=6\)</span>. Another approach is to say that the lower part is <span class="math inline">\(1,2,3,4\)</span> (including <span class="math inline">\(Q_2=4\)</span>), and it’s median is <span class="math inline">\(\frac{2+3}{2}=2.5\)</span>, i.e.&nbsp;<span class="math inline">\(Q_1=2.5\)</span>; similarly then the upper half is <span class="math inline">\(4,5,6,7\)</span>, and hence, <span class="math inline">\(Q_3=5.5\)</span>. (<em>Python in Mathplotlib uses the second approach.</em>)</p>
+</div>
+</div>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Definition 1.27
+<span class="screen-reader-only">Important</span>Definition 1.28
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -609,12 +624,12 @@ Figure&nbsp;1.2
 </div>
 <p>Scatter plots can be used to plot such data, these plots can also help to visualise a relationship between the variables. One variable is plotted on the horizontal axis and the other on the vertical axis.</p>
 <div id="exm-exam-marks" class="theorem example">
-<p><span class="theorem-title"><strong>Example 1.28</strong></span> Let us consider the data below which records exam marks for students and the corresponding time (in hours) the students spent revising for the exam.</p>
+<p><span class="theorem-title"><strong>Example 1.29</strong></span> Let us consider the data below which records exam marks for students and the corresponding time (in hours) the students spent revising for the exam.</p>
 <p>This can be represented by the following scatter plot:</p>
 </div>
-<div id="cell-fig-scatter-data" class="cell" data-message="false" data-execution_count="3">
+<div id="cell-fig-scatter-data" class="cell" data-message="false" data-execution_count="4">
 <div class="cell-output cell-output-display">
-<div id="fig-scatter-data" class="quarto-float quarto-figure quarto-figure-center anchored" height="411" width="566">
+<div id="fig-scatter-data" class="quarto-float quarto-figure quarto-figure-center anchored" width="566" height="411">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-scatter-data-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="Ch-01_files/figure-html/fig-scatter-data-output-1.png" id="fig-scatter-data" width="566" height="411" class="figure-img">
