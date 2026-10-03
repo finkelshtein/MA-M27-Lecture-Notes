@@ -1,10 +1,20 @@
 :root {
     --callout-tip-color: #00A047;
-    --callout-important-color: #CC1914; 
+    --callout-important-color: #CC1914;
     --callout-note-color: #704214;
     --callout-warning-color: #1d1470;
     --callout-caution-color: #7e2b63;
     --background-color: rgba(236, 233, 240, 0.95);
+    /* custom-numbered-blocks "simplebox" container colours.
+       Definition/Memorize share the old callout-important red;
+       Remark/Remember share the old callout-tip green;
+       Example gets its own colour (previously only used for the
+       .theorem.example border below, not by any actual callout). */
+    --Definition-color: #CC1914;
+    --Memorize-color: #CC1914;
+    --Remark-color: #00A047;
+    --Remember-color: #00A047;
+    --Example-color: #1D1470;
   }
 
 div.callout-note.callout {
@@ -45,6 +55,37 @@ div.callout-important.callout-style-default>.callout-header {
 
 div.callout-caution.callout-style-default>.callout-header {
     background-color: rgb(from var(--callout-caution-color) r g b / 0.2);
+}
+
+/* custom-numbered-blocks classes (simplebox container), styled to match the
+   quarto callouts they replace: Definition/Memorize = old callout-important,
+   Remark/Remember = old callout-tip, Example = its own new colour */
+div.Definition.callout,
+div.Memorize.callout {
+    border-color: var(--Definition-color);
+}
+
+div.Remark.callout,
+div.Remember.callout {
+    border-color: var(--Remark-color);
+}
+
+div.Example.callout {
+    border-color: var(--Example-color);
+}
+
+div.Definition.callout-style-default>.callout-header,
+div.Memorize.callout-style-default>.callout-header {
+    background-color: rgb(from var(--Definition-color) r g b / 0.2);
+}
+
+div.Remark.callout-style-default>.callout-header,
+div.Remember.callout-style-default>.callout-header {
+    background-color: rgb(from var(--Remark-color) r g b / 0.2);
+}
+
+div.Example.callout-style-default>.callout-header {
+    background-color: rgb(from var(--Example-color) r g b / 0.2);
 }
 
 .callout.callout-style-default {

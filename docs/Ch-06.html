@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.23">
+<meta name="generator" content="quarto-1.9.17">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -10,6 +10,9 @@
 
 <title>6&nbsp; Law of large numbers and the central limit theorem – MA-M27 Probability and Statistics for Data Science</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -75,12 +78,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-1fe81d0376b2c50856e68e651e390326.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ce4278342a015d016477ed09bce942c5.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-ac3a3105c226c7986a7d0fc1c9f8a330.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-6dc4c8d1d184d774088cc0f910aac42b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
 <link href="site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/foldbox/foldbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -110,9 +114,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 <script type="module" src="site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
 <link href="site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
+<style>
+</style>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -169,9 +175,7 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      </a>
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">MA-M27 Probability and Statistics for Data Science</a> 
     </div>
@@ -291,14 +295,10 @@ window.Quarto = {
 <section id="joint-behaviour-of-random-variables" class="level2" data-number="6.1">
 <h2 data-number="6.1" class="anchored" data-anchor-id="joint-behaviour-of-random-variables"><span class="header-section-number">6.1</span> Joint behaviour of random variables</h2>
 <p>We discussed with you discrete and continuous random variables. For a random variable <span class="math inline">\(X\)</span>, you know now how to calculate some of its characteristics: expected value <span class="math inline">\(\E(X)\)</span> and variance <span class="math inline">\(\var(X)\)</span>. Now we consider how to characterise a pair of random variables.</p>
-<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div id="cnb-1-Memorize" class="Memorize">
+<div class="callout callout-style-default no-icon callout-titled Memorize">
 <div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Memorize
-</div>
+<div class="callout-title-container flex-fill">Memorize</div>
 </div>
 <div class="callout-body-container callout-body">
 <p>Let <span class="math inline">\(X,Y:\Omega\to\R\)</span> be two random variables. Their <strong>joint cumulative distribution function</strong> (<strong>joint CDF</strong>) is the function <span class="math inline">\(F_{X,Y}:\R^2\to\R\)</span> defined by <span class="math display">\[
@@ -306,17 +306,14 @@ F_{X,Y}(x,y)=\P(X\leq x, Y\leq y).
 \]</span></p>
 </div>
 </div>
+</div>
 <div class="proof remark">
 <p><span class="proof-title"><em>Remark</em>. </span>In some cases, the joint CDF can be calculated manually from the description of the problem. However, in general, to calculate the joint CDF, we need to have additional information: joint probaility mass function in discrete case and joint probability density function in continuous case.</p>
 </div>
-<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div id="cnb-2-Memorize" class="Memorize">
+<div class="callout callout-style-default no-icon callout-titled Memorize">
 <div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Memorize
-</div>
+<div class="callout-title-container flex-fill">Memorize</div>
 </div>
 <div class="callout-body-container callout-body">
 <p>Let <span class="math inline">\(X:\Omega\to\{x_1,x_2,\ldots\}\)</span> and <span class="math inline">\(Y:\Omega\to\{y_1,y_2,\ldots\}\)</span> be two <em>discrete random variable</em> with the joint CDF <span class="math inline">\(F_{X,Y}\)</span>. Their <strong>joint probability mass function</strong> (<strong>joint PMF</strong>) is the function <span class="math display">\[
@@ -326,14 +323,11 @@ F_{X,Y}(x,y) =\sum_{x_i\leq x}\sum_{y_j\leq y}p_{X,Y}(x_i,y_j).
 \]</span></p>
 </div>
 </div>
-<div class="callout callout-style-default callout-important no-icon callout-titled">
+</div>
+<div id="cnb-3-Memorize" class="Memorize">
+<div class="callout callout-style-default no-icon callout-titled Memorize">
 <div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Memorize
-</div>
+<div class="callout-title-container flex-fill">Memorize</div>
 </div>
 <div class="callout-body-container callout-body">
 <p>Let <span class="math inline">\(X,Y:\Omega\to\R\)</span> be two <em>continuous random variable</em> with the joint CDF <span class="math inline">\(F_{X,Y}\)</span>. Their <strong>joint probability density function</strong> (<strong>joint PDF</strong>) is the function <span class="math inline">\(f_{X,Y}:\R^2\to\R\)</span> such that <span class="math display">\[
@@ -343,8 +337,14 @@ F_{X,Y}(x,y) = \int_{-\infty}^x\biggl(\int_{-\infty}^y f_{X,Y}(u,v)\,\mathrm{d}v
 \]</span></p>
 </div>
 </div>
-<div id="exm-joint-cdf-cont" class="theorem example">
-<p><span class="theorem-title"><strong>Example 6.1</strong></span> If joint PMF (for the discrete case) or joint PDF (for the continuous case) are not given explicitly, the joint CDF can be usually calculated only in very special cases, e.g.&nbsp;when one of variable is defined in terms of another one. For example, consider <span class="math inline">\(X\sim U(0,1)\)</span> and <span class="math inline">\(Y=X^2\)</span>, then <span class="math inline">\(F_{X,Y}(x,y)=0\)</span> if <span class="math inline">\(x&lt;0\)</span> or <span class="math inline">\(y&lt;0\)</span>, and for <span class="math inline">\(x\geq0, y\geq0\)</span>, we have <span class="math display">\[
+</div>
+<div id="joint-cdf-cont" class="Example">
+<div class="callout callout-style-default no-icon callout-titled Example">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-title-container flex-fill">Example 6.1</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If joint PMF (for the discrete case) or joint PDF (for the continuous case) are not given explicitly, the joint CDF can be usually calculated only in very special cases, e.g.&nbsp;when one of variable is defined in terms of another one. For example, consider <span class="math inline">\(X\sim U(0,1)\)</span> and <span class="math inline">\(Y=X^2\)</span>, then <span class="math inline">\(F_{X,Y}(x,y)=0\)</span> if <span class="math inline">\(x&lt;0\)</span> or <span class="math inline">\(y&lt;0\)</span>, and for <span class="math inline">\(x\geq0, y\geq0\)</span>, we have <span class="math display">\[
 \begin{aligned}
 F_{X,Y}(x,y)&amp; = \P(X\leq x, X^2\leq y)=\P(0\leq X\leq x, X^2\leq y) \\ &amp;=
   \P(0\leq X\leq x, -\sqrt{y}\leq X\leq \sqrt{y})\\
@@ -356,14 +356,12 @@ F_{X,Y}(x,y)&amp; = \P(X\leq x, X^2\leq y)=\P(0\leq X\leq x, X^2\leq y) \\ &amp;
 \end{aligned}
 \]</span> However, if we just have two random variables, e.g.&nbsp;<span class="math inline">\(X\sim U(0,1)\)</span> and <span class="math inline">\(Y=\sim(0,1)\)</span>, then we can’t <em>calculate</em> <span class="math inline">\(F_{X,Y}\)</span>, unless we explicitly <em>define</em> the function <span class="math inline">\(f_{X,Y}\)</span>.</p>
 </div>
-<div class="callout callout-style-default callout-important no-icon callout-titled">
+</div>
+</div>
+<div id="cnb-5-Memorize" class="Memorize">
+<div class="callout callout-style-default no-icon callout-titled Memorize">
 <div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Memorize
-</div>
+<div class="callout-title-container flex-fill">Memorize</div>
 </div>
 <div class="callout-body-container callout-body">
 <ul>
@@ -380,14 +378,11 @@ F_{X,Y}(x,y)&amp; = \P(X\leq x, X^2\leq y)=\P(0\leq X\leq x, X^2\leq y) \\ &amp;
 </ul>
 </div>
 </div>
-<div class="callout callout-style-default callout-tip no-icon callout-titled">
+</div>
+<div id="cnb-6-Remember" class="Remember">
+<div class="callout callout-style-default no-icon callout-titled Remember">
 <div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Remember
-</div>
+<div class="callout-title-container flex-fill">Remember</div>
 </div>
 <div class="callout-body-container callout-body">
 <p>For the given joint PDF <span class="math inline">\(f_{X,Y}\)</span> (for the continuous case), we can calculate PDFs of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> (so-called <strong>marginal PDFs</strong>): <span class="math display">\[
@@ -404,14 +399,11 @@ p_Y(y_j) = \sum_{i}p_{X,Y}(x_i,y_j).
 \]</span> Again, one can’t uniquely recover <span class="math inline">\(p_{X,Y}\)</span> by the pair of <span class="math inline">\(p_X\)</span> and <span class="math inline">\(p_Y\)</span>.</p>
 </div>
 </div>
-<div class="callout callout-style-default callout-important no-icon callout-titled">
+</div>
+<div id="cnb-7-Memorize" class="Memorize">
+<div class="callout callout-style-default no-icon callout-titled Memorize">
 <div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Memorize
-</div>
+<div class="callout-title-container flex-fill">Memorize</div>
 </div>
 <div class="callout-body-container callout-body">
 <p>Recall that two random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are <em>independent</em> if, for any <span class="math inline">\(a,b\in\R\)</span>, the events <span class="math inline">\(\{X\leq a\}\)</span> and <span class="math inline">\(\{Y\leq b\}\)</span> are <em>independent</em>, i.e.&nbsp;if <span class="math display">\[
@@ -428,14 +420,11 @@ f_{X,Y}(x,y) = f_X(x) f_Y(y).
 \]</span></p>
 </div>
 </div>
-<div class="callout callout-style-default callout-important no-icon callout-titled">
+</div>
+<div id="cnb-8-Memorize" class="Memorize">
+<div class="callout callout-style-default no-icon callout-titled Memorize">
 <div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Memorize
-</div>
+<div class="callout-title-container flex-fill">Memorize</div>
 </div>
 <div class="callout-body-container callout-body">
 <p>Let <span class="math inline">\(X:\Omega\to\R\)</span> and <span class="math inline">\(Y:\Omega\to\R\)</span> be two random variables (discrete or continuous). <strong>Covariance</strong> <span class="math inline">\(\cov(X,Y)\)</span> describes the joint variability of these random variables, and it is defined by <span class="math display">\[
@@ -446,14 +435,11 @@ f_{X,Y}(x,y) = f_X(x) f_Y(y).
 \]</span></p>
 </div>
 </div>
-<div class="callout callout-style-default callout-tip no-icon callout-titled">
+</div>
+<div id="cnb-9-Remember" class="Remember">
+<div class="callout callout-style-default no-icon callout-titled Remember">
 <div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Remember
-</div>
+<div class="callout-title-container flex-fill">Remember</div>
 </div>
 <div class="callout-body-container callout-body">
 <p>For any <span class="math inline">\(X,Y,V,W:\Omega\to\R\)</span>, <span class="math inline">\(a,b,c,d\in\R\)</span>,</p>
@@ -468,14 +454,11 @@ f_{X,Y}(x,y) = f_X(x) f_Y(y).
 </ul>
 </div>
 </div>
-<div class="callout callout-style-default callout-important no-icon callout-titled">
+</div>
+<div id="cnb-10-Memorize" class="Memorize">
+<div class="callout callout-style-default no-icon callout-titled Memorize">
 <div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Memorize
-</div>
+<div class="callout-title-container flex-fill">Memorize</div>
 </div>
 <div class="callout-body-container callout-body">
 <p>For any random variables <span class="math inline">\(X,Y:\Omega\to\R\)</span>, we define their <strong>correlation</strong> as follows <span class="math display">\[
@@ -487,32 +470,27 @@ f_{X,Y}(x,y) = f_X(x) f_Y(y).
 \]</span></p>
 </div>
 </div>
-<div class="callout callout-style-default callout-important no-icon callout-titled">
+</div>
+<div id="cnb-11-Memorize" class="Memorize">
+<div class="callout callout-style-default no-icon callout-titled Memorize">
 <div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Memorize
-</div>
+<div class="callout-title-container flex-fill">Memorize</div>
 </div>
 <div class="callout-body-container callout-body">
 <p>Two random variables, <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, are called <strong>uncorrelated</strong> if their covariance is zero: <span class="math inline">\(\cov(X,Y)=0\)</span> (and, hence, their correlation is also zero: <span class="math inline">\(\corr(X,Y)=0\)</span>).</p>
 </div>
 </div>
-<div class="callout callout-style-default callout-tip no-icon callout-titled">
+</div>
+<div id="cnb-12-Remember" class="Remember">
+<div class="callout callout-style-default no-icon callout-titled Remember">
 <div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Remember
-</div>
+<div class="callout-title-container flex-fill">Remember</div>
 </div>
 <div class="callout-body-container callout-body">
 <p>For uncorrelated random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> and for any <span class="math inline">\(a,b\in\R\)</span>, <span class="math display">\[
 \var(a X + b Y) = a^2\var(X)+b^2\var(Y).
 \]</span></p>
+</div>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
@@ -528,8 +506,13 @@ f_{X,Y}(x,y) = f_X(x) f_Y(y).
 <p>Recall, that for independent random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, <span class="math inline">\(\E(XY)=\E(X)\E(Y)\)</span>, and hence <span class="math inline">\(\cov(X,Y)=0\)</span>. Therefore, <strong>independent random variables are uncorrelated</strong>. The opposite statement is wrong that is shown by the following example.</p>
 </div>
 </div>
-<div id="exm-counterex" class="theorem example">
-<p><span class="theorem-title"><strong>Example 6.2</strong></span> Let <span class="math inline">\(X\sim U(-1,1)\)</span> and <span class="math inline">\(Y=X^2\)</span>. Then <span class="math inline">\(XY=X^3\)</span>, and hence <span class="math display">\[
+<div id="counterex" class="Example">
+<div class="callout callout-style-default no-icon callout-titled Example">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-title-container flex-fill">Example 6.2</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(X\sim U(-1,1)\)</span> and <span class="math inline">\(Y=X^2\)</span>. Then <span class="math inline">\(XY=X^3\)</span>, and hence <span class="math display">\[
 \cov(X,Y)=\E(XY)-\E(X)\E(Y)=\E(X^3)-\E(X)\E(X^2).
 \]</span> We know that <span class="math display">\[
 \E(X)= \frac{(-1)+1}{2}=0.
@@ -541,17 +524,15 @@ f_{X,Y}(x,y) = f_X(x) f_Y(y).
 \end{aligned}
 \]</span> Therefore, <span class="math inline">\(\cov(X,Y)=0\)</span> i.e.&nbsp;<span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are <em>uncorrelated</em>. However, clearly, <span class="math inline">\(X\)</span> and <span class="math inline">\(Y=X^2\)</span> are <em>not independent</em>.</p>
 </div>
+</div>
+</div>
 </section>
 <section id="law-of-large-numbers-lln" class="level2" data-number="6.2">
 <h2 data-number="6.2" class="anchored" data-anchor-id="law-of-large-numbers-lln"><span class="header-section-number">6.2</span> Law of large numbers (LLN)</h2>
-<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div id="cnb-14-Remember" class="Remember">
+<div class="callout callout-style-default no-icon callout-titled Remember">
 <div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Remember
-</div>
+<div class="callout-title-container flex-fill">Remember</div>
 </div>
 <div class="callout-body-container callout-body">
 <p>Let <span class="math inline">\(X_1, \ldots, X_n:\Omega\to\R\)</span> be random variables. They are called <strong>independent</strong> if, for any <span class="math inline">\(a_1,\ldots,a_n\in\R\)</span> the events <span class="math inline">\(\{X_1\leq a_1\}\)</span>, , <span class="math inline">\(\{X_n\leq a_n\}\)</span> are independent. Or, equivalently, if their joint CDF <span class="math display">\[
@@ -561,27 +542,21 @@ F_{X_1,\ldots,X_n}(x_1,\ldots,x_n) = F_{X_1}(x_1)\ldots F_{X_n}(x_n).
 \]</span></p>
 </div>
 </div>
-<div class="callout callout-style-default callout-important no-icon callout-titled">
+</div>
+<div id="cnb-15-Memorize" class="Memorize">
+<div class="callout callout-style-default no-icon callout-titled Memorize">
 <div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Memorize
-</div>
+<div class="callout-title-container flex-fill">Memorize</div>
 </div>
 <div class="callout-body-container callout-body">
 <p>Random variable <span class="math inline">\(X_1, X_2, \ldots, X_n, \ldots\)</span> are called <strong>independent and identically distributed</strong> random variables (in brief, <strong>i.i.d. r.v.</strong>) if any finite group of them <span class="math inline">\(X_1,\ldots,X_n\)</span> are independent and they all have the same distribution: <span class="math inline">\(F_{X_1}=F_{X_2}=\ldots=F_{X_n}=\ldots =F_X\)</span>, where <span class="math inline">\(X\)</span> is their joint distribution; i.e.&nbsp;<span class="math inline">\(X_1\sim X\)</span>, <span class="math inline">\(X_2\sim X\)</span>, .</p>
 </div>
 </div>
-<div class="callout callout-style-default callout-tip no-icon callout-titled">
+</div>
+<div id="cnb-16-Remember" class="Remember">
+<div class="callout callout-style-default no-icon callout-titled Remember">
 <div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Remember
-</div>
+<div class="callout-title-container flex-fill">Remember</div>
 </div>
 <div class="callout-body-container callout-body">
 <p>Let <span class="math inline">\(X_1, X_2,\ldots,X_n,\ldots\)</span> be i.i.d. r.v. with <span class="math inline">\(\E(X)=\mu\)</span> and <span class="math inline">\(\var(X)=\sigma^2&lt;\infty\)</span>. Consider the sample average <span class="math display">\[
@@ -589,6 +564,7 @@ F_{X_1,\ldots,X_n}(x_1,\ldots,x_n) = F_{X_1}(x_1)\ldots F_{X_n}(x_n).
 \]</span> Then <span class="math display">\[
 \E(\bar{X}_n) = \mu,\qquad\var(\bar{X}_n) = \frac{\sigma^2}{n}.
 \]</span></p>
+</div>
 </div>
 </div>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
@@ -611,14 +587,10 @@ F_{X_1,\ldots,X_n}(x_1,\ldots,x_n) = F_{X_1}(x_1)\ldots F_{X_n}(x_n).
 \lim_{n\to\infty} \P(|\bar{X}_n-\mu|\leq \varepsilon) = 1,
 \]</span> i.e.&nbsp;the bigger <span class="math inline">\(n\)</span> you take, the <em>larger</em> chances are for the event <span class="math inline">\(|\bar{X}_n-\mu|\leq \varepsilon\)</span> that is equivalent to <span class="math inline">\(\mu-\varepsilon&lt;\bar{X}_n&lt;\mu+\varepsilon\)</span>. Thus, informally speaking, with <span class="math inline">\(n\)</span> growing, there are good chances to find <span class="math inline">\(\bar{X}_n\)</span> around <span class="math inline">\(\mu\)</span>. We can choose <span class="math inline">\(\varepsilon\)</span> arbitrary small, i.e.&nbsp;we can require that <span class="math inline">\(\bar{X}_n\)</span> must very close to <span class="math inline">\(\mu\)</span>, and the law of large numbers states that there is high probability (close to <span class="math inline">\(1\)</span>) to achieve this if we take <span class="math inline">\(n\)</span> alrge enough.</p>
 </div>
-<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div id="cnb-17-Remember" class="Remember">
+<div class="callout callout-style-default no-icon callout-titled Remember">
 <div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Remember
-</div>
+<div class="callout-title-container flex-fill">Remember</div>
 </div>
 <div class="callout-body-container callout-body">
 <p>Let <span class="math inline">\(A\)</span> be a random event as a result of an experiment; let <span class="math inline">\(\P(A) =p\)</span>. Consider the Bernoulli random variable <span class="math inline">\(X\)</span> with <span class="math inline">\(X=1\)</span> if <span class="math inline">\(A\)</span> holds and <span class="math inline">\(X=0\)</span> otherwise. Let <span class="math inline">\(X_1,\ldots,X_n,\ldots\)</span> be i.i.d. r.v. with <span class="math inline">\(X_n\sim X\)</span>. Then <span class="math display">\[
@@ -628,14 +600,22 @@ F_{X_1,\ldots,X_n}(x_1,\ldots,x_n) = F_{X_1}(x_1)\ldots F_{X_n}(x_n).
 \]</span> in a proper sense (as <span class="math inline">\(n\to\infty\)</span>). This corresponds to our “intuitive” understanding of the probability.</p>
 </div>
 </div>
-<div id="exm-LLN" class="theorem example">
-<p><span class="theorem-title"><strong>Example 6.3</strong></span> Consider many rolls of a fair <span class="math inline">\(6\)</span>-sides dice. Let <span class="math inline">\(X_j\)</span> be the score of the <span class="math inline">\(j\)</span>-th roll, and <span class="math inline">\(S_n=X_1+\ldots+X_n\)</span> be the sum of the scores in the first <span class="math inline">\(n\)</span> rolls. All <span class="math inline">\(X_j\)</span> are i.i.d. r.v. with <span class="math display">\[
+</div>
+<div id="LLN" class="Example">
+<div class="callout callout-style-default no-icon callout-titled Example">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-title-container flex-fill">Example 6.3</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Consider many rolls of a fair <span class="math inline">\(6\)</span>-sides dice. Let <span class="math inline">\(X_j\)</span> be the score of the <span class="math inline">\(j\)</span>-th roll, and <span class="math inline">\(S_n=X_1+\ldots+X_n\)</span> be the sum of the scores in the first <span class="math inline">\(n\)</span> rolls. All <span class="math inline">\(X_j\)</span> are i.i.d. r.v. with <span class="math display">\[
 \E(X)=1\cdot \frac16 + 2\cdot \frac16 + \ldots + 6\cdot \frac16=\frac{7\cdot 6}{2}\cdot \frac16 = \frac72.
 \]</span> Therefore, by LLN, for any small <span class="math inline">\(\eps&gt;0\)</span>, <span class="math display">\[
 \lim_{n\to\infty}\P\Biggl( \biggl\lvert \frac{S_n}{n} - \frac72\biggr\rvert \leq \eps \Biggr) = 1,
 \]</span> or equivalently, <span class="math display">\[
 \lim_{n\to\infty}\P\biggl( \Bigl(\frac72-\eps\Bigr)n  \leq S_n\leq \Bigl(\frac72+ \eps \Bigr)n \biggr) = 1.
 \]</span></p>
+</div>
+</div>
 </div>
 </section>
 <section id="central-limit-theorem-clt" class="level2" data-number="6.3">
@@ -688,8 +668,13 @@ Z_n\to Z\sim \mathcal{N}(0,1), \quad n\to\infty,
 <div class="proof remark">
 <p><span class="proof-title"><em>Remark</em>. </span>The central limit theorem shows, in particular, that <span class="math inline">\(\overline{X}_n\)</span> fluctuates around its expected value <span class="math inline">\(\E(\overline{X}_n)=\mu\)</span> with the standard deviation <span class="math inline">\(\sigma(\overline{X}_n)=\frac{\sigma}{\sqrt{n}}\)</span> which is significantly less than the standard deviation <span class="math inline">\(\sigma\)</span> for each of <span class="math inline">\(X_n\)</span> around their expected value <span class="math inline">\(\E(X_n)=\mu\)</span>. And this is tru regardless of the distribution of <span class="math inline">\(X_n\)</span>. Consider this in an example.</p>
 </div>
-<div id="exm-CLT" class="theorem example">
-<p><span class="theorem-title"><strong>Example 6.4</strong></span> The average teacher’s salary in New Jersey in 2023 is $63178. Suppose that the salaries are distributed normallly with standard deviation $7500. Hence, we have that <span class="math inline">\(X\sim \mathcal{N}(63178,7500^2)\)</span>.</p>
+<div id="CLT" class="Example">
+<div class="callout callout-style-default no-icon callout-titled Example">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-title-container flex-fill">Example 6.4</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The average teacher’s salary in New Jersey in 2023 is $63178. Suppose that the salaries are distributed normallly with standard deviation $7500. Hence, we have that <span class="math inline">\(X\sim \mathcal{N}(63178,7500^2)\)</span>.</p>
 <p>Lets first find the probability that a randomly selected teacher makes less than $60000 per year. We have</p>
 <p><span class="math display">\[
 \begin{aligned}
@@ -698,7 +683,7 @@ Z_n\to Z\sim \mathcal{N}(0,1), \quad n\to\infty,
 \end{aligned}
 \]</span> where <span class="math inline">\(Z=\frac{X-63178}{7500}\sim \mathcal{N}(0,1)\)</span>.</p>
 <p>Using statistical tables (and the equality <span class="math inline">\(\Phi(-0.42)=1-\Phi(0.42)\)</span>) or Python commands</p>
-<div id="b6dd5458" class="cell" data-execution_count="1">
+<div id="cc86799b" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>norm.cdf(<span class="op">-</span><span class="fl">0.42</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="1">
@@ -724,7 +709,7 @@ Z_n\to Z\sim \mathcal{N}(0,1), \quad n\to\infty,
   &amp;= \P(\overline{Z}_{100}&lt;-4.2)\approx\Phi(-4.2)
 \end{aligned}
 \]</span> where the latter approximate equality is accroding to CLT. Since</p>
-<div id="eef8fd09" class="cell" data-execution_count="2">
+<div id="23e0829b" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>norm.cdf(<span class="op">-</span><span class="fl">4.2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>1.3345749015906314e-05</code></pre>
@@ -733,6 +718,8 @@ Z_n\to Z\sim \mathcal{N}(0,1), \quad n\to\infty,
 <p>we have that <span class="math display">\[
 \P(\overline{X}_{100}&lt;60000)\approx 0.0000133,
 \]</span> i.e., informally speaking, this is very unlikely.</p>
+</div>
+</div>
 </div>
 
 

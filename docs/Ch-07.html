@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.23">
+<meta name="generator" content="quarto-1.9.17">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -10,6 +10,9 @@
 
 <title>7&nbsp; Hypothesis Testing: Z-tests and t-tests – MA-M27 Probability and Statistics for Data Science</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -40,12 +43,13 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-1fe81d0376b2c50856e68e651e390326.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ce4278342a015d016477ed09bce942c5.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-ac3a3105c226c7986a7d0fc1c9f8a330.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-6dc4c8d1d184d774088cc0f910aac42b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
 <link href="site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/foldbox/foldbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -75,9 +79,11 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <script type="module" src="site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
 <link href="site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
+<style>
+</style>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -135,9 +141,7 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      </a>
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">MA-M27 Probability and Statistics for Data Science</a> 
     </div>
@@ -256,17 +260,14 @@ window.Quarto = {
 \]</span></p>
 <p>This chapter follows chapter 17 of by G.M.Clarke and D.Cooke. Another useful resource is by S.Lakin.</p>
 <p>In many situations of uncertainty we have to make a choice between two possible alternatives, for example, given a coin we might ask whether it is fair. In this section we deal with the problem of finding a method for choosing between two possible outcomes.</p>
-<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div id="cnb-1-Definition" class="Definition">
+<div class="callout callout-style-default no-icon callout-titled Definition">
 <div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Definition 7.1
-</div>
+<div class="callout-title-container flex-fill">Definition 7.1</div>
 </div>
 <div class="callout-body-container callout-body">
 <p>A <strong>statistical hypothesis</strong> is an assertion concerning the probability distribution of one or more random variables.</p>
+</div>
 </div>
 </div>
 <p>For example, if <span class="math inline">\(p\)</span> denotes the probability that a coin lands heads when flipped the hypotheses could be</p>
@@ -279,47 +280,38 @@ window.Quarto = {
 <p>Therefore for the coin example we might decide <strong>not</strong> to reject <span class="math display">\[
 H_0:p=\frac12
 \]</span> if after 10 flips of the coin the test statistic (no. of heads in the sample) lies between 3 and 7, or to reject <span class="math inline">\(H_0\)</span> if the test statistic is at most 2 or at least 8.</p>
-<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div id="cnb-2-Definition" class="Definition">
+<div class="callout callout-style-default no-icon callout-titled Definition">
 <div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Definition 7.2
-</div>
+<div class="callout-title-container flex-fill">Definition 7.2</div>
 </div>
 <div class="callout-body-container callout-body">
 <p>The <strong>critical region</strong> of a statistical test is the set of values of the test statistic which lead us to the rejection of the null hypothesis <span class="math inline">\(H_0\)</span> (at most 2 or at least 8 in the previous example). The <strong>acceptance region</strong> of the test is the set of values of the test statistic which lead us to failing to reject <span class="math inline">\(H_0\)</span>.</p>
 </div>
 </div>
-<div class="callout callout-style-default callout-tip no-icon callout-titled">
+</div>
+<div id="cnb-3-Remark" class="Remark">
+<div class="callout callout-style-default no-icon callout-titled Remark">
 <div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Remark 7.3
-</div>
+<div class="callout-title-container flex-fill">Remark 7.3</div>
 </div>
 <div class="callout-body-container callout-body">
 <p>Some statisticians say that a hypothesis test can have one of two outcomes: you reject or accept <span class="math inline">\(H_0\)</span>. Other statisticians do not like the phrase “accept” and prefer to to say either that you reject or fail to reject <span class="math inline">\(H_0\)</span>.</p>
+</div>
 </div>
 </div>
 <p>We often specify a value for <span class="math inline">\(\alpha\)</span>, usually the largest value that we are prepared to tolerate and then look for a test with this value of <span class="math inline">\(\alpha\)</span>. The value of <span class="math inline">\(\alpha\)</span> is then called the <strong>significance level</strong> of the test. If <span class="math inline">\(\alpha=0.05\)</span>, we say that we are testing <span class="math inline">\(H_0\)</span> at the “5% level of significance” and, if the test rejects <span class="math inline">\(H_0\)</span>, we say that the null hypothesis is rejected at the <span class="math inline">\(5\%\)</span> level.</p>
 <p>There are two types of significance tests: one-tailed; and two-tailed. We use a two-tailed test when <span class="math inline">\(H_1\)</span> is two sided (e.g.&nbsp;<span class="math inline">\(H_1:\mu\neq\mu_0\)</span>). We use a one-tailed test when <span class="math inline">\(H_1\)</span> is one-sided (e.g.&nbsp;<span class="math inline">\(H_1:\mu&gt;\mu_0\)</span> or <span class="math inline">\(H_1:\mu&lt;\mu_0\)</span>).</p>
 <p>An alternative approach to using critical regions is using <span class="math inline">\(\mathbf{p}\)</span><strong>-values</strong>. Instead of specifying a critical region and deciding whether or not the test statistic lies within it, the probability of obtaining a value equal to, or more extreme than the test statistic is calculated. For a one-tailed test, this probability is called the <span class="math inline">\(p\)</span>-value and it is then compared with the significance level probability <span class="math inline">\(\alpha\)</span>. For a two-tailed test, this probability is called the <span class="math inline">\(\tfrac{p-\text{value}}{2}\)</span> and it is then compared with the significance level probability <span class="math inline">\(\frac{\alpha}{2}\)</span>. More on this later.</p>
 <p>We cannot be sure of making the correct choice between <span class="math inline">\(H_0\)</span> and <span class="math inline">\(H_1\)</span>. We can make two types of incorrect decision. We can reject <span class="math inline">\(H_0\)</span> when it is actually true and we can accept <span class="math inline">\(H_0\)</span> when it is actually false.</p>
-<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div id="cnb-4-Definition" class="Definition">
+<div class="callout callout-style-default no-icon callout-titled Definition">
 <div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Definition 7.4
-</div>
+<div class="callout-title-container flex-fill">Definition 7.4</div>
 </div>
 <div class="callout-body-container callout-body">
 <p>A <strong>type I error</strong> occurs if the null hypothesis <span class="math inline">\(H_0\)</span> is rejected when it is true. A <strong>Type II error</strong> occurs if the null hypothesis <span class="math inline">\(H_0\)</span> is not rejected when it is false.</p>
+</div>
 </div>
 </div>
 <p>The probability of a type I error is usually denoted by <span class="math inline">\(\alpha\)</span> (and type II by <span class="math inline">\(\beta\)</span>).</p>
@@ -340,8 +332,13 @@ H_0:p=\frac12
 \]</span> and test whether it has come from <span class="math inline">\(N(\mu, \frac{\sigma^2}{n})\)</span>. In this case our test statistic is <span class="math display">\[
 z=\frac{\bar{x}-\mu}{\frac{\sigma}{\sqrt{n}}}
 \]</span> and we compare with the critical values or use the <span class="math inline">\(p\)</span>-value approach in the usual way.</p>
-<div id="exm-rang-ex1" class="theorem example">
-<p><span class="theorem-title"><strong>Example 7.5</strong></span> A machine produces items having a nominal mass of <span class="math inline">\(1kg\)</span>. The mass of a randomly selected item <span class="math inline">\(x\)</span> follows the distribution <span class="math inline">\(X\sim N(\mu, (0.02)^2)\)</span>. If <span class="math inline">\(\mu\neq 1\)</span> then the machinery should be corrected. The mean mass of a randomly sample of 25 items was found to be <span class="math inline">\(0.989kg\)</span>. Test the null hypothesis that <span class="math inline">\(H_0:\mu=1\)</span> at the <span class="math inline">\(1\%\)</span> significance level.</p>
+<div id="rang-ex1" class="Example">
+<div class="callout callout-style-default no-icon callout-titled Example">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-title-container flex-fill">Example 7.5</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A machine produces items having a nominal mass of <span class="math inline">\(1kg\)</span>. The mass of a randomly selected item <span class="math inline">\(x\)</span> follows the distribution <span class="math inline">\(X\sim N(\mu, (0.02)^2)\)</span>. If <span class="math inline">\(\mu\neq 1\)</span> then the machinery should be corrected. The mean mass of a randomly sample of 25 items was found to be <span class="math inline">\(0.989kg\)</span>. Test the null hypothesis that <span class="math inline">\(H_0:\mu=1\)</span> at the <span class="math inline">\(1\%\)</span> significance level.</p>
 <p>We have</p>
 <ul>
 <li><p><span class="math inline">\(H_0:\mu=1\)</span></p></li>
@@ -351,7 +348,7 @@ z=\frac{\bar{x}-\mu}{\frac{\sigma}{\sqrt{n}}}
 <p>Since <span class="math inline">\(P(Z\leq 2.58)=0.995\)</span> the critical region is <span class="math inline">\(|z|&gt;2.58\)</span> and the test statistic is given by <span class="math display">\[
 z=\frac{\bar{x}-\mu}{\frac{\sigma}{\sqrt{n}}}=\frac{0.989-1}{\frac{0.02}{5}}=-2.75.
 \]</span></p>
-<div id="c39efa39" class="cell" data-message="false" data-execution_count="1">
+<div id="be58944e" class="cell" data-message="false" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -361,7 +358,7 @@ z=\frac{\bar{x}-\mu}{\frac{\sigma}{\sqrt{n}}}=\frac{0.989-1}{\frac{0.02}{5}}=-2.
 </div>
 </div>
 <p>Clearly <span class="math inline">\(-2.75\)</span> is in the critical region, therefore we reject <span class="math inline">\(H_0\)</span> at the <span class="math inline">\(1\%\)</span> significance level and conclude that the machine settings should be corrected. Using the p-value approach we find:</p>
-<div id="1f367d5c" class="cell" data-message="false" data-execution_count="2">
+<div id="9efeaedc" class="cell" data-message="false" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -372,6 +369,8 @@ z=\frac{\bar{x}-\mu}{\frac{\sigma}{\sqrt{n}}}=\frac{0.989-1}{\frac{0.02}{5}}=-2.
 </div>
 <p>In particular, <span class="math inline">\(P(Z\geq -2.75)=0.003&lt;0.005 (\tfrac{\alpha}{2})\)</span> and therefore we reject <span class="math inline">\(H_0\)</span>.</p>
 </div>
+</div>
+</div>
 </section>
 <section id="the-difference-between-2-means-from-normal-distributions-with-known-variances" class="level2" data-number="7.2">
 <h2 data-number="7.2" class="anchored" data-anchor-id="the-difference-between-2-means-from-normal-distributions-with-known-variances"><span class="header-section-number">7.2</span> The Difference between 2 Means from Normal Distributions with Known Variances</h2>
@@ -380,8 +379,13 @@ N(\mu_1-\mu_2, \frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2}).
 \]</span> The theory then follows in the same way, with the test statistic being given by <span class="math display">\[
 \frac{(\bar{x}_1-\bar{x}_2)-(\mu_1-\mu_2)}{\sqrt{\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2}}}.
 \]</span></p>
-<div id="exm-ex2" class="theorem example">
-<p><span class="theorem-title"><strong>Example 7.6</strong></span> A sample of size 25 is taken from <span class="math inline">\(X\sim N(\mu_1, 66)\)</span> and the mean <span class="math inline">\(\bar{x}\)</span> was found to be 116, then another sample of size 25 is taken from <span class="math inline">\(Y\sim N(\mu_2, 66)\)</span> and <span class="math inline">\(\bar{y}\)</span> was found to be 109. Test the following at the <span class="math inline">\(5\%\)</span> significance level.</p>
+<div id="ex2" class="Example">
+<div class="callout callout-style-default no-icon callout-titled Example">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-title-container flex-fill">Example 7.6</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A sample of size 25 is taken from <span class="math inline">\(X\sim N(\mu_1, 66)\)</span> and the mean <span class="math inline">\(\bar{x}\)</span> was found to be 116, then another sample of size 25 is taken from <span class="math inline">\(Y\sim N(\mu_2, 66)\)</span> and <span class="math inline">\(\bar{y}\)</span> was found to be 109. Test the following at the <span class="math inline">\(5\%\)</span> significance level.</p>
 <ul>
 <li><p><span class="math inline">\(H_0:\mu_1-\mu_2=12\)</span></p></li>
 <li><p><span class="math inline">\(H_1:\mu_1-\mu_2\neq 12\)</span></p></li>
@@ -390,12 +394,19 @@ N(\mu_1-\mu_2, \frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2}).
 z=\frac{\bar{x}-\bar{y}-(\mu_1-\mu_2)}{\sqrt{\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2}}}=\frac{7-12}{\sqrt{5.28}}=-2.17.
 \]</span> Since <span class="math inline">\(-2.17&lt;-1.96\)</span> then <span class="math inline">\(-2.17\)</span> is in the critical region and we reject the null hypothesis and conclude that the difference between the means is not 12 at the <span class="math inline">\(5\%\)</span> significance level.</p>
 </div>
+</div>
+</div>
 </section>
 <section id="large-sample-tests" class="level2" data-number="7.3">
 <h2 data-number="7.3" class="anchored" data-anchor-id="large-sample-tests"><span class="header-section-number">7.3</span> Large Sample Tests</h2>
 <p>The central limit theorem can be used to do significance tests for non-normal distributions when the sample sizes are large enough (30 or more). When a normal approximation can be used, its mean and variance will be <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\frac{\sigma^2}{n}\)</span> respectively. In this way we can test hypotheses about the means of distributions which are not themselves normal, provided a large sample of observations is available. We will the same methods to test hypotheses as before except that the test statistic will be only approximately <span class="math inline">\(N(0,1)\)</span>.</p>
-<div id="exm-ex3" class="theorem example">
-<p><span class="theorem-title"><strong>Example 7.7</strong></span> The number of strokes a golfer takes to complete a round of golf has mean 84.1 and standard deviation 2.6. After lessons her mean is 83.1 in 36 subsequent rounds. At the <span class="math inline">\(5\%\)</span> significance level test the null hypothesis that her standard of play is unaltered against the alternative hypothesis that it has improved, i.e.</p>
+<div id="ex3" class="Example">
+<div class="callout callout-style-default no-icon callout-titled Example">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-title-container flex-fill">Example 7.7</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The number of strokes a golfer takes to complete a round of golf has mean 84.1 and standard deviation 2.6. After lessons her mean is 83.1 in 36 subsequent rounds. At the <span class="math inline">\(5\%\)</span> significance level test the null hypothesis that her standard of play is unaltered against the alternative hypothesis that it has improved, i.e.</p>
 <ul>
 <li><p><span class="math inline">\(H_0: \mu=84.1\)</span></p></li>
 <li><p><span class="math inline">\(H_1: \mu&lt;84.1\)</span> (one-tailed)</p></li>
@@ -404,7 +415,7 @@ z=\frac{\bar{x}-\bar{y}-(\mu_1-\mu_2)}{\sqrt{\frac{\sigma_1^2}{n_1}+\frac{\sigma
 <p>We approximate the distribution of strokes by <span class="math inline">\(N(\mu, \frac{2.6^2}{36})\)</span> and the test statistic is given by <span class="math display">\[
 z=\frac{\bar{x}-\mu}{\frac{\sigma}{\sqrt{n}}}=\frac{83.1-84.1}{\frac{2.6}{6}}=-2.31.
 \]</span> This lies in the critical region therefore we reject the null hypothesis and conclude that her game seems to have improved.</p>
-<div id="c6eea046" class="cell" data-message="false" data-execution_count="3">
+<div id="0fc52c65" class="cell" data-message="false" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -414,7 +425,7 @@ z=\frac{\bar{x}-\mu}{\frac{\sigma}{\sqrt{n}}}=\frac{83.1-84.1}{\frac{2.6}{6}}=-2
 </div>
 </div>
 <p>Alternatively, using the <span class="math inline">\(p\)</span>-value approach we find <span class="math inline">\(P(Z\leq -2.31)=0.01044&lt;0.05\)</span> and therefore we reject the null hypothesis.</p>
-<div id="4e77693a" class="cell" data-message="false" data-execution_count="4">
+<div id="3552b642" class="cell" data-message="false" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -424,14 +435,12 @@ z=\frac{\bar{x}-\mu}{\frac{\sigma}{\sqrt{n}}}=\frac{83.1-84.1}{\frac{2.6}{6}}=-2
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-important no-icon callout-titled">
+</div>
+</div>
+<div id="cnb-8-Definition" class="Definition">
+<div class="callout callout-style-default no-icon callout-titled Definition">
 <div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Definition 7.8
-</div>
+<div class="callout-title-container flex-fill">Definition 7.8</div>
 </div>
 <div class="callout-body-container callout-body">
 <p>If <span class="math inline">\(x_1,\ldots,x_n\)</span> is a family random variables of size <span class="math inline">\(n\geq 2\)</span> from the distribution <span class="math inline">\(X\sim N(\mu,\sigma^2)\)</span>, the random variable <span class="math display">\[
@@ -439,12 +448,13 @@ T=\frac{\bar{x}-\mu}{\frac{s}{\sqrt{n}}}
 \]</span> is said to have a <strong><span class="math inline">\(t\)</span> distribution</strong> with <span class="math inline">\((n-1)\)</span> degrees of freedom.</p>
 </div>
 </div>
+</div>
 <p>As mentioned in the definition above, for the <span class="math inline">\(t\)</span> distribution we require the degrees of freedom, this is <span class="math inline">\(n\)</span> minus the number of samples ((<span class="math inline">\(n-1\)</span>) above due to the single sample).</p>
 <p>The degrees of freedom come from the number of values that are free to vary. Let us suppose we have 4 numbers (<span class="math inline">\(a,b,c,d\)</span>) and we know that the mean of these is 5. This means that <span class="math display">\[
 a+b+c+d=20 (4\times5).
 \]</span> Note that once we know 3 of the numbers above, then we can calculate the fourth and therefore only 3 of them are “free”. In this case we would have <span class="math inline">\(3=4-1=n-1\)</span> degrees of freedom.</p>
 <p>Note that as <span class="math inline">\(n\to\infty\)</span>, the <span class="math inline">\(t\)</span> distribution tends to the normal distribution. The <span class="math inline">\(t\)</span> distribution has heavier tails than the normal distribution meaning that it is more likely to have values that fall further away from the mean.</p>
-<div id="ee3ec831" class="cell" data-execution_count="5">
+<div id="21ff6535" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -472,8 +482,13 @@ a+b+c+d=20 (4\times5).
 <p>Suppose that <span class="math inline">\(X\sim N(\mu, \sigma^2)\)</span> where <span class="math inline">\(\sigma^2\)</span> is <strong>unknown</strong> and we wish to test the null hypothesis <span class="math inline">\(H_0:\mu=\mu_0\)</span> against some alternative hypothesis. In this case we take a sample and we estimate <span class="math inline">\(\sigma^2\)</span> by the sample variance <span class="math inline">\(s^2\)</span>, but the error in doing so, in particular when <span class="math inline">\(n\)</span> is small, cannot be neglected and therefore we must use the test statistic <span class="math display">\[
 t=\frac{\bar{x}-\mu_0}{\frac{s}{\sqrt{n}}}
 \]</span> which has a <span class="math inline">\(t\)</span> distribution with <span class="math inline">\(n-1\)</span> degrees of freedom. The rest of the theory is similar to what we have seen with the normal distribution only that we use the <span class="math inline">\(t\)</span> distribution to calculate the critical region.</p>
-<div id="exm-ex2435" class="theorem example">
-<p><span class="theorem-title"><strong>Example 7.9</strong></span> Yarn breaking strength follows a normal distribution with mean of <span class="math inline">\(21N\)</span>. It is claimed that if the yarn is treated with a chemical then the mean breaking strength increases. A random sample of 9 lengths are taken, the value of the sample mean and sample standard deviation are 22.75 and 2.109 respectively. Test the following:</p>
+<div id="ex2435" class="Example">
+<div class="callout callout-style-default no-icon callout-titled Example">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-title-container flex-fill">Example 7.9</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Yarn breaking strength follows a normal distribution with mean of <span class="math inline">\(21N\)</span>. It is claimed that if the yarn is treated with a chemical then the mean breaking strength increases. A random sample of 9 lengths are taken, the value of the sample mean and sample standard deviation are 22.75 and 2.109 respectively. Test the following:</p>
 <ul>
 <li><p><span class="math inline">\(H_0:\mu=21\)</span></p></li>
 <li><p><span class="math inline">\(H_1:\mu&gt;21\)</span> (one-tailed)</p></li>
@@ -485,14 +500,21 @@ t&gt;t_{0.05, 8}\quad \implies \quad t&gt;1.860.
 t=\frac{22.75-21}{\frac{2.109}{\sqrt{9}}}=2.5.
 \]</span> This value is clearly in the critical region therefore we reject the null hypothesis and accept the claim at the <span class="math inline">\(5\%\)</span> significance level. Note that <span class="math inline">\(p\)</span>-values can also be used to reject the null hypothesis or not - this will be seen in the lab class.</p>
 </div>
+</div>
+</div>
 </section>
 <section id="paired-t-test" class="level2" data-number="7.5">
 <h2 data-number="7.5" class="anchored" data-anchor-id="paired-t-test"><span class="header-section-number">7.5</span> Paired t-test</h2>
 <p>Many statistical applications use paired data samples to draw conclusions about the difference between two population means. Data pairs occur very naturally in “before” and “after” situations, where the <strong>same</strong> object or item is measured before and after a treatment. Such data pairs are very common in science and business. Clearly in this situation the sample sizes will be equal. Assume we have <span class="math inline">\(n\)</span> pairs and let <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span> be the random variables that denote the observations made on the <span class="math inline">\(n\)</span> pairs (the “before” and “after”) with means <span class="math inline">\(\mu_1\)</span> and <span class="math inline">\(\mu_2\)</span> respectively. The idea is to consider the difference <span class="math inline">\(D=X_1-X_2\)</span>, assumed to be a normally distributed random variable, with mean <span class="math inline">\(\mu_1-\mu_2\)</span> and the null hypothesis may be that <span class="math inline">\(\mu_1\)</span> and <span class="math inline">\(\mu_2\)</span> differ by a stated amount, say <span class="math inline">\(\mu_0\)</span> (<span class="math inline">\(\mu_0\)</span> is often 0, i.e.&nbsp;the means do not differ). The test statistic we use in this scenario is <span class="math display">\[
 t=\frac{\bar{D}-\mu_0}{\frac{s_D}{\sqrt{n}}}
 \]</span> where <span class="math inline">\(s_D\)</span> is the sample standard deviation of <span class="math inline">\(D\)</span> and <span class="math inline">\(t\)</span> has a <span class="math inline">\(t\)</span> distribution with <span class="math inline">\(n-1\)</span> degrees of freedom.</p>
-<div id="exm-label2341" class="theorem example">
-<p><span class="theorem-title"><strong>Example 7.10</strong></span> Ten joints of meat are cut in half; one half is frozen and wrapped by process A and the other is frozen and wrapped by a new process B. The halves are placed in ten freezers with halves of the same joint being put in the same freezer. The number of days to spoilage are found to be:</p>
+<div id="label2341" class="Example">
+<div class="callout callout-style-default no-icon callout-titled Example">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-title-container flex-fill">Example 7.10</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ten joints of meat are cut in half; one half is frozen and wrapped by process A and the other is frozen and wrapped by a new process B. The halves are placed in ten freezers with halves of the same joint being put in the same freezer. The number of days to spoilage are found to be:</p>
 <table class="table-bordered table-hover table-sm table-success small caption-top table">
 <colgroup>
 <col style="width: 21%">
@@ -649,6 +671,8 @@ t=\frac{25-0}{\sqrt{\frac{1186.44}{10}}}=2.3.
 |t|&gt;t_{0.025,9}\quad \implies \quad |t|&gt;2.26.
 \]</span> Clearly our test statistic is in the critical region and we therefore reject <span class="math inline">\(H_0\)</span> and conclude that there is evidence that there is a difference in the effectiveness of the two processes.</p>
 </div>
+</div>
+</div>
 </section>
 <section id="unpaired-t-test" class="level2" data-number="7.6">
 <h2 data-number="7.6" class="anchored" data-anchor-id="unpaired-t-test"><span class="header-section-number">7.6</span> Unpaired t-test</h2>
@@ -656,8 +680,13 @@ t=\frac{25-0}{\sqrt{\frac{1186.44}{10}}}=2.3.
 <p>If <span class="math inline">\(n_1=n_2\)</span> then <span class="math inline">\(s^2=\frac{s_1^2+s_2^2}{2}\)</span>. If <span class="math inline">\(n_1\neq n_2\)</span> then <span class="math display">\[s^2=\frac{(n_1-1)s_1^2+(n_2-1)s_2^2}{(n_1-1)+(n_2-1)}.\]</span> These are often called the <strong>pooled estimates</strong> of the variance <span class="math inline">\(\sigma^2\)</span>. Clearly, if the sample sizes are not equal then we must give greater weight to the larger sample; the appropriate weights are the degrees of freedom corresponding to each estimate of the variance. The test statistic is given by <span class="math display">\[
 t=\frac{(\bar{x}_1-\bar{x}_2)-(\mu_1-\mu_2)}{s\sqrt{\left(\frac1{n_1}+\frac1{n_2}\right)}}
 \]</span> with <span class="math inline">\(n_1+n_2-2\)</span> degrees of freedom. (This comes from <span class="math inline">\((n_1-1)+(n_2-1)=n_1+n_2-2\)</span>.)</p>
-<div id="exm-label32152" class="theorem example">
-<p><span class="theorem-title"><strong>Example 7.11</strong></span> A trial takes place in which eight people are given only water, whereas another group of eight people are given a new energy drink. They then have to take part in an endurance task. The results of the trial are given in the following table.</p>
+<div id="label32152" class="Example">
+<div class="callout callout-style-default no-icon callout-titled Example">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-title-container flex-fill">Example 7.11</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A trial takes place in which eight people are given only water, whereas another group of eight people are given a new energy drink. They then have to take part in an endurance task. The results of the trial are given in the following table.</p>
 <table class="table-bordered table-hover table-sm table-success small caption-top table">
 <thead>
 <tr class="header">
@@ -691,6 +720,8 @@ t=\frac{(12.2-13.1)-0}{{2.7722}{\sqrt\frac28}}=-0.6493,
 \]</span> with <span class="math inline">\(n_1+n_2-2=14\)</span> degrees of freedom. The critical region is given by <span class="math display">\[
 t&lt;-t_{0.05,14}\quad\implies\quad t&lt;-1.761.
 \]</span> Since <span class="math inline">\(-0.6493&gt;-1.761\)</span> we do not reject the null hypothesis and conclude there is no evidence that the energy drink makes people perform better.</p>
+</div>
+</div>
 </div>
 
 
