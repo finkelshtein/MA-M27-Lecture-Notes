@@ -127,6 +127,15 @@
       margin-right: 0; 
     }
   </style>
+  <!--
+  Enables iOS "Add to Home Screen" standalone mode: when this page is added
+  to the iPad Home Screen from Safari (Share > Add to Home Screen) and then
+  launched from that icon (not from Safari itself), it opens without the
+  address bar, tab bar, or bookmarks -- a chromeless full-screen window,
+  maximizing usable space in a landscape Split View.
+  -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -374,7 +383,7 @@ s^2&amp;=\frac{\sum_{i=1}^n(x_i-\bar{x})^2}{n-1}\\
 <div class="fragment">
 <div id="cell-fig-hist-right-bins" class="cell" data-message="false" data-execution_count="1">
 <div class="cell-output cell-output-display">
-<div id="fig-hist-right-bins" class="quarto-float quarto-figure quarto-figure-center" height="422" width="783">
+<div id="fig-hist-right-bins" class="quarto-float quarto-figure quarto-figure-center" width="783" height="422">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-hist-right-bins-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img data-src="Ch01_files/figure-revealjs/fig-hist-right-bins-output-1.png" id="fig-hist-right-bins" width="783" height="422">
@@ -404,7 +413,7 @@ Figure&nbsp;1
 <div class="fragment">
 <div id="cell-fig-box-plot-data" class="cell" data-message="false" data-execution_count="2">
 <div class="cell-output cell-output-display">
-<div id="fig-box-plot-data" class="quarto-float quarto-figure quarto-figure-center" height="411" width="789">
+<div id="fig-box-plot-data" class="quarto-float quarto-figure quarto-figure-center" width="789" height="411">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-box-plot-data-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img data-src="Ch01_files/figure-revealjs/fig-box-plot-data-output-1.png" id="fig-box-plot-data" width="789" height="411">

@@ -127,6 +127,15 @@
       margin-right: 0; 
     }
   </style>
+  <!--
+  Enables iOS "Add to Home Screen" standalone mode: when this page is added
+  to the iPad Home Screen from Safari (Share > Add to Home Screen) and then
+  launched from that icon (not from Safari itself), it opens without the
+  address bar, tab bar, or bookmarks -- a chromeless full-screen window,
+  maximizing usable space in a landscape Split View.
+  -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 </head>
 <body class="quarto-light">
   <div class="reveal">
