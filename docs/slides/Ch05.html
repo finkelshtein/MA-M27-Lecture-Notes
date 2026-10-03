@@ -6,8 +6,8 @@
 <script src="Ch05_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="Ch05_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="Ch05_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="Ch05_files/libs/quarto-html/quarto-syntax-highlighting-ce4278342a015d016477ed09bce942c5.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.17">
+<link href="Ch05_files/libs/quarto-html/quarto-syntax-highlighting-3b9ea68436acb9022c2fbce6dbb58b06.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.11.5">
 
   <title>Topic 5 — Continuous Probability Distributions</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -19,10 +19,13 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -551,9 +554,9 @@ Figure&nbsp;6: Illustration that <span class="math inline">\(\Phi(-z)=1-\Phi(z)\
 </div>
 <div class="fragment">
 <p>We can also check this with Python:</p>
-<div id="bdbb6783" class="cell" data-execution_count="7">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
-<span id="cb1-2"><a href=""></a>norm.cdf(<span class="fl">0.4</span>) <span class="op">-</span> norm.cdf(<span class="op">-</span><span class="fl">0.3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="ad1ac97e" class="cell" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="" aria-label="1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
+<span id="cb1-2"><a href="" aria-label="2"></a>norm.cdf(<span class="fl">0.4</span>) <span class="op">-</span> norm.cdf(<span class="op">-</span><span class="fl">0.3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>0.2733331637992768</code></pre>
 </div>

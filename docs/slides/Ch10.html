@@ -6,8 +6,8 @@
 <script src="Ch10_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="Ch10_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="Ch10_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="Ch10_files/libs/quarto-html/quarto-syntax-highlighting-ce4278342a015d016477ed09bce942c5.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.17">
+<link href="Ch10_files/libs/quarto-html/quarto-syntax-highlighting-3b9ea68436acb9022c2fbce6dbb58b06.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.11.5">
 
   <title>Data Reduction: Factor Analysis</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -19,10 +19,13 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -410,29 +413,29 @@ X = AF+\varepsilon = ACC^TF+\varepsilon = (AC)\tilde F + \varepsilon, \qquad \ti
 <div class="fragment">
 <p>We now make the theory above completely concrete with simulated exam marks for 10 students in 6 subjects (Math-1, Math-2, Physics, English, History, Art), following <span class="math inline">\(X = AF+\varepsilon\)</span> with <span class="math inline">\(X_1,\dots,X_6\)</span> the (centred) subject columns.</p>
 </div>
-<div id="40d83ce5" class="cell" data-execution_count="1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-2"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-3"><a href=""></a>np.set_printoptions(precision<span class="op">=</span><span class="dv">4</span>, suppress<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb1-4"><a href=""></a></span>
-<span id="cb1-5"><a href=""></a>subjects <span class="op">=</span> [<span class="vs">r'Math-1 </span><span class="kw">(</span><span class="dv">$</span><span class="vs">X_1</span><span class="dv">$</span><span class="kw">)</span><span class="vs">'</span>, <span class="vs">r'Math-2 </span><span class="kw">(</span><span class="dv">$</span><span class="vs">X_2</span><span class="dv">$</span><span class="kw">)</span><span class="vs">'</span>, <span class="vs">r'Physics </span><span class="kw">(</span><span class="dv">$</span><span class="vs">X_3</span><span class="dv">$</span><span class="kw">)</span><span class="vs">'</span>,</span>
-<span id="cb1-6"><a href=""></a>            <span class="vs">r'English </span><span class="kw">(</span><span class="dv">$</span><span class="vs">X_4</span><span class="dv">$</span><span class="kw">)</span><span class="vs">'</span>, <span class="vs">r'History </span><span class="kw">(</span><span class="dv">$</span><span class="vs">X_5</span><span class="dv">$</span><span class="kw">)</span><span class="vs">'</span>, <span class="vs">r'Art </span><span class="kw">(</span><span class="dv">$</span><span class="vs">X_6</span><span class="dv">$</span><span class="kw">)</span><span class="vs">'</span>]</span>
-<span id="cb1-7"><a href=""></a>marks <span class="op">=</span> [</span>
-<span id="cb1-8"><a href=""></a>    [<span class="dv">85</span>, <span class="dv">80</span>, <span class="dv">83</span>, <span class="dv">60</span>, <span class="dv">62</span>, <span class="dv">58</span>],</span>
-<span id="cb1-9"><a href=""></a>    [<span class="dv">78</span>, <span class="dv">75</span>, <span class="dv">80</span>, <span class="dv">55</span>, <span class="dv">60</span>, <span class="dv">59</span>],</span>
-<span id="cb1-10"><a href=""></a>    [<span class="dv">92</span>, <span class="dv">88</span>, <span class="dv">90</span>, <span class="dv">65</span>, <span class="dv">68</span>, <span class="dv">66</span>],</span>
-<span id="cb1-11"><a href=""></a>    [<span class="dv">60</span>, <span class="dv">62</span>, <span class="dv">58</span>, <span class="dv">82</span>, <span class="dv">80</span>, <span class="dv">78</span>],</span>
-<span id="cb1-12"><a href=""></a>    [<span class="dv">63</span>, <span class="dv">60</span>, <span class="dv">65</span>, <span class="dv">85</span>, <span class="dv">83</span>, <span class="dv">80</span>],</span>
-<span id="cb1-13"><a href=""></a>    [<span class="dv">70</span>, <span class="dv">68</span>, <span class="dv">72</span>, <span class="dv">70</span>, <span class="dv">68</span>, <span class="dv">66</span>],</span>
-<span id="cb1-14"><a href=""></a>    [<span class="dv">88</span>, <span class="dv">85</span>, <span class="dv">87</span>, <span class="dv">64</span>, <span class="dv">66</span>, <span class="dv">63</span>],</span>
-<span id="cb1-15"><a href=""></a>    [<span class="dv">55</span>, <span class="dv">52</span>, <span class="dv">50</span>, <span class="dv">90</span>, <span class="dv">88</span>, <span class="dv">86</span>],</span>
-<span id="cb1-16"><a href=""></a>    [<span class="dv">72</span>, <span class="dv">70</span>, <span class="dv">74</span>, <span class="dv">68</span>, <span class="dv">66</span>, <span class="dv">64</span>],</span>
-<span id="cb1-17"><a href=""></a>    [<span class="dv">66</span>, <span class="dv">64</span>, <span class="dv">67</span>, <span class="dv">75</span>, <span class="dv">74</span>, <span class="dv">72</span>]</span>
-<span id="cb1-18"><a href=""></a>]</span>
-<span id="cb1-19"><a href=""></a>X <span class="op">=</span> np.array(marks).T   <span class="co"># rows = subjects, columns = students</span></span>
-<span id="cb1-20"><a href=""></a>n, N <span class="op">=</span> X.shape</span>
-<span id="cb1-21"><a href=""></a><span class="bu">print</span>(<span class="st">'Number of subjects (n):'</span>, n)</span>
-<span id="cb1-22"><a href=""></a><span class="bu">print</span>(<span class="st">'Sample size (N):'</span>, N)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="8bf04c0c" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="" aria-label="1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="" aria-label="2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a href="" aria-label="3"></a>np.set_printoptions(precision<span class="op">=</span><span class="dv">4</span>, suppress<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb1-4"><a href="" aria-label="4"></a></span>
+<span id="cb1-5"><a href="" aria-label="5"></a>subjects <span class="op">=</span> [<span class="vs">r'Math-1 </span><span class="kw">(</span><span class="dv">$</span><span class="vs">X_1</span><span class="dv">$</span><span class="kw">)</span><span class="vs">'</span>, <span class="vs">r'Math-2 </span><span class="kw">(</span><span class="dv">$</span><span class="vs">X_2</span><span class="dv">$</span><span class="kw">)</span><span class="vs">'</span>, <span class="vs">r'Physics </span><span class="kw">(</span><span class="dv">$</span><span class="vs">X_3</span><span class="dv">$</span><span class="kw">)</span><span class="vs">'</span>,</span>
+<span id="cb1-6"><a href="" aria-label="6"></a>            <span class="vs">r'English </span><span class="kw">(</span><span class="dv">$</span><span class="vs">X_4</span><span class="dv">$</span><span class="kw">)</span><span class="vs">'</span>, <span class="vs">r'History </span><span class="kw">(</span><span class="dv">$</span><span class="vs">X_5</span><span class="dv">$</span><span class="kw">)</span><span class="vs">'</span>, <span class="vs">r'Art </span><span class="kw">(</span><span class="dv">$</span><span class="vs">X_6</span><span class="dv">$</span><span class="kw">)</span><span class="vs">'</span>]</span>
+<span id="cb1-7"><a href="" aria-label="7"></a>marks <span class="op">=</span> [</span>
+<span id="cb1-8"><a href="" aria-label="8"></a>    [<span class="dv">85</span>, <span class="dv">80</span>, <span class="dv">83</span>, <span class="dv">60</span>, <span class="dv">62</span>, <span class="dv">58</span>],</span>
+<span id="cb1-9"><a href="" aria-label="9"></a>    [<span class="dv">78</span>, <span class="dv">75</span>, <span class="dv">80</span>, <span class="dv">55</span>, <span class="dv">60</span>, <span class="dv">59</span>],</span>
+<span id="cb1-10"><a href="" aria-label="10"></a>    [<span class="dv">92</span>, <span class="dv">88</span>, <span class="dv">90</span>, <span class="dv">65</span>, <span class="dv">68</span>, <span class="dv">66</span>],</span>
+<span id="cb1-11"><a href="" aria-label="11"></a>    [<span class="dv">60</span>, <span class="dv">62</span>, <span class="dv">58</span>, <span class="dv">82</span>, <span class="dv">80</span>, <span class="dv">78</span>],</span>
+<span id="cb1-12"><a href="" aria-label="12"></a>    [<span class="dv">63</span>, <span class="dv">60</span>, <span class="dv">65</span>, <span class="dv">85</span>, <span class="dv">83</span>, <span class="dv">80</span>],</span>
+<span id="cb1-13"><a href="" aria-label="13"></a>    [<span class="dv">70</span>, <span class="dv">68</span>, <span class="dv">72</span>, <span class="dv">70</span>, <span class="dv">68</span>, <span class="dv">66</span>],</span>
+<span id="cb1-14"><a href="" aria-label="14"></a>    [<span class="dv">88</span>, <span class="dv">85</span>, <span class="dv">87</span>, <span class="dv">64</span>, <span class="dv">66</span>, <span class="dv">63</span>],</span>
+<span id="cb1-15"><a href="" aria-label="15"></a>    [<span class="dv">55</span>, <span class="dv">52</span>, <span class="dv">50</span>, <span class="dv">90</span>, <span class="dv">88</span>, <span class="dv">86</span>],</span>
+<span id="cb1-16"><a href="" aria-label="16"></a>    [<span class="dv">72</span>, <span class="dv">70</span>, <span class="dv">74</span>, <span class="dv">68</span>, <span class="dv">66</span>, <span class="dv">64</span>],</span>
+<span id="cb1-17"><a href="" aria-label="17"></a>    [<span class="dv">66</span>, <span class="dv">64</span>, <span class="dv">67</span>, <span class="dv">75</span>, <span class="dv">74</span>, <span class="dv">72</span>]</span>
+<span id="cb1-18"><a href="" aria-label="18"></a>]</span>
+<span id="cb1-19"><a href="" aria-label="19"></a>X <span class="op">=</span> np.array(marks).T   <span class="co"># rows = subjects, columns = students</span></span>
+<span id="cb1-20"><a href="" aria-label="20"></a>n, N <span class="op">=</span> X.shape</span>
+<span id="cb1-21"><a href="" aria-label="21"></a><span class="bu">print</span>(<span class="st">'Number of subjects (n):'</span>, n)</span>
+<span id="cb1-22"><a href="" aria-label="22"></a><span class="bu">print</span>(<span class="st">'Sample size (N):'</span>, N)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Number of subjects (n): 6
 Sample size (N): 10</code></pre>
@@ -450,13 +453,13 @@ Sample size (N): 10</code></pre>
 S_{ij} = \frac{1}{N-1}\sum_{k=1}^{N}(x_{i,k}-\bar x_i)(x_{j,k}-\bar x_j).
 \]</span></p>
 </div>
-<div id="22ac6ebc" class="cell" data-execution_count="2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a>means <span class="op">=</span> np.mean(X, axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb3-2"><a href=""></a><span class="bu">print</span>(<span class="st">'Means:'</span>, np.<span class="bu">round</span>(means, <span class="dv">2</span>))</span>
-<span id="cb3-3"><a href=""></a></span>
-<span id="cb3-4"><a href=""></a>Xc <span class="op">=</span> np.array([X[i] <span class="op">-</span> means[i] <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n)])</span>
-<span id="cb3-5"><a href=""></a>S <span class="op">=</span> Xc <span class="op">@</span> Xc.T <span class="op">/</span> (N <span class="op">-</span> <span class="dv">1</span>)</span>
-<span id="cb3-6"><a href=""></a><span class="bu">print</span>(<span class="st">'</span><span class="ch">\n</span><span class="st">Covariance matrix S:</span><span class="ch">\n</span><span class="st">'</span>, np.<span class="bu">round</span>(S, <span class="dv">3</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="bd56b044" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="" aria-label="1"></a>means <span class="op">=</span> np.mean(X, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb3-2"><a href="" aria-label="2"></a><span class="bu">print</span>(<span class="st">'Means:'</span>, np.<span class="bu">round</span>(means, <span class="dv">2</span>))</span>
+<span id="cb3-3"><a href="" aria-label="3"></a></span>
+<span id="cb3-4"><a href="" aria-label="4"></a>Xc <span class="op">=</span> np.array([X[i] <span class="op">-</span> means[i] <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n)])</span>
+<span id="cb3-5"><a href="" aria-label="5"></a>S <span class="op">=</span> Xc <span class="op">@</span> Xc.T <span class="op">/</span> (N <span class="op">-</span> <span class="dv">1</span>)</span>
+<span id="cb3-6"><a href="" aria-label="6"></a><span class="bu">print</span>(<span class="st">'</span><span class="ch">\n</span><span class="st">Covariance matrix S:</span><span class="ch">\n</span><span class="st">'</span>, np.<span class="bu">round</span>(S, <span class="dv">3</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Means: [72.9 70.4 72.6 71.4 71.5 69.2]
 
@@ -476,14 +479,14 @@ Covariance matrix S:
 <section id="computational-illustration-eigendecomposition-of-s" class="slide level2">
 <h2>Computational Illustration — Eigendecomposition of <span class="math inline">\(S\)</span></h2>
 <!-- ipynb cells 12-15, 20-22: two selection criteria for m -->
-<div id="3a48fd9e" class="cell" data-execution_count="3">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a>eigvals, eigvecs <span class="op">=</span> np.linalg.eigh(S)</span>
-<span id="cb5-2"><a href=""></a>idx <span class="op">=</span> np.argsort(eigvals)[::<span class="op">-</span><span class="dv">1</span>]</span>
-<span id="cb5-3"><a href=""></a>eigvals, eigvecs <span class="op">=</span> eigvals[idx], eigvecs[:, idx]</span>
-<span id="cb5-4"><a href=""></a><span class="bu">print</span>(<span class="st">'Eigenvalues (desc):'</span>, np.<span class="bu">round</span>(eigvals, <span class="dv">3</span>))</span>
-<span id="cb5-5"><a href=""></a></span>
-<span id="cb5-6"><a href=""></a>explained <span class="op">=</span> eigvals <span class="op">/</span> eigvals.<span class="bu">sum</span>()</span>
-<span id="cb5-7"><a href=""></a><span class="bu">print</span>(<span class="st">'Explained variance ratios:'</span>, np.<span class="bu">round</span>(explained, <span class="dv">4</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="f186bd6b" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="" aria-label="1"></a>eigvals, eigvecs <span class="op">=</span> np.linalg.eigh(S)</span>
+<span id="cb5-2"><a href="" aria-label="2"></a>idx <span class="op">=</span> np.argsort(eigvals)[::<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb5-3"><a href="" aria-label="3"></a>eigvals, eigvecs <span class="op">=</span> eigvals[idx], eigvecs[:, idx]</span>
+<span id="cb5-4"><a href="" aria-label="4"></a><span class="bu">print</span>(<span class="st">'Eigenvalues (desc):'</span>, np.<span class="bu">round</span>(eigvals, <span class="dv">3</span>))</span>
+<span id="cb5-5"><a href="" aria-label="5"></a></span>
+<span id="cb5-6"><a href="" aria-label="6"></a>explained <span class="op">=</span> eigvals <span class="op">/</span> eigvals.<span class="bu">sum</span>()</span>
+<span id="cb5-7"><a href="" aria-label="7"></a><span class="bu">print</span>(<span class="st">'Explained variance ratios:'</span>, np.<span class="bu">round</span>(explained, <span class="dv">4</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Eigenvalues (desc): [699.124  55.348   3.4     2.056   1.082   0.124]
 Explained variance ratios: [0.9185 0.0727 0.0045 0.0027 0.0014 0.0002]</code></pre>
@@ -502,12 +505,12 @@ Explained variance ratios: [0.9185 0.0727 0.0045 0.0027 0.0014 0.0002]</code></p
 <div class="fragment">
 <p>Following <span class="math inline">\(A=V\sqrt L\)</span> derived above, but keeping only the top <span class="math inline">\(m=2\)</span> eigenvalues/eigenvectors (<span class="math inline">\(L_m\)</span>, <span class="math inline">\(V_m\)</span>):</p>
 </div>
-<div id="7d6fff43" class="cell" data-execution_count="4">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href=""></a>m <span class="op">=</span> <span class="dv">2</span></span>
-<span id="cb7-2"><a href=""></a>Lm <span class="op">=</span> np.diag(eigvals[:m])</span>
-<span id="cb7-3"><a href=""></a>Vm <span class="op">=</span> eigvecs[:, :m]</span>
-<span id="cb7-4"><a href=""></a>Am <span class="op">=</span> Vm <span class="op">@</span> np.sqrt(Lm)</span>
-<span id="cb7-5"><a href=""></a><span class="bu">print</span>(<span class="st">'Loading matrix A_m:</span><span class="ch">\n</span><span class="st">'</span>, np.<span class="bu">round</span>(Am, <span class="dv">3</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="9a542555" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="" aria-label="1"></a>m <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb7-2"><a href="" aria-label="2"></a>Lm <span class="op">=</span> np.diag(eigvals[:m])</span>
+<span id="cb7-3"><a href="" aria-label="3"></a>Vm <span class="op">=</span> eigvecs[:, :m]</span>
+<span id="cb7-4"><a href="" aria-label="4"></a>Am <span class="op">=</span> Vm <span class="op">@</span> np.sqrt(Lm)</span>
+<span id="cb7-5"><a href="" aria-label="5"></a><span class="bu">print</span>(<span class="st">'Loading matrix A_m:</span><span class="ch">\n</span><span class="st">'</span>, np.<span class="bu">round</span>(Am, <span class="dv">3</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Loading matrix A_m:
  [[-12.064  -3.171]
@@ -528,12 +531,12 @@ Explained variance ratios: [0.9185 0.0727 0.0045 0.0027 0.0014 0.0002]</code></p
 <div class="fragment">
 <p>Because <span class="math inline">\(AA^T\approx S=V\sqrt L\sqrt L V^T\)</span>, truncating to <span class="math inline">\(m\)</span> factors gives the low-rank approximation <span class="math inline">\(\hat X := V_mV_m^TX\)</span> — the same idea as the theoretical decomposition, now used to check how much information 2 factors retain:</p>
 </div>
-<div id="49ae7b8c" class="cell" data-execution_count="5">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href=""></a>Xc_hat <span class="op">=</span> Vm <span class="op">@</span> Vm.T <span class="op">@</span> Xc</span>
-<span id="cb9-2"><a href=""></a>X_hat <span class="op">=</span> np.array([Xc_hat[i] <span class="op">+</span> means[i] <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n)])</span>
-<span id="cb9-3"><a href=""></a><span class="bu">print</span>(<span class="st">'Student 1 original:     '</span>, X[:, <span class="dv">0</span>])</span>
-<span id="cb9-4"><a href=""></a><span class="bu">print</span>(<span class="st">'Student 1 reconstructed:'</span>, np.<span class="bu">round</span>(X_hat[:, <span class="dv">0</span>], <span class="dv">2</span>))</span>
-<span id="cb9-5"><a href=""></a><span class="bu">print</span>(<span class="st">'Max reconstruction error:'</span>, np.<span class="bu">round</span>(np.<span class="bu">max</span>(np.<span class="bu">abs</span>(X <span class="op">-</span> X_hat)), <span class="dv">2</span>), <span class="st">'marks'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="e1fa0061" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="" aria-label="1"></a>Xc_hat <span class="op">=</span> Vm <span class="op">@</span> Vm.T <span class="op">@</span> Xc</span>
+<span id="cb9-2"><a href="" aria-label="2"></a>X_hat <span class="op">=</span> np.array([Xc_hat[i] <span class="op">+</span> means[i] <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n)])</span>
+<span id="cb9-3"><a href="" aria-label="3"></a><span class="bu">print</span>(<span class="st">'Student 1 original:     '</span>, X[:, <span class="dv">0</span>])</span>
+<span id="cb9-4"><a href="" aria-label="4"></a><span class="bu">print</span>(<span class="st">'Student 1 reconstructed:'</span>, np.<span class="bu">round</span>(X_hat[:, <span class="dv">0</span>], <span class="dv">2</span>))</span>
+<span id="cb9-5"><a href="" aria-label="5"></a><span class="bu">print</span>(<span class="st">'Max reconstruction error:'</span>, np.<span class="bu">round</span>(np.<span class="bu">max</span>(np.<span class="bu">abs</span>(X <span class="op">-</span> X_hat)), <span class="dv">2</span>), <span class="st">'marks'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Student 1 original:      [85 80 83 60 62 58]
 Student 1 reconstructed: [83.59 80.31 84.29 59.48 61.63 59.3 ]
@@ -548,10 +551,10 @@ Max reconstruction error: 2.98 marks</code></pre>
 \hat F = L_m^{-1/2}V_m^T\hat X.
 \]</span></p>
 </div>
-<div id="b3b217f3" class="cell" data-execution_count="6">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href=""></a>F_hat <span class="op">=</span> np.diag(eigvals[:m] <span class="op">**</span> (<span class="op">-</span><span class="fl">0.5</span>)) <span class="op">@</span> Vm.T <span class="op">@</span> Xc_hat</span>
-<span id="cb11-2"><a href=""></a><span class="bu">print</span>(<span class="st">'Factor 1 — mean, std:'</span>, np.<span class="bu">round</span>(F_hat[<span class="dv">0</span>].mean(), <span class="dv">3</span>), np.<span class="bu">round</span>(F_hat[<span class="dv">0</span>].std(), <span class="dv">3</span>))</span>
-<span id="cb11-3"><a href=""></a><span class="bu">print</span>(<span class="st">'Factor 2 — mean, std:'</span>, np.<span class="bu">round</span>(F_hat[<span class="dv">1</span>].mean(), <span class="dv">3</span>), np.<span class="bu">round</span>(F_hat[<span class="dv">1</span>].std(), <span class="dv">3</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="f8d5b789" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="" aria-label="1"></a>F_hat <span class="op">=</span> np.diag(eigvals[:m] <span class="op">**</span> (<span class="op">-</span><span class="fl">0.5</span>)) <span class="op">@</span> Vm.T <span class="op">@</span> Xc_hat</span>
+<span id="cb11-2"><a href="" aria-label="2"></a><span class="bu">print</span>(<span class="st">'Factor 1 — mean, std:'</span>, np.<span class="bu">round</span>(F_hat[<span class="dv">0</span>].mean(), <span class="dv">3</span>), np.<span class="bu">round</span>(F_hat[<span class="dv">0</span>].std(), <span class="dv">3</span>))</span>
+<span id="cb11-3"><a href="" aria-label="3"></a><span class="bu">print</span>(<span class="st">'Factor 2 — mean, std:'</span>, np.<span class="bu">round</span>(F_hat[<span class="dv">1</span>].mean(), <span class="dv">3</span>), np.<span class="bu">round</span>(F_hat[<span class="dv">1</span>].std(), <span class="dv">3</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Factor 1 — mean, std: -0.0 0.949
 Factor 2 — mean, std: 0.0 0.949</code></pre>
@@ -567,28 +570,28 @@ Factor 2 — mean, std: 0.0 0.949</code></pre>
 <div class="fragment">
 <p>Each row of <span class="math inline">\(A_m\)</span> is a point <span class="math inline">\((a_{i1},a_{i2})\)</span> in the “factor-loading plane” — plotting these gives a geometric picture of which variables belong to which factor:</p>
 </div>
-<div id="8438127b" class="cell" data-execution_count="7">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href=""></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb13-2"><a href=""></a></span>
-<span id="cb13-3"><a href=""></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">6</span>))</span>
-<span id="cb13-4"><a href=""></a>plt.arrow(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb13-5"><a href=""></a>plt.text(<span class="dv">1</span>, <span class="dv">0</span>, <span class="st">'F1 axis'</span>)</span>
-<span id="cb13-6"><a href=""></a>plt.arrow(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb13-7"><a href=""></a>plt.text(<span class="dv">0</span>, <span class="dv">1</span>, <span class="st">'F2 axis'</span>)</span>
-<span id="cb13-8"><a href=""></a></span>
-<span id="cb13-9"><a href=""></a><span class="cf">for</span> i, subj <span class="kw">in</span> <span class="bu">enumerate</span>(subjects):</span>
-<span id="cb13-10"><a href=""></a>    x, y <span class="op">=</span> Am[i, <span class="dv">0</span>], Am[i, <span class="dv">1</span>]</span>
-<span id="cb13-11"><a href=""></a>    plt.scatter(x, y)</span>
-<span id="cb13-12"><a href=""></a>    plt.text(x, y, subj, rotation<span class="op">=</span><span class="dv">45</span>)</span>
-<span id="cb13-13"><a href=""></a>    plt.plot([x, <span class="dv">0</span>], [y, y], <span class="st">'--'</span>)</span>
-<span id="cb13-14"><a href=""></a>    plt.plot([x, x], [y, <span class="dv">0</span>], <span class="st">'--'</span>)</span>
-<span id="cb13-15"><a href=""></a></span>
-<span id="cb13-16"><a href=""></a>plt.xlabel(<span class="st">'Factor 1 loading'</span>)</span>
-<span id="cb13-17"><a href=""></a>plt.ylabel(<span class="st">'Factor 2 loading'</span>)</span>
-<span id="cb13-18"><a href=""></a>plt.title(<span class="st">'Factor loadings as geometric projections'</span>)</span>
-<span id="cb13-19"><a href=""></a>plt.grid(<span class="va">True</span>)</span>
-<span id="cb13-20"><a href=""></a>plt.axis(<span class="st">'equal'</span>)</span>
-<span id="cb13-21"><a href=""></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="fa4c4e4d" class="cell" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="" aria-label="1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb13-2"><a href="" aria-label="2"></a></span>
+<span id="cb13-3"><a href="" aria-label="3"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">6</span>))</span>
+<span id="cb13-4"><a href="" aria-label="4"></a>plt.arrow(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb13-5"><a href="" aria-label="5"></a>plt.text(<span class="dv">1</span>, <span class="dv">0</span>, <span class="st">'F1 axis'</span>)</span>
+<span id="cb13-6"><a href="" aria-label="6"></a>plt.arrow(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb13-7"><a href="" aria-label="7"></a>plt.text(<span class="dv">0</span>, <span class="dv">1</span>, <span class="st">'F2 axis'</span>)</span>
+<span id="cb13-8"><a href="" aria-label="8"></a></span>
+<span id="cb13-9"><a href="" aria-label="9"></a><span class="cf">for</span> i, subj <span class="kw">in</span> <span class="bu">enumerate</span>(subjects):</span>
+<span id="cb13-10"><a href="" aria-label="10"></a>    x, y <span class="op">=</span> Am[i, <span class="dv">0</span>], Am[i, <span class="dv">1</span>]</span>
+<span id="cb13-11"><a href="" aria-label="11"></a>    plt.scatter(x, y)</span>
+<span id="cb13-12"><a href="" aria-label="12"></a>    plt.text(x, y, subj, rotation<span class="op">=</span><span class="dv">45</span>)</span>
+<span id="cb13-13"><a href="" aria-label="13"></a>    plt.plot([x, <span class="dv">0</span>], [y, y], <span class="st">'--'</span>)</span>
+<span id="cb13-14"><a href="" aria-label="14"></a>    plt.plot([x, x], [y, <span class="dv">0</span>], <span class="st">'--'</span>)</span>
+<span id="cb13-15"><a href="" aria-label="15"></a></span>
+<span id="cb13-16"><a href="" aria-label="16"></a>plt.xlabel(<span class="st">'Factor 1 loading'</span>)</span>
+<span id="cb13-17"><a href="" aria-label="17"></a>plt.ylabel(<span class="st">'Factor 2 loading'</span>)</span>
+<span id="cb13-18"><a href="" aria-label="18"></a>plt.title(<span class="st">'Factor loadings as geometric projections'</span>)</span>
+<span id="cb13-19"><a href="" aria-label="19"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb13-20"><a href="" aria-label="20"></a>plt.axis(<span class="st">'equal'</span>)</span>
+<span id="cb13-21"><a href="" aria-label="21"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -607,35 +610,35 @@ Factor 2 — mean, std: 0.0 0.949</code></pre>
 <div class="fragment">
 <p>The notebook repeats the same pipeline on a real personality-questionnaire dataset (BFI: 6-point Likert-scale responses to Big-Five personality items), to show the method at a realistic scale (many variables, real — not simulated — data), selecting <span class="math inline">\(m\)</span> via the Kaiser rule on the <strong>correlation</strong> matrix (Remark 10.2) rather than fixing <span class="math inline">\(m=2\)</span> by hand:</p>
 </div>
-<div id="7cc309f4" class="cell" data-execution_count="8">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href=""></a><span class="co"># Requires the accompanying bfi.csv file (not distributed with the</span></span>
-<span id="cb14-2"><a href=""></a><span class="co"># notebook in this session, hence eval: false — code is included for</span></span>
-<span id="cb14-3"><a href=""></a><span class="co"># completeness, no fabricated output is shown; see Suggestions-Ch-10.md).</span></span>
-<span id="cb14-4"><a href=""></a>df <span class="op">=</span> pd.read_csv(<span class="st">"bfi.csv"</span>)</span>
-<span id="cb14-5"><a href=""></a>df.drop([<span class="st">'rownames'</span>, <span class="st">'gender'</span>, <span class="st">'education'</span>, <span class="st">'age'</span>], axis<span class="op">=</span><span class="dv">1</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb14-6"><a href=""></a>df.dropna(inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb14-7"><a href=""></a></span>
-<span id="cb14-8"><a href=""></a>X <span class="op">=</span> np.array(df).T</span>
-<span id="cb14-9"><a href=""></a>n, N <span class="op">=</span> X.shape</span>
-<span id="cb14-10"><a href=""></a>means <span class="op">=</span> np.mean(X, axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb14-11"><a href=""></a>Xc <span class="op">=</span> np.array([X[i] <span class="op">-</span> means[i] <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n)])</span>
-<span id="cb14-12"><a href=""></a>S <span class="op">=</span> Xc <span class="op">@</span> Xc.T <span class="op">/</span> (N <span class="op">-</span> <span class="dv">1</span>)</span>
-<span id="cb14-13"><a href=""></a>std <span class="op">=</span> np.sqrt(np.diag(S))</span>
-<span id="cb14-14"><a href=""></a>r <span class="op">=</span> S <span class="op">/</span> np.outer(std, std)</span>
-<span id="cb14-15"><a href=""></a></span>
-<span id="cb14-16"><a href=""></a>eigvalsR, eigvecsR <span class="op">=</span> np.linalg.eigh(r)</span>
-<span id="cb14-17"><a href=""></a>idx <span class="op">=</span> np.argsort(eigvalsR)[::<span class="op">-</span><span class="dv">1</span>]</span>
-<span id="cb14-18"><a href=""></a>eigvalsR, eigvecsR <span class="op">=</span> eigvalsR[idx], eigvecsR[:, idx]</span>
-<span id="cb14-19"><a href=""></a></span>
-<span id="cb14-20"><a href=""></a>m <span class="op">=</span> <span class="bu">sum</span>(eigvalsR <span class="op">&gt;</span> <span class="dv">1</span>)          <span class="co"># Kaiser criterion, applied automatically</span></span>
-<span id="cb14-21"><a href=""></a>Lm <span class="op">=</span> np.diag(eigvalsR[:m])</span>
-<span id="cb14-22"><a href=""></a>Vm <span class="op">=</span> eigvecsR[:, :m]</span>
-<span id="cb14-23"><a href=""></a>Am <span class="op">=</span> Vm <span class="op">@</span> np.sqrt(Lm)</span>
-<span id="cb14-24"><a href=""></a></span>
-<span id="cb14-25"><a href=""></a>fa <span class="op">=</span> pd.DataFrame(Am, columns<span class="op">=</span>[<span class="ss">f"Factor </span><span class="sc">{</span>i<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="ss">"</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(m)])</span>
-<span id="cb14-26"><a href=""></a>fa.insert(<span class="dv">0</span>, <span class="st">"Characteristics"</span>, df.columns)</span>
-<span id="cb14-27"><a href=""></a><span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, m <span class="op">+</span> <span class="dv">1</span>):</span>
-<span id="cb14-28"><a href=""></a>    <span class="bu">print</span>(fa.sort_values(by<span class="op">=</span><span class="ss">f"Factor </span><span class="sc">{</span>j<span class="sc">}</span><span class="ss">"</span>, key<span class="op">=</span><span class="bu">abs</span>, ascending<span class="op">=</span><span class="va">False</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="caba7a9e" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="" aria-label="1"></a><span class="co"># Requires the accompanying bfi.csv file (not distributed with the</span></span>
+<span id="cb14-2"><a href="" aria-label="2"></a><span class="co"># notebook in this session, hence eval: false — code is included for</span></span>
+<span id="cb14-3"><a href="" aria-label="3"></a><span class="co"># completeness, no fabricated output is shown; see Suggestions-Ch-10.md).</span></span>
+<span id="cb14-4"><a href="" aria-label="4"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"bfi.csv"</span>)</span>
+<span id="cb14-5"><a href="" aria-label="5"></a>df.drop([<span class="st">'rownames'</span>, <span class="st">'gender'</span>, <span class="st">'education'</span>, <span class="st">'age'</span>], axis<span class="op">=</span><span class="dv">1</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb14-6"><a href="" aria-label="6"></a>df.dropna(inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb14-7"><a href="" aria-label="7"></a></span>
+<span id="cb14-8"><a href="" aria-label="8"></a>X <span class="op">=</span> np.array(df).T</span>
+<span id="cb14-9"><a href="" aria-label="9"></a>n, N <span class="op">=</span> X.shape</span>
+<span id="cb14-10"><a href="" aria-label="10"></a>means <span class="op">=</span> np.mean(X, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb14-11"><a href="" aria-label="11"></a>Xc <span class="op">=</span> np.array([X[i] <span class="op">-</span> means[i] <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n)])</span>
+<span id="cb14-12"><a href="" aria-label="12"></a>S <span class="op">=</span> Xc <span class="op">@</span> Xc.T <span class="op">/</span> (N <span class="op">-</span> <span class="dv">1</span>)</span>
+<span id="cb14-13"><a href="" aria-label="13"></a>std <span class="op">=</span> np.sqrt(np.diag(S))</span>
+<span id="cb14-14"><a href="" aria-label="14"></a>r <span class="op">=</span> S <span class="op">/</span> np.outer(std, std)</span>
+<span id="cb14-15"><a href="" aria-label="15"></a></span>
+<span id="cb14-16"><a href="" aria-label="16"></a>eigvalsR, eigvecsR <span class="op">=</span> np.linalg.eigh(r)</span>
+<span id="cb14-17"><a href="" aria-label="17"></a>idx <span class="op">=</span> np.argsort(eigvalsR)[::<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb14-18"><a href="" aria-label="18"></a>eigvalsR, eigvecsR <span class="op">=</span> eigvalsR[idx], eigvecsR[:, idx]</span>
+<span id="cb14-19"><a href="" aria-label="19"></a></span>
+<span id="cb14-20"><a href="" aria-label="20"></a>m <span class="op">=</span> <span class="bu">sum</span>(eigvalsR <span class="op">&gt;</span> <span class="dv">1</span>)          <span class="co"># Kaiser criterion, applied automatically</span></span>
+<span id="cb14-21"><a href="" aria-label="21"></a>Lm <span class="op">=</span> np.diag(eigvalsR[:m])</span>
+<span id="cb14-22"><a href="" aria-label="22"></a>Vm <span class="op">=</span> eigvecsR[:, :m]</span>
+<span id="cb14-23"><a href="" aria-label="23"></a>Am <span class="op">=</span> Vm <span class="op">@</span> np.sqrt(Lm)</span>
+<span id="cb14-24"><a href="" aria-label="24"></a></span>
+<span id="cb14-25"><a href="" aria-label="25"></a>fa <span class="op">=</span> pd.DataFrame(Am, columns<span class="op">=</span>[<span class="ss">f"Factor </span><span class="sc">{</span>i<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="ss">"</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(m)])</span>
+<span id="cb14-26"><a href="" aria-label="26"></a>fa.insert(<span class="dv">0</span>, <span class="st">"Characteristics"</span>, df.columns)</span>
+<span id="cb14-27"><a href="" aria-label="27"></a><span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, m <span class="op">+</span> <span class="dv">1</span>):</span>
+<span id="cb14-28"><a href="" aria-label="28"></a>    <span class="bu">print</span>(fa.sort_values(by<span class="op">=</span><span class="ss">f"Factor </span><span class="sc">{</span>j<span class="sc">}</span><span class="ss">"</span>, key<span class="op">=</span><span class="bu">abs</span>, ascending<span class="op">=</span><span class="va">False</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="fragment">
 <p>Sorting each factor’s column by absolute loading (rather than reading the raw matrix) is itself a practical technique worth noting: with dozens of items it is the only way to see, at a glance, which items define each factor — this is exactly how the school-children and ski-resort examples’ factors were “named” in Ch-10.qmd, done here programmatically instead of by eye.</p>

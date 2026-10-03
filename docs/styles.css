@@ -59,33 +59,38 @@ div.callout-caution.callout-style-default>.callout-header {
 
 /* custom-numbered-blocks classes (simplebox container), styled to match the
    quarto callouts they replace: Definition/Memorize = old callout-important,
-   Remark/Remember = old callout-tip, Example = its own new colour */
+   Remark/Remember = old callout-tip, Example = its own new colour.
+   !important is needed here: Quarto's own compiled bootstrap CSS ships a
+   same-specificity fallback rule for any callout type it doesn't recognise
+   -- div.callout.callout{border-left-color:#6c757d} -- which otherwise
+   wins the browser's shorthand/longhand tie-break against our border-color
+   and silently greys out every one of these custom classes. */
 div.Definition.callout,
 div.Memorize.callout {
-    border-color: var(--Definition-color);
+    border-color: var(--Definition-color) !important;
 }
 
 div.Remark.callout,
 div.Remember.callout {
-    border-color: var(--Remark-color);
+    border-color: var(--Remark-color) !important;
 }
 
 div.Example.callout {
-    border-color: var(--Example-color);
+    border-color: var(--Example-color) !important;
 }
 
 div.Definition.callout-style-default>.callout-header,
 div.Memorize.callout-style-default>.callout-header {
-    background-color: rgb(from var(--Definition-color) r g b / 0.2);
+    background-color: rgb(from var(--Definition-color) r g b / 0.2) !important;
 }
 
 div.Remark.callout-style-default>.callout-header,
 div.Remember.callout-style-default>.callout-header {
-    background-color: rgb(from var(--Remark-color) r g b / 0.2);
+    background-color: rgb(from var(--Remark-color) r g b / 0.2) !important;
 }
 
 div.Example.callout-style-default>.callout-header {
-    background-color: rgb(from var(--Example-color) r g b / 0.2);
+    background-color: rgb(from var(--Example-color) r g b / 0.2) !important;
 }
 
 .callout.callout-style-default {

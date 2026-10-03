@@ -6,8 +6,8 @@
 <script src="Ch03_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="Ch03_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="Ch03_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="Ch03_files/libs/quarto-html/quarto-syntax-highlighting-ce4278342a015d016477ed09bce942c5.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.17">
+<link href="Ch03_files/libs/quarto-html/quarto-syntax-highlighting-3b9ea68436acb9022c2fbce6dbb58b06.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.11.5">
 
   <title>Topic 3 — Discrete Probability Distributions</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -19,10 +19,13 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -206,7 +209,7 @@ F_X(x) = \sum_{x_i\leq x} \P(X=x_i) = \P(X\leq x).
 <img data-src="Ch03_files/figure-revealjs/fig-cumdistr-output-1.png" width="813" height="429">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cumdistr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Cumulative function of the random variable <span class="math inline">\(X:\Omega\to\{0,2,3\}\)</span> with <span class="math inline">\(\P(X=0)=0.2\)</span>, <span class="math inline">\(\P(X=2)=\P(X=3)=0.4\)</span>
+Figure&nbsp;1: Cumulative function of the random variable <span class="math inline">\(X:\Omega\to\{0,2,3\}\)</span> with <span class="math inline">\(\mathbb{P}(X=0)=0.2\)</span>, <span class="math inline">\(\mathbb{P}(X=2)=\mathbb{P}(X=3)=0.4\)</span>
 </figcaption>
 </figure>
 </div>

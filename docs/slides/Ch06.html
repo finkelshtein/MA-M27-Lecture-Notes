@@ -6,8 +6,8 @@
 <script src="Ch06_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="Ch06_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="Ch06_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="Ch06_files/libs/quarto-html/quarto-syntax-highlighting-ce4278342a015d016477ed09bce942c5.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.17">
+<link href="Ch06_files/libs/quarto-html/quarto-syntax-highlighting-3b9ea68436acb9022c2fbce6dbb58b06.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.11.5">
 
   <title>Topic 6 — Joint Distributions, the Law of Large Numbers, and the Central Limit Theorem</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -19,10 +19,13 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -483,9 +486,9 @@ Z_n\to Z\sim \mathcal{N}(0,1), \qquad n\to\infty,
 <p>Probability a randomly selected teacher makes less than $60,000: <span class="math display">\[
 \P(X&lt;60000)=\P\Bigl(\underbrace{\tfrac{X-63178}{7500}}_{=:Z}&lt;\tfrac{60000-63178}{7500}\Bigr)=\P(Z&lt;-0.42)=\Phi(-0.42)\approx 0.3372.
 \]</span></p>
-<div id="16fb9c89" class="cell" data-execution_count="1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
-<span id="cb1-2"><a href=""></a>norm.cdf(<span class="op">-</span><span class="fl">0.42</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="e07dd7c9" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="" aria-label="1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
+<span id="cb1-2"><a href="" aria-label="2"></a>norm.cdf(<span class="op">-</span><span class="fl">0.42</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="1">
 <pre><code>0.3372427268482495</code></pre>
 </div>
@@ -496,8 +499,8 @@ Z_n\to Z\sim \mathcal{N}(0,1), \qquad n\to\infty,
 <p>Now take the average of <span class="math inline">\(100\)</span> teachers’ salaries, <span class="math inline">\(\bar{X}_{100}=\frac{X_1+\cdots+X_{100}}{100}\)</span>. Then <span class="math inline">\(\E(\bar{X}_{100})=63178\)</span> and <span class="math inline">\(\sigma(\bar{X}_{100})=\dfrac{7500}{\sqrt{100}}=750\)</span>, so <span class="math display">\[
 \P(\bar{X}_{100}&lt;60000) = \P\Bigl(Z_{100}&lt;\tfrac{60000-63178}{750}\Bigr) = \P(Z_{100}&lt;-4.2)\underset{\text{CLT}}{\approx}\Phi(-4.2)\approx 0.0000133.
 \]</span></p>
-<div id="77431d9f" class="cell" data-execution_count="2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a>norm.cdf(<span class="op">-</span><span class="fl">4.2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="37d5901d" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="" aria-label="1"></a>norm.cdf(<span class="op">-</span><span class="fl">4.2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>1.3345749015906314e-05</code></pre>
 </div>
