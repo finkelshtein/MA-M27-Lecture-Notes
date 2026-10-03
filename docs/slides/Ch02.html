@@ -198,9 +198,15 @@ Build notes for this deck:
 </div>
 <div class="Definition fragment">
 <p>An <strong>experiment</strong> or <strong>trial</strong> is any procedure that can be infinitely repeated and has a well-defined set of possible outcomes.</p>
+<div class="fragment">
 <p>An <strong>outcome</strong> (denoted by <span class="math inline">\(\omega\)</span>) is a particular result of an experiment.</p>
+</div>
+<div class="fragment">
 <p>A <strong>sample space</strong> (denoted by <span class="math inline">\(\Omega\)</span>) is the set of all possible outcomes of an experiment (i.e.&nbsp;<span class="math inline">\(\omega\in\Omega\)</span>).</p>
+</div>
+<div class="fragment">
 <p>An <strong>event</strong> is a subset of the sample space (e.g.&nbsp;<span class="math inline">\(A\subset \Omega\)</span>), representing a specific outcome or a collection of outcomes.</p>
+</div>
 </div>
 <div class="Definition fragment">
 <p><strong>Probability</strong> (denoted by <span class="math inline">\(\P\)</span>) is a measure of the likelihood of an event occurring. It assigns a number between <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span> to an event, where <span class="math inline">\(0\)</span> indicates extreme unlikelihood, and <span class="math inline">\(1\)</span> indicates certainty that the event will occur. In particular, <span class="math display">\[0\leq \P(A)\leq \P(\Omega) = 1.\]</span></p>
@@ -211,7 +217,9 @@ Build notes for this deck:
 <!-- Ex 1 (handwritten) -->
 <div class="Example fragment">
 <p>When we throw a coin once, the possible outcomes are <span class="math inline">\(H, T\)</span> (standing for ‘head’ and ‘tail’). Therefore, <span class="math inline">\(\Omega=\{H, T\}\)</span>.</p>
+<div class="fragment">
 <p>There are <span class="math inline">\(4\)</span> events one can consider: <span class="math inline">\(\{H\}, \{T\}, \{H,T\}, \emptyset\)</span>.</p>
+</div>
 </div>
 </section>
 <section id="example-rolling-a-die" class="slide level2">
@@ -219,9 +227,15 @@ Build notes for this deck:
 <!-- Ex. 2.2 (handwritten) -->
 <div class="Example fragment">
 <p>Consider rolling a fair six-sided die. The possible outcomes are <span class="math inline">\(1,2,3,4,5,6\)</span>, so <span class="math inline">\(\Omega=\{1,2,3,4,5,6\}\)</span>.</p>
+<div class="fragment">
 <p>Consider the event <span class="math inline">\(A\)</span> of getting an even number: <span class="math inline">\(A = \{2, 4, 6\}\)</span>.</p>
+</div>
+<div class="fragment">
 <p>Consider the event <span class="math inline">\(B\)</span> of getting a prime number: <span class="math inline">\(B = \{2, 3, 5\}\)</span>.</p>
+</div>
+<div class="fragment">
 <p>Then <span class="math inline">\(\P(A)=\P(B)=\frac12\)</span> (think why).</p>
+</div>
 </div>
 </section>
 <section id="impossible-events" class="slide level2">
@@ -241,7 +255,7 @@ Build notes for this deck:
 \]</span></p>
 </div>
 <div class="fragment">
-<div id="cell-fig-polar" class="cell" data-message="false" data-execution_count="1">
+<div id="cell-fig-polar" class="cell" data-message="false" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div id="fig-polar" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-fig">
@@ -263,14 +277,20 @@ Figure&nbsp;1: Visual representation of <span class="math inline">\(\mathbb{P}(A
 <div class="Example fragment">
 <p>Consider rolling a fair six-sided die twice. Then outcomes are <span class="math inline">\(\omega=(a,b)\)</span> where <span class="math inline">\(a,b\in \{1, 2, 3, 4, 5, 6\}\)</span>, i.e. <span class="math display">\[
 \Omega = \bigl\{  (a,b) \mid a,b\in \{1, 2, 3, 4, 5, 6\} \bigr\}.
-\]</span> Then <span class="math inline">\(\sharp(\Omega)=6\cdot 6=36\)</span>. Let <span class="math inline">\(A\)</span> be the event of having the sum of the numbers in the two rollings bigger than <span class="math inline">\(10\)</span>. Then <span class="math display">\[
+\]</span></p>
+<div class="fragment">
+<p>Then <span class="math inline">\(\sharp(\Omega)=6\cdot 6=36\)</span>. Let <span class="math inline">\(A\)</span> be the event of having the sum of the numbers in the two rollings bigger than <span class="math inline">\(10\)</span>.</p>
+</div>
+<div class="fragment">
+<p>Then <span class="math display">\[
 A=\bigl\{  (5,6), (6,5), (6,6) \bigr\}.
-\]</span> Therefore, <span class="math display">\[
-\P(A)=\frac{3}{36}=\frac1{12}.
 \]</span></p>
 </div>
 <div class="fragment">
-<p>(The same technique was also illustrated live with the event “the sum equals exactly 10” — see Suggestions-Ch-02.md — which gives the same probability <span class="math inline">\(\tfrac{1}{12}\)</span> via the different set <span class="math inline">\(\{(4,6),(6,4),(5,5)\}\)</span>.)</p>
+<p>Therefore, <span class="math display">\[
+\P(A)=\frac{3}{36}=\frac1{12}.
+\]</span></p>
+</div>
 </div>
 </section>
 <section id="example-drawing-a-card" class="slide level2">
@@ -278,11 +298,13 @@ A=\bigl\{  (5,6), (6,5), (6,6) \bigr\}.
 <!-- Example 2.4 (handwritten) -->
 <div class="Example fragment">
 <p>Consider drawing a card from a standard deck of <span class="math inline">\(52\)</span> playing cards. The sample space <span class="math inline">\(\Omega\)</span> is the set of all <span class="math inline">\(52\)</span> pairs of the form <span class="math inline">\(vS\)</span>, where <span class="math inline">\(v\in\{A, 2, 3, 4, \ldots, 10, J, Q, K\}\)</span> is the value of a card, and <span class="math inline">\(S\in\{\clubsuit,{\color{red}\diamondsuit}, \spadesuit, {\color{red}\heartsuit}\}\)</span> is the card suit.</p>
+<div class="fragment">
 <p>Let <span class="math inline">\(B\)</span> be the event of drawing a red face card. Then <span class="math display">\[
 B=\{J{\color{red}\diamondsuit}, Q{\color{red}\diamondsuit}, K{\color{red}\diamondsuit}, J{\color{red}\heartsuit}, Q{\color{red}\heartsuit}, K{\color{red}\heartsuit}\},
 \]</span> and hence, <span class="math display">\[
 \P(B)=\frac{6}{52}=\frac{3}{26}.
 \]</span></p>
+</div>
 </div>
 </section>
 <section id="rules-of-probability" class="slide level2">
@@ -298,7 +320,7 @@ B=\{J{\color{red}\diamondsuit}, Q{\color{red}\diamondsuit}, K{\color{red}\diamon
 <p>The <strong>sum</strong> of events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> is the event <span class="math inline">\(A+B\)</span> (also denoted <span class="math inline">\(A\cup B\)</span> or <span class="math inline">\(A\vee B\)</span>) which occurs iff <em>either</em> <span class="math inline">\(A\)</span> occurs <em>or</em> <span class="math inline">\(B\)</span> occurs <em>or they both</em> occur.</p>
 </div>
 <div class="fragment">
-<div id="cell-fig-events-sum" class="cell" data-message="false" data-execution_count="2">
+<div id="cell-fig-events-sum" class="cell" data-message="false" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div id="fig-events-sum" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-fig">
@@ -318,7 +340,7 @@ Figure&nbsp;2: Visual representation of <span class="math inline">\(A+ B\)</span
 <p>The <strong>product</strong> of events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> is the event <span class="math inline">\(AB\)</span> (also denoted <span class="math inline">\(A\cap B\)</span> or <span class="math inline">\(A\wedge B\)</span>) which occurs iff <em>both</em> <span class="math inline">\(A\)</span> <em>and</em> <span class="math inline">\(B\)</span> occur.</p>
 </div>
 <div class="fragment">
-<div id="cell-fig-events-prod" class="cell" data-message="false" data-execution_count="3">
+<div id="cell-fig-events-prod" class="cell" data-message="false" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div id="fig-events-prod" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-fig">
@@ -342,10 +364,12 @@ Figure&nbsp;3: Visual representation of <span class="math inline">\(AB\)</span>
 \P(A+B) \geq \P(A), \quad
 \P(A+B) \geq \P(B).
 \]</span></p>
+<div class="fragment">
 <p><span class="math inline">\(AB\)</span> occurs under <em>less</em> outcomes than each of <span class="math inline">\(A\)</span> or <span class="math inline">\(B\)</span> alone: <span class="math display">\[
 \P(AB) \leq \P(A), \quad
 \P(AB) \leq \P(B).
 \]</span></p>
+</div>
 </div>
 </section>
 <section id="the-addition-rule" class="slide level2">
@@ -359,9 +383,11 @@ Figure&nbsp;3: Visual representation of <span class="math inline">\(AB\)</span>
 <!-- Ex. (handwritten, matches Example-3) -->
 <div class="Example fragment">
 <p>There is a standard deck of <span class="math inline">\(52\)</span> playing cards. Find the probability of drawing either a red card or a face card (king, queen, or jack) from the deck in a single draw.</p>
+<div class="fragment">
 <p><em>Solution:</em> Let <span class="math inline">\(A\)</span> be the event of drawing a red card, and <span class="math inline">\(B\)</span> be the event of drawing a face card. Overall, there are <span class="math inline">\(26\)</span> red cards, <span class="math inline">\(12\)</span> face cards, and <span class="math inline">\(6\)</span> red face cards. Therefore, <span class="math display">\[
 \P(A+B)=\frac{26}{52}+\frac{12}{52}-\frac{6}{52}=\frac{32}{52}=\frac{8}{13}.
 \]</span></p>
+</div>
 </div>
 </section>
 <section id="mutually-exclusive-events" class="slide level2">
@@ -382,7 +408,7 @@ Figure&nbsp;3: Visual representation of <span class="math inline">\(AB\)</span>
 \]</span></p>
 </div>
 <div class="fragment">
-<div id="cell-fig-events-compl" class="cell" data-message="false" data-execution_count="4">
+<div id="cell-fig-events-compl" class="cell" data-message="false" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div id="fig-events-compl" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-fig">
@@ -400,9 +426,11 @@ Figure&nbsp;4: Visual representation of <span class="math inline">\(A^c\)</span>
 <!-- Ex. 2.9 (handwritten) -->
 <div class="Example fragment">
 <p>A fair six-sided die is rolled three times. Find the probability that the total score (the sum of three trials) will be at least <span class="math inline">\(4\)</span> (event <span class="math inline">\(A\)</span>).</p>
+<div class="fragment">
 <p><em>Solution:</em> The sample space <span class="math inline">\(\Omega\)</span> consists of all triples <span class="math inline">\((a,b,c)\)</span> with <span class="math inline">\(a,b,c\in\{1,2,\ldots,6\}\)</span>. Thus, <span class="math inline">\(\sharp(\Omega)=6^3=216\)</span>. The total score is <span class="math inline">\(4\)</span> or more in all cases but the case <span class="math inline">\((1,1,1)\)</span>. Therefore, the answer is: <span class="math display">\[
 \P(A) = 1-\P(A^c)=1-\frac{1}{216}=\frac{215}{216}.
 \]</span></p>
+</div>
 </div>
 </section>
 <section id="conditional-probability" class="slide level2">
@@ -414,7 +442,7 @@ Figure&nbsp;4: Visual representation of <span class="math inline">\(A^c\)</span>
 \]</span></p>
 </div>
 <div class="fragment">
-<div id="cell-fig-cond-prob-illustration" class="cell" data-message="false" data-execution_count="5">
+<div id="cell-fig-cond-prob-illustration" class="cell" data-message="false" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <div id="fig-cond-prob-illustration" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-fig">
@@ -435,14 +463,18 @@ Figure&nbsp;5: The event <span class="math inline">\(AB\)</span>, which underlie
 <!-- Ex. 2.11 (handwritten) -->
 <div class="Example fragment">
 <p>In a bag of <span class="math inline">\(20\)</span> marbles, <span class="math inline">\(8\)</span> are red, and <span class="math inline">\(12\)</span> are green. Three marbles are drawn from the bag without replacement. What is the probability that they all are of the same colour?</p>
+<div class="fragment">
 <p><em>Solution:</em> we need the probability that either <span class="math inline">\(A=(r,r,r)\)</span> or <span class="math inline">\(B=(g,g,g)\)</span> holds. Note that <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are <em>mutually exclusive events</em>. By the multiplication rule, <span class="math display">\[
 \P(A) = \frac{8}{20}\cdot\frac{7}{19}\cdot\frac{6}{18},
 \]</span> and <span class="math display">\[
 \P(B) = \frac{12}{20}\cdot\frac{11}{19}\cdot\frac{10}{18}.
 \]</span></p>
+</div>
+<div class="fragment">
 <p>Therefore, by the addition rule (for mutually exclusive events), <span class="math display">\[
 \P(A+B)=\P(A)+\P(B)=\frac{8\cdot 7\cdot 6}{20\cdot 19\cdot 18}+\frac{12\cdot 11\cdot 10}{20\cdot 19\cdot 18}=\frac{1656}{6840}=\frac{23}{95}.
 \]</span></p>
+</div>
 </div>
 </section>
 <section id="the-multiplication-rule" class="slide level2">
@@ -483,7 +515,7 @@ Figure&nbsp;5: The event <span class="math inline">\(AB\)</span>, which underlie
 <section id="the-law-of-total-probability" class="slide level2">
 <h2>The Law of Total Probability</h2>
 <div class="fragment">
-<div id="cell-fig-total-prob" class="cell" data-message="false" data-execution_count="6">
+<div id="cell-fig-total-prob" class="cell" data-message="false" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div id="fig-total-prob" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-fig">
@@ -538,9 +570,15 @@ Figure&nbsp;6: Note that <span class="math inline">\(A=AB_1+\ldots +AB_n\)</span
 <div class="Example fragment">
 <p><em>Solution:</em> Let <span class="math inline">\(D\)</span> denote the event of having the disease, <span class="math inline">\(\P(D) = 0.001\)</span> (<span class="math inline">\(0.1\)</span>%). Let <span class="math inline">\(T\)</span> denote the event of a positive test result. Then <span class="math display">\[
 \P(T|D) = 0.95, \qquad \P(T|D^c) = 0.03.
-\]</span> By definition, <span class="math inline">\(D\)</span> and <span class="math inline">\(D^c\)</span> form a partition of <span class="math inline">\(\Omega\)</span>. Then <span class="math display">\[
+\]</span></p>
+<div class="fragment">
+<p>By definition, <span class="math inline">\(D\)</span> and <span class="math inline">\(D^c\)</span> form a partition of <span class="math inline">\(\Omega\)</span>. Then <span class="math display">\[
 \P(D|T) = \frac{\P(T|D) \cdot \P(D)}{\P(T|D) \cdot \P(D) + \P(T|D^c) \cdot \P(D^c)} = \frac{0.95 \cdot 0.001}{0.95 \cdot 0.001 + 0.03 \cdot 0.999} \approx 0.0306.
-\]</span> So, given a positive test result, the probability that the patient actually has the disease is just <span class="math inline">\(3.06\)</span>%.</p>
+\]</span></p>
+</div>
+<div class="fragment">
+<p>So, given a positive test result, the probability that the patient actually has the disease is just <span class="math inline">\(3.06\)</span>%.</p>
+</div>
 </div>
 </section>
 <section id="sensitivity-to-the-false-positive-rate" class="slide level2">
@@ -552,7 +590,7 @@ f(p) =  \frac{0.95 \cdot 0.001}{0.95 \cdot 0.001 + {\color{red}p} \cdot 0.999}.
 \]</span> Clearly <span class="math inline">\(f(0)=1\)</span> and <span class="math inline">\(f(1)\approx 0.00095\)</span>. As <span class="math inline">\(p\)</span> increases, <span class="math inline">\(f(p)\)</span> decreases — so to get a high probability that the patient actually has the disease given a positive result, the test needs a very small false-positive rate.</p>
 </div>
 <div class="fragment">
-<div id="cell-fig-sensitivity" class="cell" data-message="false" data-execution_count="7">
+<div id="cell-fig-sensitivity" class="cell" data-message="false" data-execution_count="8">
 <div class="cell-output cell-output-display">
 <div id="fig-sensitivity" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-fig">

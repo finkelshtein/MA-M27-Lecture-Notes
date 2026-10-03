@@ -191,9 +191,12 @@ Build notes for this deck:
 <div class="Definition fragment">
 <p>The <strong>likelihood</strong> (or <strong>likelihood function</strong>) of the data, given <span class="math inline">\(\theta\)</span>, is <span class="math display">\[
 \mathcal{L}(\theta)=\mathcal{L}(\theta\mid x_1,\ldots,x_n):=\P(X_1=x_1,\ldots,X_n=x_n\mid \theta).
-\]</span> Since <span class="math inline">\(X_1,\ldots,X_n\)</span> are independent, <span class="math display">\[
+\]</span></p>
+<div class="fragment">
+<p>Since <span class="math inline">\(X_1,\ldots,X_n\)</span> are independent, <span class="math display">\[
 \mathcal{L}(\theta\mid x_1,\ldots,x_n) = \P(X_1=x_1\mid \theta)\cdots \P(X_n=x_n\mid \theta).
 \]</span></p>
+</div>
 </div>
 </section>
 <section id="example-tossing-a-coin" class="slide level2">
@@ -202,9 +205,12 @@ Build notes for this deck:
 <div class="Example fragment">
 <p>A coin has <span class="math inline">\(\P(H)=\theta\in[0,1]\)</span>, unknown. Tossed <span class="math inline">\(n=10\)</span> times, data <span class="math inline">\(=(H,H,T,H,T,H,H,T,H,T)\)</span>: <span class="math display">\[
 \P(\text{data}\mid\theta) = \theta\cdot\theta\cdot(1-\theta)\cdot\theta\cdot(1-\theta)\cdots = \theta^6(1-\theta)^4 =: \mathcal{L}(\theta\mid\text{data}).
-\]</span> In general, if the data contains <span class="math inline">\(k\)</span> heads (and <span class="math inline">\(n-k\)</span> tails), <span class="math display">\[
+\]</span></p>
+<div class="fragment">
+<p>In general, if the data contains <span class="math inline">\(k\)</span> heads (and <span class="math inline">\(n-k\)</span> tails), <span class="math display">\[
 \mathcal{L}(\theta\mid\text{data}) = \theta^k(1-\theta)^{n-k}.
 \]</span></p>
+</div>
 </div>
 </section>
 <section id="maximum-likelihood-estimation" class="slide level2">
@@ -231,9 +237,12 @@ Build notes for this deck:
 <div class="Example fragment">
 <p><span class="math display">\[
 L(\theta) = \ln\mathcal{L}(\theta) = k\ln\theta +(n-k)\ln(1-\theta).
-\]</span> <span class="math display">\[
+\]</span></p>
+<div class="fragment">
+<p><span class="math display">\[
 L'(\theta) = \frac{k}{\theta}-\frac{n-k}{1-\theta} = \frac{k-n\theta}{\theta(1-\theta)}.
 \]</span> <span class="math inline">\(L'(\theta)=0 \iff \theta=\dfrac{k}{n}\)</span>.</p>
+</div>
 </div>
 <div class="Example fragment">
 <p><span class="math display">\[
@@ -256,6 +265,7 @@ L''(\theta)= -\frac{k}{\theta^2}-\frac{n-k}{(1-\theta)^2}&lt;0 \quad\text{for al
 <!-- "Ex. 2" (handwritten; not in Ch-08.qmd) -->
 <div class="Example fragment">
 <p>Suppose <span class="math inline">\(X:\Omega\to\{0,1,2,3,4\}\)</span> has PMF</p>
+<div class="fragment">
 <table class="caption-top" style="width:100%;">
 <colgroup>
 <col style="width: 16%">
@@ -286,7 +296,10 @@ L''(\theta)= -\frac{k}{\theta^2}-\frac{n-k}{(1-\theta)^2}&lt;0 \quad\text{for al
 </tr>
 </tbody>
 </table>
+</div>
+<div class="fragment">
 <p>(note the probabilities sum to <span class="math inline">\(1\)</span> for any <span class="math inline">\(\theta\in[0,1]\)</span>). Given the sample <span class="math inline">\(0,1,0,3,4,0,1,1,2,1,4,4,2\)</span> (three <span class="math inline">\(0\)</span>’s, four <span class="math inline">\(1\)</span>’s, two <span class="math inline">\(2\)</span>’s, one <span class="math inline">\(3\)</span>, three <span class="math inline">\(4\)</span>’s), find <span class="math inline">\(\theta_*\)</span>.</p>
+</div>
 </div>
 <div class="Example fragment">
 <p><span class="math display">\[
@@ -297,11 +310,17 @@ L''(\theta)= -\frac{k}{\theta^2}-\frac{n-k}{(1-\theta)^2}&lt;0 \quad\text{for al
 <p><span class="math display">\[
 L(\theta) = \ln C + 9\ln\theta + 4\ln(1-\theta), \qquad
 L'(\theta) = \frac9\theta - \frac{4}{1-\theta}.
-\]</span> <span class="math display">\[
+\]</span></p>
+<div class="fragment">
+<p><span class="math display">\[
 L'(\theta)=0 \implies 9(1-\theta)=4\theta \implies \theta=\frac{9}{13}\in[0,1].
-\]</span> <span class="math display">\[
+\]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
 L''(\theta) = -\frac{9}{\theta^2} - \frac{4}{(1-\theta)^2} &lt; 0 \quad\text{for all }\theta.
 \]</span> Hence <span class="math inline">\(\theta_*=\dfrac{9}{13}\)</span>.</p>
+</div>
 </div>
 </section>
 <section id="example-poisson-mle" class="slide level2">
@@ -316,11 +335,17 @@ L''(\theta) = -\frac{9}{\theta^2} - \frac{4}{(1-\theta)^2} &lt; 0 \quad\text{for
 <p><span class="math display">\[
 L(\lambda) = \ln C + (k_1+\cdots+k_n)\ln\lambda - \lambda n, \qquad
 L'(\lambda) = \frac{k_1+\cdots+k_n}{\lambda} - n.
-\]</span> <span class="math display">\[
+\]</span></p>
+<div class="fragment">
+<p><span class="math display">\[
 L'(\lambda)=0 \implies \lambda_* = \frac{k_1+\cdots+k_n}{n} \qquad (\text{the sample mean}).
-\]</span> <span class="math display">\[
+\]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
 L''(\lambda) = -\frac{k_1+\cdots+k_n}{\lambda^2}&lt;0 \quad\text{for all }\lambda.
 \]</span> So <span class="math inline">\(\lambda_*\)</span> is the maximum likelihood estimate — the sample mean, as expected.</p>
+</div>
 </div>
 </section>
 <section id="remark-continuous-random-variables" class="slide level2">

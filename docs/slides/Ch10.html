@@ -391,17 +391,14 @@ X = AF + \varepsilon,
 <div class="fragment">
 <p>Setting <span class="math inline">\(R=AA^T=\Sigma-\Psi\)</span> (the <em>adjusted</em> covariance matrix), <span class="math inline">\(R\)</span> is symmetric, so <span class="math display">\[
 R=VLV^T
-\]</span> with <span class="math inline">\(V\)</span> the eigenvectors of <span class="math inline">\(R\)</span> and <span class="math inline">\(L\)</span> diagonal of eigenvalues. Since <span class="math inline">\(L\)</span> is diagonal, <span class="math inline">\(\sqrt L^T=\sqrt L\)</span>, so <span class="math display">\[
+\]</span></p>
+<div class="fragment">
+<p>with <span class="math inline">\(V\)</span> the eigenvectors of <span class="math inline">\(R\)</span> and <span class="math inline">\(L\)</span> diagonal of eigenvalues. Since <span class="math inline">\(L\)</span> is diagonal, <span class="math inline">\(\sqrt L^T=\sqrt L\)</span>, so <span class="math display">\[
 R=V\sqrt L\sqrt L V^T=(V\sqrt L)(V\sqrt L)^T=AA^T \quad\Longrightarrow\quad A=V\sqrt L.
 \]</span> Once the eigenvectors/eigenvalues of <span class="math inline">\(R\)</span> are known, <span class="math inline">\(A\)</span> follows immediately.</p>
 </div>
-</section>
-<div class="Remark fragment">
-<section id="remark-10.2-partial-kaiser-criterion-only-see-suggestions-ch-10.md" class="slide level2">
-<h2>Remark 10.2 (partial — Kaiser criterion only; see Suggestions-Ch-10.md)</h2>
-<p>Equation <span class="math inline">\(A=V\sqrt L\)</span> is exact only if <em>all</em> factors (eigenvalues) are used. In practice we keep only significant factors. One method: keep factors/eigenvalues <span class="math inline">\(&gt;1\)</span> — the <strong>Kaiser criterion</strong>.</p>
-</section>
 </div>
+</section>
 <section id="non-uniqueness-of-a-rotation" class="slide level2">
 <h2>Non-Uniqueness of <span class="math inline">\(A\)</span>: Rotation</h2>
 <!-- Week10.qmd §7 -->
@@ -413,7 +410,7 @@ R=V\sqrt L\sqrt L V^T=(V\sqrt L)(V\sqrt L)^T=AA^T \quad\Longrightarrow\quad A=V\
 <div class="fragment">
 <p>Correspondingly, <span class="math display">\[
 X = AF+\varepsilon = ACC^TF+\varepsilon = (AC)\tilde F + \varepsilon, \qquad \tilde F := C^TF,
-\]</span> i.e.&nbsp;any orthogonal transformation of <span class="math inline">\(F\)</span>, compensated by the same transformation of <span class="math inline">\(A\)</span>, gives an equally valid decomposition of <span class="math inline">\(\Sigma\)</span>. This is the mathematical fact underlying <strong>factor rotation</strong> (Varimax etc. — see Suggestions-Ch-10.md for the full Lecture-2 treatment).</p>
+\]</span> i.e.&nbsp;any orthogonal transformation of <span class="math inline">\(F\)</span>, compensated by the same transformation of <span class="math inline">\(A\)</span>, gives an equally valid decomposition of <span class="math inline">\(\Sigma\)</span>. This is the mathematical fact underlying <strong>factor rotation</strong>.</p>
 </div>
 </section>
 <section id="computational-illustration-setup" class="slide level2">
@@ -422,7 +419,7 @@ X = AF+\varepsilon = ACC^TF+\varepsilon = (AC)\tilde F + \varepsilon, \qquad \ti
 <div class="fragment">
 <p>We now make the theory above completely concrete with simulated exam marks for 10 students in 6 subjects (Math-1, Math-2, Physics, English, History, Art), following <span class="math inline">\(X = AF+\varepsilon\)</span> with <span class="math inline">\(X_1,\dots,X_6\)</span> the (centred) subject columns.</p>
 </div>
-<div id="8bf04c0c" class="cell" data-execution_count="1">
+<div id="8bf04c0c" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="" aria-label="1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="" aria-label="2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="" aria-label="3"></a>np.set_printoptions(precision<span class="op">=</span><span class="dv">4</span>, suppress<span class="op">=</span><span class="va">True</span>)</span>
@@ -462,7 +459,7 @@ Sample size (N): 10</code></pre>
 S_{ij} = \frac{1}{N-1}\sum_{k=1}^{N}(x_{i,k}-\bar x_i)(x_{j,k}-\bar x_j).
 \]</span></p>
 </div>
-<div id="bd56b044" class="cell" data-execution_count="2">
+<div id="bd56b044" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="" aria-label="1"></a>means <span class="op">=</span> np.mean(X, axis<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb3-2"><a href="" aria-label="2"></a><span class="bu">print</span>(<span class="st">'Means:'</span>, np.<span class="bu">round</span>(means, <span class="dv">2</span>))</span>
 <span id="cb3-3"><a href="" aria-label="3"></a></span>
@@ -488,7 +485,7 @@ Covariance matrix S:
 <section id="computational-illustration-eigendecomposition-of-s" class="slide level2">
 <h2>Computational Illustration — Eigendecomposition of <span class="math inline">\(S\)</span></h2>
 <!-- ipynb cells 12-15, 20-22: two selection criteria for m -->
-<div id="f186bd6b" class="cell" data-execution_count="3">
+<div id="f186bd6b" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="" aria-label="1"></a>eigvals, eigvecs <span class="op">=</span> np.linalg.eigh(S)</span>
 <span id="cb5-2"><a href="" aria-label="2"></a>idx <span class="op">=</span> np.argsort(eigvals)[::<span class="op">-</span><span class="dv">1</span>]</span>
 <span id="cb5-3"><a href="" aria-label="3"></a>eigvals, eigvecs <span class="op">=</span> eigvals[idx], eigvecs[:, idx]</span>
@@ -514,7 +511,7 @@ Explained variance ratios: [0.9185 0.0727 0.0045 0.0027 0.0014 0.0002]</code></p
 <div class="fragment">
 <p>Following <span class="math inline">\(A=V\sqrt L\)</span> derived above, but keeping only the top <span class="math inline">\(m=2\)</span> eigenvalues/eigenvectors (<span class="math inline">\(L_m\)</span>, <span class="math inline">\(V_m\)</span>):</p>
 </div>
-<div id="9a542555" class="cell" data-execution_count="4">
+<div id="9a542555" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="" aria-label="1"></a>m <span class="op">=</span> <span class="dv">2</span></span>
 <span id="cb7-2"><a href="" aria-label="2"></a>Lm <span class="op">=</span> np.diag(eigvals[:m])</span>
 <span id="cb7-3"><a href="" aria-label="3"></a>Vm <span class="op">=</span> eigvecs[:, :m]</span>
@@ -540,7 +537,7 @@ Explained variance ratios: [0.9185 0.0727 0.0045 0.0027 0.0014 0.0002]</code></p
 <div class="fragment">
 <p>Because <span class="math inline">\(AA^T\approx S=V\sqrt L\sqrt L V^T\)</span>, truncating to <span class="math inline">\(m\)</span> factors gives the low-rank approximation <span class="math inline">\(\hat X := V_mV_m^TX\)</span> — the same idea as the theoretical decomposition, now used to check how much information 2 factors retain:</p>
 </div>
-<div id="e1fa0061" class="cell" data-execution_count="5">
+<div id="e1fa0061" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="" aria-label="1"></a>Xc_hat <span class="op">=</span> Vm <span class="op">@</span> Vm.T <span class="op">@</span> Xc</span>
 <span id="cb9-2"><a href="" aria-label="2"></a>X_hat <span class="op">=</span> np.array([Xc_hat[i] <span class="op">+</span> means[i] <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n)])</span>
 <span id="cb9-3"><a href="" aria-label="3"></a><span class="bu">print</span>(<span class="st">'Student 1 original:     '</span>, X[:, <span class="dv">0</span>])</span>
@@ -560,7 +557,7 @@ Max reconstruction error: 2.98 marks</code></pre>
 \hat F = L_m^{-1/2}V_m^T\hat X.
 \]</span></p>
 </div>
-<div id="f8d5b789" class="cell" data-execution_count="6">
+<div id="f8d5b789" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="" aria-label="1"></a>F_hat <span class="op">=</span> np.diag(eigvals[:m] <span class="op">**</span> (<span class="op">-</span><span class="fl">0.5</span>)) <span class="op">@</span> Vm.T <span class="op">@</span> Xc_hat</span>
 <span id="cb11-2"><a href="" aria-label="2"></a><span class="bu">print</span>(<span class="st">'Factor 1 — mean, std:'</span>, np.<span class="bu">round</span>(F_hat[<span class="dv">0</span>].mean(), <span class="dv">3</span>), np.<span class="bu">round</span>(F_hat[<span class="dv">0</span>].std(), <span class="dv">3</span>))</span>
 <span id="cb11-3"><a href="" aria-label="3"></a><span class="bu">print</span>(<span class="st">'Factor 2 — mean, std:'</span>, np.<span class="bu">round</span>(F_hat[<span class="dv">1</span>].mean(), <span class="dv">3</span>), np.<span class="bu">round</span>(F_hat[<span class="dv">1</span>].std(), <span class="dv">3</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -579,7 +576,7 @@ Factor 2 — mean, std: 0.0 0.949</code></pre>
 <div class="fragment">
 <p>Each row of <span class="math inline">\(A_m\)</span> is a point <span class="math inline">\((a_{i1},a_{i2})\)</span> in the “factor-loading plane” — plotting these gives a geometric picture of which variables belong to which factor:</p>
 </div>
-<div id="fa4c4e4d" class="cell" data-execution_count="7">
+<div id="fa4c4e4d" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="" aria-label="1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb13-2"><a href="" aria-label="2"></a></span>
 <span id="cb13-3"><a href="" aria-label="3"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">6</span>))</span>
@@ -609,9 +606,6 @@ Factor 2 — mean, std: 0.0 0.949</code></pre>
 </div>
 </div>
 </div>
-<div class="fragment">
-<p>The three STEM subjects cluster tightly along one direction and the three Humanities subjects along another, nearly orthogonal direction — the same visual intuition behind <em>rotation</em> (Ch-10.qmd’s Rotations subsection, Suggestions-Ch-10.md): a well-chosen rotation of these axes would align them even more closely with the two clusters.</p>
-</div>
 </section>
 <section id="computational-illustration-a-real-dataset-bfi" class="slide level2">
 <h2>Computational Illustration — A Real Dataset (BFI)</h2>
@@ -619,7 +613,7 @@ Factor 2 — mean, std: 0.0 0.949</code></pre>
 <div class="fragment">
 <p>The notebook repeats the same pipeline on a real personality-questionnaire dataset (BFI: 6-point Likert-scale responses to Big-Five personality items), to show the method at a realistic scale (many variables, real — not simulated — data), selecting <span class="math inline">\(m\)</span> via the Kaiser rule on the <strong>correlation</strong> matrix (Remark 10.2) rather than fixing <span class="math inline">\(m=2\)</span> by hand:</p>
 </div>
-<div id="caba7a9e" class="cell" data-execution_count="8">
+<div id="caba7a9e" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="" aria-label="1"></a><span class="co"># Requires the accompanying bfi.csv file (not distributed with the</span></span>
 <span id="cb14-2"><a href="" aria-label="2"></a><span class="co"># notebook in this session, hence eval: false — code is included for</span></span>
 <span id="cb14-3"><a href="" aria-label="3"></a><span class="co"># completeness, no fabricated output is shown; see Suggestions-Ch-10.md).</span></span>
@@ -662,7 +656,7 @@ Factor 2 — mean, std: 0.0 0.949</code></pre>
 <p>The notebook makes every one of these steps computable: simulated <span class="math inline">\(X\)</span> <span class="math inline">\(\to\)</span> sample <span class="math inline">\(S\)</span> <span class="math inline">\(\to\)</span> eigendecomposition <span class="math inline">\(\to\)</span> truncated <span class="math inline">\(A_m=V_m\sqrt{L_m}\)</span> <span class="math inline">\(\to\)</span> reconstructions <span class="math inline">\(\hat X,\hat F\)</span> <span class="math inline">\(\to\)</span> a geometric picture of the loadings <span class="math inline">\(\to\)</span> the same pipeline on real data.</p>
 </div>
 <div class="fragment">
-<p>What is <em>not</em> covered here — the Kaiser criterion beyond its single bullet, scree plots, communality, factor-loading thresholds, orthogonal/oblique rotation formulas (Varimax, Quartimax, Equamax, Direct Oblimin, Promax), PCA, and “PCA vs FA” — is genuine Ch-10.qmd content with no counterpart in the handwritten Lecture-1 notes. See <strong>Suggestions-Ch-10.md</strong> for a full discussion.</p>
+<p>What is <em>not</em> covered here — the Kaiser criterion beyond its single bullet, scree plots, communality, factor-loading thresholds, orthogonal/oblique rotation formulas (Varimax, Quartimax, Equamax, Direct Oblimin, Promax), PCA, and “PCA vs FA” — is genuine Ch-10.qmd content with no counterpart in the handwritten Lecture-1 notes.</p>
 </div>
 
 </section>

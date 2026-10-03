@@ -272,6 +272,7 @@ F_{X,Y}(x,y) = \sum_{x_i\le x}\sum_{y_j\le y} p_{X,Y}(x_i,y_j).
 <!-- Ex. 1 (handwritten) -->
 <div class="Example fragment">
 <p>Let the joint distribution of <span class="math inline">\(X:\Omega\to\{0,1\}\)</span> and <span class="math inline">\(Y:\Omega\to\{0,1,2,3\}\)</span> be given by</p>
+<div class="fragment">
 <table class="caption-top">
 <thead>
 <tr class="header">
@@ -299,14 +300,20 @@ F_{X,Y}(x,y) = \sum_{x_i\le x}\sum_{y_j\le y} p_{X,Y}(x_i,y_j).
 </tr>
 </tbody>
 </table>
+</div>
+<div class="fragment">
 <p>so, e.g., <span class="math inline">\(p_{X,Y}(1,2) = \P(X=1, Y=2) = \frac{2}{8}\)</span>.</p>
+</div>
 </div>
 <div class="Example fragment">
 <p>Summing rows and columns gives the <strong>marginal</strong> distributions: <span class="math display">\[
 p_X(0) = \tfrac48=\tfrac12, \qquad p_X(1) = \tfrac48=\tfrac12,
-\]</span> <span class="math display">\[
+\]</span></p>
+<div class="fragment">
+<p><span class="math display">\[
 p_Y(0) = \tfrac18, \qquad p_Y(1) = \tfrac38, \qquad p_Y(2) = \tfrac38, \qquad p_Y(3) = \tfrac18.
 \]</span> So we reconstructed <span class="math inline">\(p_X\)</span> and <span class="math inline">\(p_Y\)</span> from <span class="math inline">\(p_{X,Y}\)</span> (and hence <span class="math inline">\(F_X,F_Y\)</span>) — <strong>but the opposite process is not unique, and hence impossible in general.</strong></p>
+</div>
 </div>
 </section>
 <section id="the-joint-pdf-continuous-case" class="slide level2">
@@ -338,9 +345,12 @@ f_Y(y) = \int_{-\infty}^\infty f_{X,Y}(x,y)\dx.
 <div class="Definition fragment">
 <p>Two random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are <strong>independent</strong> if, for any <span class="math inline">\(a,b \in \mathbb{R}\)</span>, the events <span class="math inline">\(\{X \le a\}\)</span> and <span class="math inline">\(\{Y \le b\}\)</span> are independent, i.e. <span class="math display">\[
 F_{X,Y}(x,y) = F_X(x)\cdot F_Y(y) \qquad \text{for all } x,y.
-\]</span> Then, in the discrete case, <span class="math inline">\(p_{X,Y}(x_i, y_j) = p_X(x_i)\cdot p_Y(y_j)\)</span>, and in the continuous case, <span class="math inline">\(f_{X,Y}(x,y) = f_X(x) \cdot f_Y(y)\)</span>. In both cases, <span class="math display">\[
+\]</span></p>
+<div class="fragment">
+<p>Then, in the discrete case, <span class="math inline">\(p_{X,Y}(x_i, y_j) = p_X(x_i)\cdot p_Y(y_j)\)</span>, and in the continuous case, <span class="math inline">\(f_{X,Y}(x,y) = f_X(x) \cdot f_Y(y)\)</span>. In both cases, <span class="math display">\[
 \E(XY) = \E(X)\,\E(Y).
 \]</span></p>
+</div>
 </div>
 </section>
 <section id="covariance-and-correlation" class="slide level2">
@@ -358,7 +368,9 @@ F_{X,Y}(x,y) = F_X(x)\cdot F_Y(y) \qquad \text{for all } x,y.
 <li><span class="math inline">\(\cov(aX, bY) = ab\,\cov(X,Y)\)</span></li>
 <li><span class="math inline">\(\var(aX+bY) = a^2\var(X) + b^2\var(Y) + 2ab\,\cov(X,Y)\)</span></li>
 </ul>
+<div class="fragment">
 <p>In particular, if <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent, <span class="math inline">\(\cov(X,Y)=0\)</span> and <span class="math inline">\(\var(aX+bY)=a^2\var(X)+b^2\var(Y)\)</span>.</p>
+</div>
 </div>
 <!-- "Def." (handwritten) -->
 <div class="Definition fragment">
@@ -376,16 +388,22 @@ F_{X,Y}(x,y) = F_X(x)\cdot F_Y(y) \qquad \text{for all } x,y.
 <div class="Example fragment">
 <p>Using the same joint table as above, with marginals <span class="math inline">\(p_X(0)=p_X(1)=\tfrac12\)</span> and <span class="math inline">\(p_Y(0)=\tfrac18,p_Y(1)=\tfrac38,p_Y(2)=\tfrac38,p_Y(3)=\tfrac18\)</span>: <span class="math display">\[
 \E(X) = \tfrac12, \qquad \E(Y) = \tfrac32, \qquad \E(XY) = 1.
-\]</span> <span class="math display">\[
+\]</span></p>
+<div class="fragment">
+<p><span class="math display">\[
 \cov(X,Y) = 1 - \tfrac12\cdot\tfrac32 = \tfrac14 \quad\Longrightarrow\quad \text{$X$ and $Y$ are not independent.}
 \]</span></p>
+</div>
 </div>
 <div class="Example fragment">
 <p><span class="math display">\[
 \sigma^2(X) = \tfrac14, \qquad \sigma^2(Y) = \tfrac34, \qquad \sigma(X)=\tfrac12, \qquad \sigma(Y)=\tfrac{\sqrt3}{2},
-\]</span> <span class="math display">\[
+\]</span></p>
+<div class="fragment">
+<p><span class="math display">\[
 \corr(X,Y) = \frac{\tfrac14}{\tfrac12\cdot\tfrac{\sqrt3}{2}} = \frac{1}{\sqrt3}.
 \]</span></p>
+</div>
 </div>
 </section>
 <section id="independent-rightarrow-uncorrelated-but-not-conversely" class="slide level2">
@@ -397,9 +415,12 @@ F_{X,Y}(x,y) = F_X(x)\cdot F_Y(y) \qquad \text{for all } x,y.
 <div class="Example fragment">
 <p>Let <span class="math inline">\(X\sim U(-1,1)\)</span> and <span class="math inline">\(Y=X^2\)</span>. Then <span class="math inline">\(XY=X^3\)</span>, so <span class="math display">\[
 \cov(X,Y)=\E(X^3)-\E(X)\E(X^2).
-\]</span> Since <span class="math inline">\(f_X(x)=\tfrac12\)</span> on <span class="math inline">\((-1,1)\)</span>, <span class="math inline">\(\E(X)=0\)</span> and <span class="math display">\[
+\]</span></p>
+<div class="fragment">
+<p>Since <span class="math inline">\(f_X(x)=\tfrac12\)</span> on <span class="math inline">\((-1,1)\)</span>, <span class="math inline">\(\E(X)=0\)</span> and <span class="math display">\[
 \E(X^3)=\frac12\int_{-1}^1 x^3\,dx = \frac12\left[\frac{x^4}{4}\right]_{-1}^1 = 0.
 \]</span> Therefore <span class="math inline">\(\cov(X,Y)=0\)</span>: <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are <strong>uncorrelated</strong>. However, <span class="math inline">\(Y=X^2\)</span> is a deterministic function of <span class="math inline">\(X\)</span>, so <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are clearly <strong>not independent</strong>.</p>
+</div>
 </div>
 </section>
 <section id="independence-of-several-random-variables" class="slide level2">
@@ -423,9 +444,12 @@ F_{X_1,\ldots,X_n}(x_1,\ldots,x_n) = F_{X_1}(x_1)\cdots F_{X_n}(x_n).
 <div class="fragment">
 <p><span class="math display">\[
 \E(\bar{X}_n) = \frac1n\bigl(\underbrace{\E(X_1)}_{=\mu}+\cdots+\underbrace{\E(X_n)}_{=\mu}\bigr) = \frac1n\cdot n\cdot\mu = \mu.
-\]</span> <span class="math display">\[
+\]</span></p>
+<div class="fragment">
+<p><span class="math display">\[
 \var(\bar{X}_n) = \frac{1}{n^2}\var(X_1+\cdots+X_n) \overset{\text{independence}}{=} \frac{1}{n^2}\bigl(\underbrace{\var(X_1)}_{=\sigma^2}+\cdots+\underbrace{\var(X_n)}_{=\sigma^2}\bigr) = \frac{\sigma^2}{n}.
 \]</span> So <span class="math inline">\(\E(\bar{X}_n) = \mu\)</span>, <span class="math inline">\(\var(\bar{X}_n) = \dfrac{\sigma^2}{n}\)</span>.</p>
+</div>
 </div>
 </section>
 <section id="the-law-of-large-numbers" class="slide level2">
@@ -445,9 +469,12 @@ F_{X_1,\ldots,X_n}(x_1,\ldots,x_n) = F_{X_1}(x_1)\cdots F_{X_n}(x_n).
 <div class="Example fragment">
 <p>Let <span class="math inline">\(A\)</span> be a random event with <span class="math inline">\(\P(A)=p\)</span>. Let <span class="math inline">\(X=1\)</span> if <span class="math inline">\(A\)</span> holds, <span class="math inline">\(X=0\)</span> otherwise (Bernoulli), and <span class="math inline">\(X_1,\ldots,X_n,\ldots\)</span> i.i.d. with <span class="math inline">\(X_n\sim X\)</span>. Then <span class="math inline">\(\mu=\E(X)=p\)</span>, and the sample average <span class="math display">\[
 \bar{X}_n=\frac1n(X_1+\ldots+X_n)
-\]</span> is the <strong>frequency</strong> of <span class="math inline">\(A\)</span> among <span class="math inline">\(n\)</span> trials. LLN says <span class="math display">\[
+\]</span></p>
+<div class="fragment">
+<p>is the <strong>frequency</strong> of <span class="math inline">\(A\)</span> among <span class="math inline">\(n\)</span> trials. LLN says <span class="math display">\[
 \frac{\text{number of trials when $A$ happened}}{\text{number $n$ of all trials}}\to \P(A), \qquad n\to\infty,
 \]</span> matching our intuitive understanding of probability.</p>
+</div>
 </div>
 </section>
 <section id="example-rolling-a-die-lln" class="slide level2">
@@ -456,9 +483,12 @@ F_{X_1,\ldots,X_n}(x_1,\ldots,x_n) = F_{X_1}(x_1)\cdots F_{X_n}(x_n).
 <div class="Example fragment">
 <p>Consider many rolls of a fair six-sided die. Let <span class="math inline">\(X_j\)</span> be the score of the <span class="math inline">\(j\)</span>-th roll, <span class="math inline">\(S_n=X_1+\ldots+X_n\)</span>. All <span class="math inline">\(X_j\)</span> are i.i.d. with <span class="math display">\[
 \E(X)=1\cdot \tfrac16 + \cdots + 6\cdot \tfrac16=\frac{7\cdot 6}{2}\cdot \tfrac16 = \frac72.
-\]</span> By LLN, for any small <span class="math inline">\(\varepsilon&gt;0\)</span>, <span class="math display">\[
+\]</span></p>
+<div class="fragment">
+<p>By LLN, for any small <span class="math inline">\(\varepsilon&gt;0\)</span>, <span class="math display">\[
 \lim_{n\to\infty}\P\Bigl( \bigl\lvert \tfrac{S_n}{n} - \tfrac72\bigr\rvert \leq \varepsilon \Bigr) = 1.
 \]</span></p>
+</div>
 </div>
 </section>
 <section id="the-central-limit-theorem-setup" class="slide level2">
@@ -478,10 +508,13 @@ Z_n:= \frac{\bar{X}_n - \E(\bar{X}_n)}{\sigma(\bar{X}_n)} = \frac{\sqrt{n}}{\sig
 <div class="Definition fragment">
 <p>Let <span class="math inline">\(X_1,\ldots,X_n,\ldots\)</span> be i.i.d. with <span class="math inline">\(X_n\sim X\)</span>, <span class="math inline">\(\mu:=\E(X)\)</span>, <span class="math inline">\(\sigma^2:=\var(X)&lt;\infty\)</span>, and <span class="math inline">\(Z_n\)</span> as above. Then <span class="math display">\[
 Z_n\to Z\sim \mathcal{N}(0,1), \qquad n\to\infty,
-\]</span> in the sense that <span class="math inline">\(\displaystyle\lim_{n\to\infty}\P(Z_n\leq z)= \Phi(z)\)</span> for all <span class="math inline">\(z\in\R\)</span>. As a corollary, <span class="math display">\[
+\]</span></p>
+<div class="fragment">
+<p>in the sense that <span class="math inline">\(\displaystyle\lim_{n\to\infty}\P(Z_n\leq z)= \Phi(z)\)</span> for all <span class="math inline">\(z\in\R\)</span>. As a corollary, <span class="math display">\[
 \lim_{n\to\infty}\P(a\leq Z_n\leq b)= \Phi(b)-\Phi(a), \qquad
 \lim_{n\to\infty}\P(Z_n\geq c)= 1-\Phi(c).
 \]</span></p>
+</div>
 </div>
 <div class="Remark fragment">
 <p>The CLT shows that <span class="math inline">\(\bar{X}_n\)</span> fluctuates around <span class="math inline">\(\mu\)</span> with standard deviation <span class="math inline">\(\sigma(\bar{X}_n)=\dfrac{\sigma}{\sqrt n}\)</span>, significantly less than <span class="math inline">\(\sigma\)</span> itself — regardless of the distribution of <span class="math inline">\(X_n\)</span>.</p>
@@ -492,10 +525,11 @@ Z_n\to Z\sim \mathcal{N}(0,1), \qquad n\to\infty,
 <!-- Example (handwritten) -->
 <div class="Example fragment">
 <p>The average teacher’s salary in New Jersey in 2023 is $63,178, normally distributed with standard deviation $7,500: <span class="math inline">\(X\sim \mathcal{N}(63178,7500^2)\)</span>.</p>
+<div class="fragment">
 <p>Probability a randomly selected teacher makes less than $60,000: <span class="math display">\[
 \P(X&lt;60000)=\P\Bigl(\underbrace{\tfrac{X-63178}{7500}}_{=:Z}&lt;\tfrac{60000-63178}{7500}\Bigr)=\P(Z&lt;-0.42)=\Phi(-0.42)\approx 0.3372.
 \]</span></p>
-<div id="e07dd7c9" class="cell" data-execution_count="1">
+<div id="e07dd7c9" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="" aria-label="1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
 <span id="cb1-2"><a href="" aria-label="2"></a>norm.cdf(<span class="op">-</span><span class="fl">0.42</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="1">
@@ -504,11 +538,12 @@ Z_n\to Z\sim \mathcal{N}(0,1), \qquad n\to\infty,
 </div>
 <p>Roughly each third teacher earns less than $60,000.</p>
 </div>
+</div>
 <div class="Example fragment">
 <p>Now take the average of <span class="math inline">\(100\)</span> teachers’ salaries, <span class="math inline">\(\bar{X}_{100}=\frac{X_1+\cdots+X_{100}}{100}\)</span>. Then <span class="math inline">\(\E(\bar{X}_{100})=63178\)</span> and <span class="math inline">\(\sigma(\bar{X}_{100})=\dfrac{7500}{\sqrt{100}}=750\)</span>, so <span class="math display">\[
 \P(\bar{X}_{100}&lt;60000) = \P\Bigl(Z_{100}&lt;\tfrac{60000-63178}{750}\Bigr) = \P(Z_{100}&lt;-4.2)\underset{\text{CLT}}{\approx}\Phi(-4.2)\approx 0.0000133.
 \]</span></p>
-<div id="37d5901d" class="cell" data-execution_count="2">
+<div id="37d5901d" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="" aria-label="1"></a>norm.cdf(<span class="op">-</span><span class="fl">4.2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>1.3345749015906314e-05</code></pre>
@@ -517,7 +552,7 @@ Z_n\to Z\sim \mathcal{N}(0,1), \qquad n\to\infty,
 <p>This is very unlikely — averaging shrinks the spread dramatically.</p>
 </div>
 <div class="fragment">
-<div id="cell-fig-clt-shrink" class="cell" data-message="false" data-execution_count="3">
+<div id="cell-fig-clt-shrink" class="cell" data-message="false" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div id="fig-clt-shrink" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-fig">

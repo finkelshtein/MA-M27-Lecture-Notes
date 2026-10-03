@@ -199,11 +199,13 @@ Build notes for this deck:
 <!-- "Def." / "Memorize" (handwritten) -->
 <div class="Definition fragment">
 <p>A time series <span class="math inline">\(\{X_n\}\)</span> is called <strong>(weakly) stationary</strong> if:</p>
+<div class="fragment">
 <ol type="1">
 <li><span class="math inline">\(\E(X_n)\)</span> does not depend on <span class="math inline">\(n\)</span> (constant);</li>
 <li><span class="math inline">\(\E(X_n^2)&lt;\infty\)</span> for all <span class="math inline">\(n\)</span>;</li>
 <li><span class="math inline">\(\cov(X_n,X_{n+m})=\E(X_nX_{n+m})-\E(X_n)\cdot\E(X_{n+m})\)</span> does <strong>not</strong> depend on <span class="math inline">\(n\)</span> — it depends on <span class="math inline">\(m\)</span> only.</li>
 </ol>
+</div>
 </div>
 <div class="Remark fragment">
 <p>In other words, <span class="math inline">\(\cov(X_n,X_\ell)\)</span> depends only on the time-lag <span class="math inline">\(\ell-n\)</span>. If <span class="math inline">\(\{X_n\}\)</span> is stationary, then <span class="math inline">\(\var(X_n)=\cov(X_n,X_n)\)</span> does not depend on <span class="math inline">\(n\)</span> either, and neither does <span class="math inline">\(\corr(X_n,X_\ell)\)</span> (as a function of <span class="math inline">\(\ell-n\)</span>).</p>
@@ -262,7 +264,7 @@ X_n = \mu + \alpha(X_{n-1}-\mu) + Z_n, \qquad X_0=a\in\R,
 <p><span class="math inline">\(|\alpha|&lt;1\)</span> is necessary and sufficient for stationarity of <span class="math inline">\(X_n=\alpha X_{n-1}+Z_n\)</span>. Equivalently, using the <strong>characteristic equation</strong> <span class="math inline">\(1-\alpha\lambda=0\)</span> (so <span class="math inline">\(\lambda=\tfrac1\alpha\)</span>): the series is stationary iff <span class="math inline">\(|\lambda|&gt;1\)</span>.</p>
 </div>
 <div class="fragment">
-<div id="cell-fig-stat-vs-nonstat" class="cell" data-message="false" data-execution_count="1">
+<div id="cell-fig-stat-vs-nonstat" class="cell" data-message="false" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div id="fig-stat-vs-nonstat" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-fig">
@@ -302,9 +304,12 @@ X_n = \mu + \alpha_1(X_{n-1}-\mu) + \alpha_2(X_{n-2}-\mu) + Z_n, \qquad \alpha_2
 <div class="Example fragment">
 <p><span class="math display">\[
 X_n=\tfrac1{12}X_{n-1}+\tfrac12X_{n-2}+Z_n.
-\]</span> Characteristic equation: <span class="math inline">\(\lambda^2+\tfrac16\lambda-2=0\)</span>, <span class="math inline">\(D=\tfrac1{36}+8=\tfrac{289}{36}\)</span>, <span class="math inline">\(\sqrt D=\tfrac{17}{6}\)</span>. <span class="math display">\[
+\]</span></p>
+<div class="fragment">
+<p>Characteristic equation: <span class="math inline">\(\lambda^2+\tfrac16\lambda-2=0\)</span>, <span class="math inline">\(D=\tfrac1{36}+8=\tfrac{289}{36}\)</span>, <span class="math inline">\(\sqrt D=\tfrac{17}{6}\)</span>. <span class="math display">\[
 \lambda_1=-\tfrac32, \qquad \lambda_2=\tfrac43.
 \]</span> Both <span class="math inline">\(|\lambda_1|,|\lambda_2|&gt;1\)</span>: <strong>stationary</strong>.</p>
+</div>
 </div>
 </section>
 <section id="example-2-ar2-non-stationary" class="slide level2">
@@ -312,9 +317,12 @@ X_n=\tfrac1{12}X_{n-1}+\tfrac12X_{n-2}+Z_n.
 <div class="Example fragment">
 <p><span class="math display">\[
 X_n=\tfrac13X_{n-1}+\tfrac23X_{n-2}+Z_n.
-\]</span> Characteristic equation: <span class="math inline">\(2\lambda^2+\lambda-3=0\)</span>, <span class="math inline">\(D=25\)</span>. <span class="math display">\[
+\]</span></p>
+<div class="fragment">
+<p>Characteristic equation: <span class="math inline">\(2\lambda^2+\lambda-3=0\)</span>, <span class="math inline">\(D=25\)</span>. <span class="math display">\[
 \lambda_1=-\tfrac32, \qquad \lambda_2=1.
 \]</span> <span class="math inline">\(|\lambda_1|&gt;1\)</span> but <span class="math inline">\(|\lambda_2|=1\not&gt;1\)</span>: <strong>not stationary</strong>.</p>
+</div>
 </div>
 </section>
 <section id="example-3-ar2-complex-roots" class="slide level2">
@@ -323,11 +331,17 @@ X_n=\tfrac13X_{n-1}+\tfrac23X_{n-2}+Z_n.
 <div class="Example fragment">
 <p><span class="math display">\[
 X_n = 2X_{n-1} - 2X_{n-2} + Z_n.
-\]</span> Characteristic equation: <span class="math inline">\(2\lambda^2-2\lambda+1=0\)</span>, <span class="math inline">\(D=4-8=-4&lt;0\)</span> (complex roots): <span class="math display">\[
+\]</span></p>
+<div class="fragment">
+<p>Characteristic equation: <span class="math inline">\(2\lambda^2-2\lambda+1=0\)</span>, <span class="math inline">\(D=4-8=-4&lt;0\)</span> (complex roots): <span class="math display">\[
 \lambda_{1,2} = \frac{2\pm\sqrt{-4}}{4} = \frac12\pm\frac12 i.
-\]</span> <span class="math display">\[
+\]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
 |\lambda_{1,2}| = \sqrt{\left(\tfrac12\right)^2+\left(\tfrac12\right)^2} = \frac{\sqrt2}{2} &lt; 1.
 \]</span> <strong>Not stationary.</strong></p>
+</div>
 </div>
 </section>
 <section id="autoregressive-model-arp" class="slide level2">
@@ -387,9 +401,12 @@ X_n = \mu + \alpha_1(X_{n-1}-\mu) + \cdots + \alpha_p(X_{n-p}-\mu) + Z_n + \beta
 <div class="fragment">
 <p>Substituting <span class="math inline">\(\lambda=1\)</span>: <span class="math inline">\(1=\alpha_1+\alpha_2\)</span>, so <span class="math inline">\(\alpha_1=1-\alpha_2\)</span>. Then <span class="math display">\[
 X_n = \alpha_1X_{n-1}+\alpha_2X_{n-2}+Z_n+\cdots = (X_{n-1}-\alpha_2X_{n-1})+\alpha_2X_{n-2}+Z_n+\cdots
-\]</span> <span class="math display">\[
+\]</span></p>
+<div class="fragment">
+<p><span class="math display">\[
 X_n - X_{n-1} = -\alpha_2(X_{n-1}-X_{n-2}) + Z_n+\cdots.
 \]</span></p>
+</div>
 </div>
 <div class="fragment">
 <p>Denoting <span class="math inline">\(Y_n:=X_n-X_{n-1}\)</span> (the <strong>differencing</strong> of <span class="math inline">\(X_n\)</span>): <span class="math inline">\(Y_n=-\alpha_2Y_{n-1}+Z_n+\cdots\)</span> — an ARMA(1,<span class="math inline">\(q\)</span>) series. If <span class="math inline">\(|\alpha_2|&lt;1\)</span>, <span class="math inline">\(Y_n\)</span> is stationary.</p>

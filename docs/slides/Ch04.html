@@ -196,7 +196,7 @@ Build notes for this deck:
 <p>Exam marks vs.&nbsp;revision hours: this can be represented by a scatter plot, with a fitted line drawn through the data.</p>
 </div>
 <div class="fragment">
-<div id="cell-fig-scatter-data-lin-regr" class="cell" data-message="false" data-execution_count="1">
+<div id="cell-fig-scatter-data-lin-regr" class="cell" data-message="false" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div id="fig-scatter-data-lin-regr" class="quarto-float quarto-figure quarto-figure-center" height="223" width="332">
 <figure class="quarto-float quarto-float-fig">
@@ -215,7 +215,7 @@ Figure&nbsp;1
 <section id="the-method-of-least-squares" class="slide level2">
 <h2>The Method of Least Squares</h2>
 <div class="fragment">
-<div id="cell-fig-Residuals" class="cell" data-message="false" data-execution_count="2">
+<div id="cell-fig-Residuals" class="cell" data-message="false" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div id="fig-residuals" class="quarto-float quarto-figure quarto-figure-center" height="203" width="308">
 <figure class="quarto-float quarto-float-fig">
@@ -233,9 +233,12 @@ Figure&nbsp;2
 <div class="fragment">
 <p>Assuming data pairs <span class="math inline">\((x_1,y_1),\ldots,(x_n,y_n)\)</span>, the model line takes the form <span class="math inline">\(\E(y)=\beta_0+\beta_1x\)</span>, where <span class="math inline">\(y\)</span> is the <strong>dependent (response) variable</strong> and <span class="math inline">\(x\)</span> is the <strong>independent (explanatory/predictor) variable</strong>. The variables are related by <span class="math display">\[
 y=\beta_0+\beta_1x+\epsilon,
-\]</span> where <span class="math inline">\(\epsilon\)</span> is the error. We look for the line minimising the sum of squared residuals <span class="math display">\[
+\]</span></p>
+<div class="fragment">
+<p>where <span class="math inline">\(\epsilon\)</span> is the error. We look for the line minimising the sum of squared residuals <span class="math display">\[
 f(\beta_0,\beta_1) = \sum_{i=1}^{n}(\beta_0+\beta_1x_i-y_i)^2.
 \]</span></p>
+</div>
 </div>
 </section>
 <section id="least-squares-estimates" class="slide level2">
@@ -246,11 +249,17 @@ f(\beta_0,\beta_1) = \sum_{i=1}^{n}(\beta_0+\beta_1x_i-y_i)^2.
 \hat{\beta}_1=\dfrac{\sum_{i=1}^nx_iy_i-n\bar{x}\bar{y}}{\sum_{i=1}^nx_i^2-n\bar{x}^2}=\dfrac{\sum_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})}{\sum_{i=1}^n(x_i-\bar{x})^2}=\dfrac{S_{xy}}{S_{xx}};
 \]</span> and <span class="math display">\[
 \hat{\beta}_0=\bar{y}-\hat{\beta}_1\bar{x}.
-\]</span> Note that <span class="math display">\[
+\]</span></p>
+<div class="fragment">
+<p>Note that <span class="math display">\[
 S_{yy}=\sum_{i=1}^n(y_i-\bar{y})^2=\sum_{i=1}^ny_i^2-n\bar{y}^2.
-\]</span> The least squares model is therefore <span class="math display">\[
+\]</span></p>
+</div>
+<div class="fragment">
+<p>The least squares model is therefore <span class="math display">\[
 \hat{y}=\hat{\beta}_0+\hat{\beta}_1x.
 \]</span></p>
+</div>
 </div>
 </section>
 <section id="correlation" class="slide level2">
@@ -276,6 +285,7 @@ r=\dfrac{S_{xy}}{\sqrt{S_{xx}S_{yy}}}.
 <!-- Example 4.1 (handwritten) -->
 <div class="Example fragment">
 <p><span class="math inline">\(\bar{x}=11.8\)</span>, <span class="math inline">\(\bar{y}=59\)</span>.</p>
+<div class="fragment">
 <table class="caption-top">
 <colgroup>
 <col style="width: 8%">
@@ -395,14 +405,17 @@ r=\dfrac{S_{xy}}{\sqrt{S_{xx}S_{yy}}}.
 </tbody>
 </table>
 </div>
+</div>
 <div class="Example fragment">
 <p><span class="math display">\[
 \hat{\beta}_1=\frac{837}{223.6}=3.743, \qquad
 \hat{\beta}_0=59-3.743\times11.8=14.829.
 \]</span> Regression line: <span class="math inline">\(\hat{y}=3.743x+14.829\)</span>.</p>
+<div class="fragment">
 <p><span class="math display">\[
 r=\frac{837}{\sqrt{223.6}\sqrt{4340}}=0.85,
 \]</span> indicating a strong positive correlation. <span class="math inline">\(r^2=0.723\)</span>: <span class="math inline">\(72.3\%\)</span> of the variance of the marks is explained by revision. The regression model fits the data well.</p>
+</div>
 </div>
 <div class="Example fragment">
 <p>For <span class="math inline">\(11\)</span> hours of revision: <span class="math display">\[
@@ -425,18 +438,24 @@ y=\beta_0+\beta_1x_1+\beta_2x_2+\epsilon.
 <div class="fragment">
 <p>Coding the variables: <span class="math display">\[
 v_i=y_i-\bar{y}, \qquad u_{1i}=x_{1i}-\bar{x}_1, \qquad u_{2i}=x_{2i}-\bar{x}_2,
-\]</span> we write the model as <span class="math inline">\(v=\beta_0'+\beta_1u_1+\beta_2u_2+e\)</span>, and minimise <span class="math display">\[
+\]</span></p>
+<div class="fragment">
+<p>we write the model as <span class="math inline">\(v=\beta_0'+\beta_1u_1+\beta_2u_2+e\)</span>, and minimise <span class="math display">\[
 Q=\sum_{i=1}^n(v_i-\beta_0'-\beta_1u_{1i}-\beta_2u_{2i})^2.
 \]</span></p>
+</div>
 </div>
 <div class="fragment">
 <p>This leads to the <strong>normal equations</strong>. Using <span class="math display">\[
 S_{pq}=\sum_{i=1}^n(x_{pi}-\bar{x}_p)(x_{qi}-\bar{x}_q), \qquad
 S_{0p}=\sum_{i=1}^n(x_{pi}-\bar{x}_p)(y_i-\bar{y}), \qquad p,q=1,2,
-\]</span> they become <span class="math display">\[
+\]</span></p>
+<div class="fragment">
+<p>they become <span class="math display">\[
 \hat{\beta}_1S_{11}+\hat{\beta}_2S_{12}=S_{01}, \qquad
 \hat{\beta}_1S_{12}+\hat{\beta}_2S_{22}=S_{02}.
 \]</span></p>
+</div>
 </div>
 <div class="fragment">
 <p>With <span class="math inline">\(D=S_{11}S_{22}-S^2_{12}\)</span>, <span class="math display">\[
@@ -457,6 +476,7 @@ S_{0p}=\sum_{i=1}^n(x_{pi}-\bar{x}_p)(y_i-\bar{y}), \qquad p,q=1,2,
 <!-- "Ex." (handwritten; no equivalent worked table in Ch-04.qmd) -->
 <div class="Example fragment">
 <p>A student spent various numbers of hours revising, and we record whether they passed (1) or failed (0):</p>
+<div class="fragment">
 <table class="caption-top">
 <thead>
 <tr class="header">
@@ -487,7 +507,10 @@ S_{0p}=\sum_{i=1}^n(x_{pi}-\bar{x}_p)(y_i-\bar{y}), \qquad p,q=1,2,
 </tr>
 </tbody>
 </table>
+</div>
+<div class="fragment">
 <p>A scatter plot of this data (points at <span class="math inline">\(y=0\)</span> or <span class="math inline">\(y=1\)</span> for each hour value) is naturally fitted with an S-shaped (sigmoid) curve rising from near <span class="math inline">\(0\)</span> for low hours to near <span class="math inline">\(1\)</span> for high hours.</p>
+</div>
 </div>
 </section>
 <section id="the-logistic-sigmoid-model" class="slide level2">
@@ -501,12 +524,15 @@ f(x) = \frac{1}{1+e^{-(\beta_0+\beta_1x)}}, \qquad \big(1+e^{-(\beta_0+\beta_1x)
 <div class="fragment">
 <p>Always <span class="math inline">\(0&lt;f(x)&lt;1\)</span>. If <span class="math inline">\(\beta_1&gt;0\)</span>, then <span class="math inline">\(\displaystyle\lim_{x\to+\infty}f(x)=1\)</span> and <span class="math inline">\(\displaystyle\lim_{x\to-\infty}f(x)=0\)</span>. Indeed, <span class="math display">\[
 \frac{1}{1+e^{-\beta_1x-\beta_0}} = \frac{1}{1+\dfrac{e^{-\beta_0}}{e^{\beta_1x}}} \to \frac{1}{1+0} = 1 \qquad (x\to+\infty,\ \beta_1&gt;0),
-\]</span> <span class="math display">\[
+\]</span></p>
+<div class="fragment">
+<p><span class="math display">\[
 \frac{1}{1+e^{-\beta_1x}e^{-\beta_0}} \to 0 \qquad (x\to-\infty).
 \]</span> Also, <span class="math inline">\(f(x)\)</span> is increasing.</p>
 </div>
+</div>
 <div class="fragment">
-<div id="cell-fig-sigmoid" class="cell" data-message="false" data-execution_count="3">
+<div id="cell-fig-sigmoid" class="cell" data-message="false" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div id="fig-sigmoid" class="quarto-float quarto-figure quarto-figure-center" height="180" width="265">
 <figure class="quarto-float quarto-float-fig">
@@ -547,7 +573,7 @@ y = \ln\frac{p}{1-p}.
 \]</span></p>
 </div>
 <div class="fragment">
-<div id="cell-fig-logit" class="cell" data-message="false" data-execution_count="4">
+<div id="cell-fig-logit" class="cell" data-message="false" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div id="fig-logit" class="quarto-float quarto-figure quarto-figure-center" height="181" width="262">
 <figure class="quarto-float quarto-float-fig">
@@ -571,9 +597,12 @@ Figure&nbsp;4
 <div class="fragment">
 <p>If the data depends on several predictor variables <span class="math inline">\(x_1,x_2,\ldots,x_n\)</span> (e.g.&nbsp;<span class="math inline">\(x_1\)</span> = hours of revision, <span class="math inline">\(x_2\)</span> = cups of coffee, …), we still consider <span class="math display">\[
 f(x_1,\ldots,x_n) = \frac{1}{1+e^{-(\beta_0+\beta_1x_1+\beta_2x_2+\cdots+\beta_nx_n)}},
-\]</span> with <span class="math inline">\(y=\beta_0+\beta_1x_1+\cdots+\beta_nx_n\)</span>, so that <span class="math inline">\(f(x_1,\ldots,x_n)=g(y)=p\in(0,1)\)</span>, and <span class="math display">\[
+\]</span></p>
+<div class="fragment">
+<p>with <span class="math inline">\(y=\beta_0+\beta_1x_1+\cdots+\beta_nx_n\)</span>, so that <span class="math inline">\(f(x_1,\ldots,x_n)=g(y)=p\in(0,1)\)</span>, and <span class="math display">\[
 \hat\beta_0 + \hat\beta_1x_1 + \cdots + \hat\beta_nx_n = y = \mathrm{logit}(p),
 \]</span> where <span class="math inline">\(\hat{\ }\)</span> denotes estimated parameters.</p>
+</div>
 </div>
 
 </section>

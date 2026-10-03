@@ -249,7 +249,9 @@ Build notes for this deck:
 <h2>Continuous Random Variables</h2>
 <div class="fragment">
 <p>Recall: a random variable is a function <span class="math inline">\(X:\Omega\to\mathbb{R}\)</span>, and its CDF is <span class="math inline">\(F_X(x):=\P(X\le x)\)</span>, with <span class="math inline">\(0\le F_X(x)\le1\)</span> and <span class="math inline">\(\P(a&lt;X\le b)=F_X(b)-F_X(a)\)</span>.</p>
+<div class="fragment">
 <p>So far we discussed the discrete case, <span class="math inline">\(X:\Omega\to\{x_1,x_2,x_3,\dots\}\)</span>. Often we need a continuous range of values instead: <span class="math inline">\(X:\Omega\to\mathbb{R}\)</span>, or <span class="math inline">\(X:\Omega\to[a,b]\)</span>, etc.</p>
+</div>
 </div>
 <!-- "Def." (handwritten) -->
 <div class="Definition fragment">
@@ -269,7 +271,7 @@ Build notes for this deck:
 </ul>
 </div>
 <div class="fragment">
-<div id="cell-fig-c-pdf" class="cell" data-message="false" data-execution_count="1">
+<div id="cell-fig-c-pdf" class="cell" data-message="false" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div id="fig-c-pdf" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-fig">
@@ -336,7 +338,7 @@ Figure&nbsp;1: Visual representation of probabilities for a continuous random va
 \]</span></p>
 </div>
 <div class="fragment">
-<div id="cell-fig-c-uniform" class="cell" data-message="false" data-execution_count="2">
+<div id="cell-fig-c-uniform" class="cell" data-message="false" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div id="fig-c-uniform" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-fig">
@@ -381,16 +383,22 @@ F_X(x) = \begin{cases}
 <!-- Example 5.1 (handwritten) -->
 <div class="Example fragment">
 <p>Let <span class="math inline">\(X\sim U(1,5)\)</span>.</p>
+<div class="fragment">
 <p><strong>a)</strong> Find <span class="math inline">\(\P(2 &lt; X &lt;4)\)</span>.</p>
+</div>
+<div class="fragment">
 <p><em>Solution:</em> <span class="math inline">\(f_X(x) = \frac{1}{5-1}=\frac{1}{4}\)</span> on <span class="math inline">\([1,5]\)</span>, so <span class="math display">\[
 \P(2 &lt; X &lt;4) = \int_2^4\frac14\dx =\frac14\cdot(4-2)=\frac12.
 \]</span></p>
 </div>
+</div>
 <div class="Example fragment">
 <p><strong>b)</strong> Find <span class="math inline">\(c\in[1,5]\)</span> such that <span class="math inline">\(\P(3 &lt; X &lt;c) = \dfrac13\)</span>.</p>
+<div class="fragment">
 <p><em>Solution:</em> <span class="math display">\[
 \dfrac13=\int_3^c \frac14\dx=\frac14(c-3) \ \Longrightarrow\ c-3=\frac43 \ \Longrightarrow\ c=\frac{13}{3}\in[1,5].
 \]</span></p>
+</div>
 </div>
 <div class="Remark fragment">
 <p>Note that <span class="math inline">\(\frac13=\P(3&lt;X&lt;c)=F_X(c)-F_X(3)\)</span>, so <span class="math inline">\(F_X(c)=F_X(3)+\frac13\)</span>; on a computer this could be solved for <span class="math inline">\(c\)</span> using the quantile (inverse CDF) function.</p>
@@ -403,7 +411,7 @@ F_X(x) = \begin{cases}
 <p>Recall that the (discrete) Poisson random variable models the number of independent events occurring in a fixed interval of time. The <strong>exponential distribution</strong> is a continuous probability distribution that models the time between these independent events. It is commonly used to model waiting times.</p>
 </div>
 <div class="fragment">
-<div id="cell-fig-c-expon" class="cell" data-message="false" data-execution_count="3">
+<div id="cell-fig-c-expon" class="cell" data-message="false" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div id="fig-c-expon" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-fig">
@@ -427,9 +435,12 @@ f_X(x) = \begin{cases}
 F_X(x) = \begin{cases}
 1- e^{-\lambda x}, &amp; x \geq 0 \\
 0, &amp; \text{otherwise}. \end{cases}
-\]</span> Notation: <span class="math inline">\(X\sim \mathrm{Exp}(\lambda)\)</span>. The mean and variance are <span class="math display">\[
+\]</span></p>
+<div class="fragment">
+<p>Notation: <span class="math inline">\(X\sim \mathrm{Exp}(\lambda)\)</span>. The mean and variance are <span class="math display">\[
 \E(X) = \dfrac{1}{\lambda}, \qquad \var(X) = \dfrac{1}{\lambda^2}.
 \]</span></p>
+</div>
 </div>
 </section>
 <section id="example-bus-arrivals-exponential" class="slide level2">
@@ -437,17 +448,21 @@ F_X(x) = \begin{cases}
 <!-- Example 5.2 (handwritten) -->
 <div class="Example fragment">
 <p>Suppose the time between arrivals at a bus stop follows an exponential distribution with rate <span class="math inline">\(\lambda = 0.05\)</span> arrivals per minute.</p>
+<div class="fragment">
 <p><strong>a)</strong> Probability the next bus arrives within <span class="math inline">\(10\)</span> minutes: <span class="math display">\[
 \P(X \leq 10) = F_X(10)= 1 - e^{-0.05 \cdot 10}=1-e^{-0.5}\approx 0.3935.
 \]</span></p>
+</div>
 </div>
 <div class="Example fragment">
 <p><strong>b)</strong> Probability of waiting at least <span class="math inline">\(15\)</span> minutes: <span class="math display">\[
 \P(X\geq15)=1-F_X(15)=e^{-0.05\cdot 15}=e^{-0.75}\approx 0.4724.
 \]</span></p>
+<div class="fragment">
 <p><strong>c)</strong> Average waiting time: <span class="math display">\[
 \E(X)=\frac{1}{0.05}=20 \text{ minutes.}
 \]</span></p>
+</div>
 </div>
 </section>
 <section id="the-normal-distribution" class="slide level2">
@@ -457,7 +472,7 @@ F_X(x) = \begin{cases}
 <p>The <strong>Normal distribution</strong> is also known as the <strong>Gaussian distribution</strong>. Its PDF is symmetric, often called <em>bell-shaped</em>. It is widely used in probability and statistics, especially because of the <strong>central limit theorem</strong> (later in this course): averages of large samples behave “normally”, regardless of the individual behaviour of the elements in the sample.</p>
 </div>
 <div class="fragment">
-<div id="cell-fig-c-norm" class="cell" data-message="false" data-execution_count="4">
+<div id="cell-fig-c-norm" class="cell" data-message="false" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div id="fig-c-norm" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-fig">
@@ -494,7 +509,7 @@ f_X(x) = \frac{1}{\sqrt{2\pi}\sigma} e^{-\frac{(x-\mu)^2}{2\sigma^2}}.
 \]</span> For <span class="math inline">\(X\sim \mathcal{N}(\mu,\sigma^2)\)</span> generally, <span class="math inline">\(f_X(x)= \frac{1}{\sigma}\varphi\bigl( \frac{x-\mu}{\sigma} \bigr)\)</span>.</p>
 </div>
 <div class="fragment">
-<div id="cell-fig-c-unit-norm" class="cell" data-message="false" data-execution_count="5">
+<div id="cell-fig-c-unit-norm" class="cell" data-message="false" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <div id="fig-c-unit-norm" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-fig">
@@ -512,12 +527,15 @@ Figure&nbsp;5: Functions <span class="math inline">\(\varphi(x)\)</span> and <sp
 <div class="Definition fragment">
 <p><span class="math display">\[
 \Phi(x):=\int_{-\infty}^x \varphi(y)\dy=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^x  e^{-\frac{y^2}{2}}\dy.
-\]</span> This function cannot be expressed in terms of elementary functions — we use computer or statistical tables for its values. It can be shown that if <span class="math inline">\(X\sim \mathcal{N}(\mu,\sigma^2)\)</span> then <span class="math display">\[
+\]</span> This function cannot be expressed in terms of elementary functions — we use computer or statistical tables for its values.</p>
+<div class="fragment">
+<p>It can be shown that if <span class="math inline">\(X\sim \mathcal{N}(\mu,\sigma^2)\)</span> then <span class="math display">\[
 F_X(x) = \Phi\Bigl( \frac{x-\mu}{\sigma} \Bigr) = \Phi(z), \qquad z=\frac{x-\mu}{\sigma}.
 \]</span> Also, <span class="math inline">\(\Phi(-z) = 1-\Phi(z)\)</span>.</p>
 </div>
+</div>
 <div class="fragment">
-<div id="cell-fig-c-unit-norm-z" class="cell" data-message="false" data-execution_count="6">
+<div id="cell-fig-c-unit-norm-z" class="cell" data-message="false" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div id="fig-c-unit-norm-z" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-fig">
@@ -537,7 +555,9 @@ Figure&nbsp;6: Illustration that <span class="math inline">\(\Phi(-z)=1-\Phi(z)\
 <h2>Using Standard Normal Tables</h2>
 <div class="fragment">
 <p>Statistical tables usually give <span class="math inline">\(1-\Phi(z)\)</span> for <span class="math inline">\(z\geq0\)</span>. This immediately answers <span class="math inline">\(\Phi(-z)=1-\Phi(z)\)</span> and <span class="math inline">\(\Phi(z)=1-(1-\Phi(z))\)</span>.</p>
+<div class="fragment">
 <p><img data-src="../_images/StatTable-1.jpg"></p>
+</div>
 </div>
 <div class="Example fragment">
 <p>From the table: <span class="math display">\[
@@ -550,20 +570,28 @@ Figure&nbsp;6: Illustration that <span class="math inline">\(\Phi(-z)=1-\Phi(z)\
 <!-- Example (handwritten) -->
 <div class="Example fragment">
 <p>Calculate the probability that a randomly selected individual has a height between <span class="math inline">\(162\)</span> cm and <span class="math inline">\(169\)</span> cm, given that the population mean height is <span class="math inline">\(165\)</span> cm and standard deviation <span class="math inline">\(10\)</span> cm, with heights following a normal distribution.</p>
+<div class="fragment">
 <p><em>Solution:</em> <span class="math inline">\(X\sim\mathcal{N}(\mu,\sigma^2)\)</span>, <span class="math inline">\(\mu=165\)</span>, <span class="math inline">\(\sigma=10\)</span>. We need <span class="math inline">\(\P(162 \leq X \leq 169)\)</span>.</p>
+</div>
 </div>
 <div class="Example fragment">
 <p>Let <span class="math inline">\(Z=\dfrac{X-\mu}{\sigma}\sim N(0,1)\)</span>. Then <span class="math display">\[
 \P(162 \leq X \leq 169)=\P\Bigl(\tfrac{162-165}{10}\leq Z \leq \tfrac{169-165}{10}\Bigr)=\P(-0.3\leq Z \leq 0.4)=\Phi(0.4)- \Phi(-0.3).
-\]</span> From the table, <span class="math inline">\(1-\Phi(0.4)=0.3446\)</span> and <span class="math inline">\(1-\Phi(0.3)=0.3821\)</span>, so <span class="math display">\[
+\]</span></p>
+<div class="fragment">
+<p>From the table, <span class="math inline">\(1-\Phi(0.4)=0.3446\)</span> and <span class="math inline">\(1-\Phi(0.3)=0.3821\)</span>, so <span class="math display">\[
 \Phi(0.4)=0.6554, \qquad \Phi(-0.3)=0.3821,
-\]</span> <span class="math display">\[
-\P(162 \leq X \leq 169)= 0.6554-0.3821=0.2733.
 \]</span></p>
 </div>
 <div class="fragment">
+<p><span class="math display">\[
+\P(162 \leq X \leq 169)= 0.6554-0.3821=0.2733.
+\]</span></p>
+</div>
+</div>
+<div class="fragment">
 <p>We can also check this with Python:</p>
-<div id="ad1ac97e" class="cell" data-execution_count="7">
+<div id="ad1ac97e" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="" aria-label="1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
 <span id="cb1-2"><a href="" aria-label="2"></a>norm.cdf(<span class="fl">0.4</span>) <span class="op">-</span> norm.cdf(<span class="op">-</span><span class="fl">0.3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="7">

@@ -200,7 +200,9 @@ H_0: p = \tfrac{1}{2} \quad \text{(fair coin, \emph{null hypothesis})}, \qquad H
 </div>
 <div class="fragment">
 <p>If <span class="math inline">\(H_1\)</span> is <strong>two-sided</strong> (e.g.&nbsp;<span class="math inline">\(H_1:\mu\neq\mu_0\)</span>), we use a <strong>two-tailed test</strong>. If <span class="math inline">\(H_1\)</span> is <strong>one-sided</strong> (e.g.&nbsp;<span class="math inline">\(H_1:\mu&gt;\mu_0\)</span> or <span class="math inline">\(\mu&lt;\mu_0\)</span>), we use a <strong>one-tailed test</strong>.</p>
+<div class="fragment">
 <p>The probability of a Type I error is denoted <span class="math inline">\(\alpha\)</span>; this is the <strong>significance level</strong> of the test. E.g. <span class="math inline">\(\alpha=0.05\)</span>: “testing <span class="math inline">\(H_0\)</span> at the 5% level.”</p>
+</div>
 </div>
 <div class="fragment">
 <p>An alternative to critical regions: <strong><span class="math inline">\(p\)</span>-values</strong>. We calculate the probability of a value equal to, or more extreme than, the test statistic. For a one-tailed test this is the <span class="math inline">\(p\)</span>-value, compared with <span class="math inline">\(\alpha\)</span>; for a two-tailed test it is <span class="math inline">\(\frac{p\text{-value}}{2}\)</span>, compared with <span class="math inline">\(\frac{\alpha}{2}\)</span>.</p>
@@ -214,6 +216,7 @@ H_0: p = \tfrac{1}{2} \quad \text{(fair coin, \emph{null hypothesis})}, \qquad H
 </div>
 <div class="Remark fragment">
 <p><strong>Strategy (typical order of actions):</strong></p>
+<div class="fragment">
 <ol type="1">
 <li>Determine <span class="math inline">\(H_0\)</span>, <span class="math inline">\(H_1\)</span>, and the significance level.</li>
 <li>Decide if a one-tail or two-tail test is appropriate.</li>
@@ -221,6 +224,7 @@ H_0: p = \tfrac{1}{2} \quad \text{(fair coin, \emph{null hypothesis})}, \qquad H
 <li>Compare with the critical value(s), or use the <span class="math inline">\(p\)</span>-value approach.</li>
 <li>Reject or do not reject <span class="math inline">\(H_0\)</span>.</li>
 </ol>
+</div>
 </div>
 </section>
 <section id="the-mean-of-n-observations-sigma2-known" class="slide level2">
@@ -237,15 +241,19 @@ z=\frac{\bar{x}-\mu}{\sigma/\sqrt{n}},
 <!-- Example 7.5 (handwritten) -->
 <div class="Example fragment">
 <p>A machine produces items of nominal mass 1kg; <span class="math inline">\(X\sim N(\mu,(0.02)^2)\)</span>. If <span class="math inline">\(\mu\neq1\)</span> the machine needs correcting. The mean of 25 randomly selected items was <span class="math inline">\(0.989\)</span>kg. Test <span class="math inline">\(H_0:\mu=1\)</span> at the <span class="math inline">\(1\)</span>% level.</p>
+<div class="fragment">
 <p><span class="math display">\[
 H_0:\mu=1, \qquad H_1:\mu\neq1, \qquad \alpha=0.01.
 \]</span></p>
+</div>
+<div class="fragment">
 <p>Since <span class="math inline">\(\P(Z\leq2.58)=0.995\)</span>, the critical region is <span class="math inline">\(|z|&gt;2.58\)</span>, and <span class="math display">\[
 z=\frac{0.989-1}{0.02/5}=-2.75.
 \]</span></p>
 </div>
+</div>
 <div class="fragment">
-<div id="323fc3ec" class="cell" data-message="false" data-execution_count="1">
+<div id="323fc3ec" class="cell" data-message="false" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -257,15 +265,21 @@ z=\frac{0.989-1}{0.02/5}=-2.75.
 </div>
 <div class="Example fragment">
 <p>Since <span class="math inline">\(-2.75\)</span> is in the critical region, we reject <span class="math inline">\(H_0\)</span> at the <span class="math inline">\(1\)</span>% level: the machine should be corrected.</p>
+<div class="fragment">
 <p><em><span class="math inline">\(p\)</span>-value approach:</em> <span class="math inline">\(\P(Z\geq-2.75)=0.003&lt;0.005\ (\tfrac{\alpha}{2})\)</span>, so we reject <span class="math inline">\(H_0\)</span>.</p>
+</div>
 </div>
 </section>
 <section id="general-strategy-for-p-values-critical-values" class="slide level2">
 <h2>General Strategy for <span class="math inline">\(p\)</span>-Values / Critical Values</h2>
 <div class="Remark fragment">
 <p><strong>1.</strong> Calculate the statistic (<span class="math inline">\(z\)</span>, <span class="math inline">\(t\)</span>, …).</p>
+<div class="fragment">
 <p><strong>2a.</strong> <em><span class="math inline">\(p\)</span>-value approach:</em> if the statistic <span class="math inline">\(&gt;0\)</span>, calculate <span class="math inline">\(1-F(\text{stat})\)</span>; if <span class="math inline">\(&lt;0\)</span>, calculate <span class="math inline">\(F(\text{stat})\)</span>; if two-tailed, double the result. Compare <span class="math inline">\(p\)</span> with <span class="math inline">\(\alpha\)</span>: <span class="math inline">\(p&lt;\alpha\Rightarrow\)</span> reject <span class="math inline">\(H_0\)</span>; <span class="math inline">\(p\geq\alpha\Rightarrow\)</span> do not reject.</p>
+</div>
+<div class="fragment">
 <p><strong>2b.</strong> <em>Critical-value approach:</em> find the critical value <span class="math inline">\(z_{cr}\)</span> (or <span class="math inline">\(t_{cr}\)</span>) for <span class="math inline">\(\alpha\)</span> (or <span class="math inline">\(\tfrac{\alpha}{2}\)</span>, two-tailed) from a table/Python, and compare <span class="math inline">\(|z|\)</span> with <span class="math inline">\(z_{cr}\)</span>: <span class="math inline">\(|z|&gt;z_{cr}\Rightarrow\)</span> reject <span class="math inline">\(H_0\)</span>.</p>
+</div>
 </div>
 </section>
 <section id="the-difference-between-two-means" class="slide level2">
@@ -283,9 +297,12 @@ z=\frac{(\bar{x}_1-\bar{x}_2)-(\mu_1-\mu_2)}{\sqrt{\tfrac{\sigma_1^2}{n_1}+\tfra
 <div class="Example fragment">
 <p>Samples of size 25 from <span class="math inline">\(X\sim N(\mu_1,66)\)</span> and <span class="math inline">\(Y\sim N(\mu_2,66)\)</span> give <span class="math inline">\(\bar x=116\)</span>, <span class="math inline">\(\bar y=109\)</span>. Test at the <span class="math inline">\(5\)</span>% level: <span class="math display">\[
 H_0:\mu_1-\mu_2=12, \qquad H_1:\mu_1-\mu_2\neq12.
-\]</span> Critical region <span class="math inline">\(|z|&gt;1.96\)</span>. Test statistic: <span class="math display">\[
+\]</span></p>
+<div class="fragment">
+<p>Critical region <span class="math inline">\(|z|&gt;1.96\)</span>. Test statistic: <span class="math display">\[
 z=\frac{(116-109)-12}{\sqrt{2\cdot\tfrac{66}{25}}}=-2.17.
 \]</span> Since <span class="math inline">\(|{-2.17}|&gt;1.96\)</span>, reject <span class="math inline">\(H_0\)</span>.</p>
+</div>
 </div>
 </section>
 <section id="large-sample-tests" class="slide level2">
@@ -301,12 +318,15 @@ z=\frac{(116-109)-12}{\sqrt{2\cdot\tfrac{66}{25}}}=-2.17.
 <div class="Example fragment">
 <p>A golfer’s round has mean <span class="math inline">\(84.1\)</span>, sd <span class="math inline">\(2.6\)</span>. After lessons, mean is <span class="math inline">\(83.1\)</span> over 36 rounds. Test at <span class="math inline">\(5\)</span>%: <span class="math display">\[
 H_0:\mu=84.1, \qquad H_1:\mu&lt;84.1 \text{ (one-tailed)}, \qquad z_{cr}=1.645.
-\]</span> <span class="math display">\[
+\]</span></p>
+<div class="fragment">
+<p><span class="math display">\[
 z=\frac{83.1-84.1}{2.6/6}=-2.31.
 \]</span> Since <span class="math inline">\(|z|=2.31&gt;1.645\)</span>, reject <span class="math inline">\(H_0\)</span>: her game has improved.</p>
 </div>
+</div>
 <div class="fragment">
-<div id="290e2aa1" class="cell" data-message="false" data-execution_count="2">
+<div id="290e2aa1" class="cell" data-message="false" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -315,7 +335,9 @@ z=\frac{83.1-84.1}{2.6/6}=-2.31.
 </div>
 </div>
 </div>
+<div class="fragment">
 <p><em><span class="math inline">\(p\)</span>-value approach:</em> <span class="math inline">\(\P(Z\leq-2.31)=0.01044&lt;0.05\)</span>, so we reject <span class="math inline">\(H_0\)</span>.</p>
+</div>
 </div>
 </section>
 <section id="the-t-distribution" class="slide level2">
@@ -330,7 +352,7 @@ T=\frac{\bar{x}-\mu}{s/\sqrt{n}}
 <p>Degrees of freedom = number of values free to vary. E.g. for 4 numbers <span class="math inline">\(a,b,c,d\)</span> with mean <span class="math inline">\(5\)</span> (so <span class="math inline">\(a+b+c+d=20\)</span>): once 3 are known, the fourth is determined — only <span class="math inline">\(3=4-1=n-1\)</span> are “free”. As <span class="math inline">\(n\to\infty\)</span>, the <span class="math inline">\(t\)</span>-distribution tends to the normal; it has heavier tails for small degrees of freedom.</p>
 </div>
 <div class="fragment">
-<div id="203474b6" class="cell" data-execution_count="3">
+<div id="203474b6" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -356,9 +378,12 @@ t=\frac{\bar{x}-\mu_0}{s/\sqrt{n}} \sim t_{n-1}.
 <div class="Example fragment">
 <p>Yarn breaking strength has mean <span class="math inline">\(21\)</span>N. A treated sample of <span class="math inline">\(9\)</span> lengths has mean <span class="math inline">\(22.75\)</span>, sd <span class="math inline">\(2.109\)</span>. Test at <span class="math inline">\(5\)</span>%: <span class="math display">\[
 H_0:\mu=21, \qquad H_1:\mu&gt;21 \text{ (one-tailed)}.
-\]</span> Critical region: <span class="math inline">\(t&gt;t_{0.05,8}=1.860\)</span>. <span class="math display">\[
+\]</span></p>
+<div class="fragment">
+<p>Critical region: <span class="math inline">\(t&gt;t_{0.05,8}=1.860\)</span>. <span class="math display">\[
 t=\frac{22.75-21}{2.109/\sqrt9}=2.5.
 \]</span> Since <span class="math inline">\(2.5&gt;1.860\)</span>, reject <span class="math inline">\(H_0\)</span>: the claim is supported at the <span class="math inline">\(5\)</span>% level.</p>
+</div>
 </div>
 </section>
 <section id="paired-t-test" class="slide level2">
@@ -375,6 +400,7 @@ t=\frac{\bar{D}-\mu_0}{s_D/\sqrt{n}} \sim t_{n-1}.
 <!-- Example 7.10 (handwritten; Process A corrected at Joints 8,9: 141,92) -->
 <div class="Example fragment">
 <p>Ten joints of meat, each half frozen by process A or B; days to spoilage:</p>
+<div class="fragment">
 <table class="caption-top">
 <thead>
 <tr class="header">
@@ -420,7 +446,10 @@ t=\frac{\bar{D}-\mu_0}{s_D/\sqrt{n}} \sim t_{n-1}.
 </tr>
 </tbody>
 </table>
+</div>
+<div class="fragment">
 <p><span class="math inline">\(H_0:\mu_D=0\)</span>, <span class="math inline">\(H_1:\mu_D\neq0\)</span> (two-tailed), <span class="math inline">\(D=B-A\)</span>.</p>
+</div>
 </div>
 <div class="Example fragment">
 <table class="caption-top" style="width:100%;">
@@ -504,9 +533,11 @@ t=\frac{\bar{D}-\mu_0}{s_D/\sqrt{n}} \sim t_{n-1}.
 </tr>
 </tbody>
 </table>
+<div class="fragment">
 <p><span class="math display">\[
 s_D^2=\frac{10678}{9}=1186.44, \qquad t=\frac{25-0}{\sqrt{1186.44/10}}=2.3.
 \]</span> Critical region: <span class="math inline">\(|t|&gt;t_{0.025,9}=2.26\)</span>. Since <span class="math inline">\(2.3&gt;2.26\)</span>, reject <span class="math inline">\(H_0\)</span>: there is a difference between the processes.</p>
+</div>
 </div>
 </section>
 <section id="unpaired-t-test" class="slide level2">
@@ -515,9 +546,12 @@ s_D^2=\frac{10678}{9}=1186.44, \qquad t=\frac{25-0}{\sqrt{1186.44/10}}=2.3.
 <div class="fragment">
 <p>For two <strong>independent</strong> samples <span class="math inline">\(X_1\sim N(\mu_1,\sigma^2)\)</span>, <span class="math inline">\(X_2\sim N(\mu_2,\sigma^2)\)</span> (same unknown variance), we pool the variance estimate: <span class="math display">\[
 S^2 = \frac{(n_1-1)S_1^2+(n_2-1)S_2^2}{(n_1-1)+(n_2-1)}\quad\Bigl(=\tfrac{S_1^2+S_2^2}{2} \text{ if } n_1=n_2\Bigr).
-\]</span> Test statistic (<span class="math inline">\(n_1+n_2-2\)</span> degrees of freedom): <span class="math display">\[
+\]</span></p>
+<div class="fragment">
+<p>Test statistic (<span class="math inline">\(n_1+n_2-2\)</span> degrees of freedom): <span class="math display">\[
 t=\frac{(\bar{x}_1-\bar{x}_2)-(\mu_1-\mu_2)}{S\sqrt{\tfrac1{n_1}+\tfrac1{n_2}}}.
 \]</span></p>
+</div>
 </div>
 </section>
 <section id="example-energy-drink-trial-unpaired-t-test" class="slide level2">
@@ -525,6 +559,7 @@ t=\frac{(\bar{x}_1-\bar{x}_2)-(\mu_1-\mu_2)}{S\sqrt{\tfrac1{n_1}+\tfrac1{n_2}}}.
 <!-- Ex. 7.11 (handwritten) -->
 <div class="Example fragment">
 <p>8 people given water, 8 given an energy drink, then an endurance task:</p>
+<div class="fragment">
 <table class="caption-top">
 <thead>
 <tr class="header">
@@ -546,7 +581,10 @@ t=\frac{(\bar{x}_1-\bar{x}_2)-(\mu_1-\mu_2)}{S\sqrt{\tfrac1{n_1}+\tfrac1{n_2}}}.
 </tr>
 </tbody>
 </table>
+</div>
+<div class="fragment">
 <p><span class="math inline">\(H_0:\mu_1-\mu_2=0\)</span>, <span class="math inline">\(H_1:\mu_1&lt;\mu_2\)</span> (one-tailed).</p>
+</div>
 </div>
 <div class="Example fragment">
 <p>Pooled sd: <span class="math inline">\(S=\sqrt{\tfrac{2.4^2+3.1^2}{2}}=2.7722\)</span>. <span class="math display">\[

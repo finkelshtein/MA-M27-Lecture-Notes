@@ -243,17 +243,22 @@ Build notes for this deck:
 <p>The <strong>sample mean</strong>, denoted by <span class="math inline">\(\bar{x}\)</span>, of a sample of observations <span class="math inline">\(x_1, x_2, \ldots, x_n\)</span> is given by <span class="math display">\[
 \bar{x}=\frac{1}{n} \sum_{i=1}^n x_i=\frac{x_1+x_2+\cdots+x_n}{n}.
 \]</span></p>
+<div class="fragment">
 <p>Analogously, the <strong>population mean</strong>, denoted by <span class="math inline">\(\mu\)</span>, of a population of observations <span class="math inline">\(x_1, \ldots, x_N\)</span> is given by <span class="math display">\[
 \mu=\frac{1}{N} \sum_{i=1}^N x_i=\frac{x_1+x_2+\cdots+x_N}{N}.
 \]</span></p>
+</div>
 </div>
 <!-- Example 1.8 (handwritten) -->
 <div class="Example fragment">
 <p>Eight people from the general UK population were polled on the number of pets they own. The results are shown below: <span class="math display">\[
 1, 3, 2, 5, 7, 0, 2, 3.
-\]</span> These are the <span class="math inline">\(x_1, \ldots, x_8\)</span> terms as in the previous definition of the sample mean. Therefore, the sample mean is given by: <span class="math display">\[
+\]</span></p>
+<div class="fragment">
+<p>These are the <span class="math inline">\(x_1, \ldots, x_8\)</span> terms as in the previous definition of the sample mean. Therefore, the sample mean is given by: <span class="math display">\[
 \bar{x}=\frac{1+3+2+5+7+0+2+3}{8}=\frac{23}{8}=2.875.
 \]</span></p>
+</div>
 </div>
 </section>
 <section id="the-weighted-mean" class="slide level2">
@@ -269,9 +274,6 @@ Build notes for this deck:
 <p>Let us consider a module with three coursework components worth 20% each and a final exam that is worth 40%. A student scores 90, 80, 63 and 87 respectively in these components. The weights are therefore 0.2, 0.2, 0.2 and 0.4 respectively and the weighted average is given by, <span class="math display">\[
 \frac{0.2\cdot90+0.2\cdot80+0.2\cdot63+0.4\cdot87}{0.2+0.2+0.2+0.4}=81.4.
 \]</span></p>
-</div>
-<div class="fragment">
-<p>(In the lecture this was also illustrated directly with the module’s own MA-M27 weighting scheme — see the suggested addition in Suggestions-Ch-01.md.)</p>
 </div>
 </section>
 <section id="the-median" class="slide level2">
@@ -314,23 +316,26 @@ Build notes for this deck:
 <div class="Definition fragment">
 <p><strong>A.</strong> For a population of data values <span class="math inline">\(x_1,\ldots,x_N\)</span>, the (population) <strong>variance</strong> is given by, <span class="math display">\[
 \sigma^2=\frac{\sum_{i=1}^N(x_i-\mu)^2}{N},
-\]</span> where <span class="math inline">\(\mu\)</span> is the mean of the population. The (population) <strong>standard deviation</strong> is the square root of the variance, i.e. <span class="math display">\[
+\]</span></p>
+<div class="fragment">
+<p>where <span class="math inline">\(\mu\)</span> is the mean of the population. The (population) <strong>standard deviation</strong> is the square root of the variance, i.e. <span class="math display">\[
 \sigma=\sqrt{\frac{\sum_{i=1}^N(x_i-\mu)^2}{N}}.
 \]</span></p>
+</div>
 </div>
 <div class="Definition fragment">
 <p><strong>B.</strong> For a sample of data values <span class="math inline">\(x_1,\ldots,x_n\)</span>, the <strong>sample variance</strong> is given by, <span class="math display">\[
 s^2=\frac{\sum_{i=1}^n(x_i-\bar{x})^2}{n-1},
-\]</span> where <span class="math inline">\(\bar{x}\)</span> is the sample mean. The <strong>sample standard deviation</strong> is the square root of the sample variance, i.e. <span class="math display">\[
+\]</span></p>
+<div class="fragment">
+<p>where <span class="math inline">\(\bar{x}\)</span> is the sample mean. The <strong>sample standard deviation</strong> is the square root of the sample variance, i.e. <span class="math display">\[
 s=\sqrt{\frac{\sum_{i=1}^n(x_i-\bar{x})^2}{n-1}}.
 \]</span></p>
+</div>
 </div>
 <!-- Remark 1.19 (handwritten) -->
 <div class="Remark fragment">
 <p>Note that for the sample variance (and hence the sample standard deviation) we divide by <span class="math inline">\(n-1\)</span> rather than the total number of items. We do this to decrease any bias in a sample and not underestimate the variance of the population based on our sample. By counting values short of one item in our divisor, we increase the variance and therefore capture greater uncertainty in our sample.</p>
-</div>
-<div class="fragment">
-<p>Two useful supplementary remarks worked out live in the lecture (not in the printed notes — see Suggestions-Ch-01.md): a caution that <span class="math inline">\(\sqrt{a^2+b^2}\neq a+b\)</span>, and that <span class="math inline">\(\lim_{n\to\infty}\tfrac{n}{n-1}=1\)</span>, which shows why the sample and population formulas agree as <span class="math inline">\(n\)</span> grows large.</p>
 </div>
 </section>
 <section id="population-vs.-sample-worked-example" class="slide level2">
@@ -339,13 +344,19 @@ s=\sqrt{\frac{\sum_{i=1}^n(x_i-\bar{x})^2}{n-1}}.
 <div class="Example fragment">
 <p>We are interested in studying the number of pets owned by members of staff in a certain shop (note this is our <strong>population</strong>, not a sample). The data are as follows: <span class="math display">\[
 0,14,5,9,7,10,1.
-\]</span> The mean of this population is 6.571, hence the variance is given by <span class="math display">\[
+\]</span></p>
+<div class="fragment">
+<p>The mean of this population is 6.571, hence the variance is given by <span class="math display">\[
 \begin{aligned}
 \sigma^2&amp;=\frac{\sum_{i=1}^N(x_i-\mu)^2}{N}\\
 &amp;=\text{\scriptsize{$\dfrac{(0-6.571)^2+(14-6.571)^2+(5-6.571)^2+(9-6.571)^2+(7-6.571)^2+(10-6.571)^2+(1-6.571)^2}{7}$}}\\
 &amp;=21.29.
 \end{aligned}
-\]</span> Therefore the standard deviation is given by <span class="math inline">\(\sigma=\sqrt{21.29}=4.62\)</span>. (All to 2dp.)</p>
+\]</span></p>
+</div>
+<div class="fragment">
+<p>Therefore the standard deviation is given by <span class="math inline">\(\sigma=\sqrt{21.29}=4.62\)</span>. (All to 2dp.)</p>
+</div>
 </div>
 <!-- Ex. 1.21 (handwritten) -->
 <div class="Example fragment">
@@ -381,7 +392,7 @@ s^2&amp;=\frac{\sum_{i=1}^n(x_i-\bar{x})^2}{n-1}\\
 <p>Consider the weight of Golden Retrievers. This histogram does not reveal any meaningful shape to the data because the bins are too small:</p>
 </div>
 <div class="fragment">
-<div id="cell-fig-hist-right-bins" class="cell" data-message="false" data-execution_count="1">
+<div id="cell-fig-hist-right-bins" class="cell" data-message="false" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div id="fig-hist-right-bins" class="quarto-float quarto-figure quarto-figure-center" width="783" height="422">
 <figure class="quarto-float quarto-float-fig">
@@ -411,7 +422,7 @@ Figure&nbsp;1
 <p>Let us use the data from Example 1.13 (<span class="math inline">\(5,0,1,9,7,10,14\)</span>) to produce the following box plot:</p>
 </div>
 <div class="fragment">
-<div id="cell-fig-box-plot-data" class="cell" data-message="false" data-execution_count="2">
+<div id="cell-fig-box-plot-data" class="cell" data-message="false" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div id="fig-box-plot-data" class="quarto-float quarto-figure quarto-figure-center" width="789" height="411">
 <figure class="quarto-float quarto-float-fig">
@@ -438,12 +449,16 @@ Figure&nbsp;2
 </div>
 <div class="Example fragment">
 <p>Sample: <span class="math inline">\(1.74, 1.4, 1.56, 1.76, 1.59, 1.61, 1.49, 1.54, 1.55, 1.47\)</span>.</p>
+<div class="fragment">
 <p>Sample mean: <span class="math display">\[
 \bar{X} = \frac{1.74 + \cdots + 1.47}{10} = 1.571
 \]</span></p>
+</div>
+<div class="fragment">
 <p>Sample variance: <span class="math display">\[
 S^2 = \frac{1}{9}\Big((1.74-1.571)^2 + \cdots + (1.47-1.571)^2\Big) \approx 0.0126
 \]</span></p>
+</div>
 </div>
 
 </section>
