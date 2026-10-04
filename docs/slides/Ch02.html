@@ -35,6 +35,7 @@
     }
   </style>
   <link rel="stylesheet" href="Ch02_files/libs/revealjs/dist/theme/quarto-dca22ae42a22aa14432d867c7376354e.css">
+  <link rel="stylesheet" href="_slides.css">
   <link href="Ch02_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="Ch02_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="Ch02_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -255,7 +256,7 @@ Build notes for this deck:
 \]</span></p>
 </div>
 <div class="fragment">
-<div id="cell-fig-polar" class="cell" data-message="false" data-execution_count="1">
+<div id="cell-fig-polar" class="cell" data-message="false" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div id="fig-polar" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-fig">
@@ -320,7 +321,7 @@ B=\{J{\color{red}\diamondsuit}, Q{\color{red}\diamondsuit}, K{\color{red}\diamon
 <p>The <strong>sum</strong> of events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> is the event <span class="math inline">\(A+B\)</span> (also denoted <span class="math inline">\(A\cup B\)</span> or <span class="math inline">\(A\vee B\)</span>) which occurs iff <em>either</em> <span class="math inline">\(A\)</span> occurs <em>or</em> <span class="math inline">\(B\)</span> occurs <em>or they both</em> occur.</p>
 </div>
 <div class="fragment">
-<div id="cell-fig-events-sum" class="cell" data-message="false" data-execution_count="2">
+<div id="cell-fig-events-sum" class="cell" data-message="false" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div id="fig-events-sum" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-fig">
@@ -340,7 +341,7 @@ Figure&nbsp;2: Visual representation of <span class="math inline">\(A+ B\)</span
 <p>The <strong>product</strong> of events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> is the event <span class="math inline">\(AB\)</span> (also denoted <span class="math inline">\(A\cap B\)</span> or <span class="math inline">\(A\wedge B\)</span>) which occurs iff <em>both</em> <span class="math inline">\(A\)</span> <em>and</em> <span class="math inline">\(B\)</span> occur.</p>
 </div>
 <div class="fragment">
-<div id="cell-fig-events-prod" class="cell" data-message="false" data-execution_count="3">
+<div id="cell-fig-events-prod" class="cell" data-message="false" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div id="fig-events-prod" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-fig">
@@ -411,7 +412,7 @@ Figure&nbsp;3: Visual representation of <span class="math inline">\(AB\)</span>
 \]</span></p>
 </div>
 <div class="fragment">
-<div id="cell-fig-events-compl" class="cell" data-message="false" data-execution_count="4">
+<div id="cell-fig-events-compl" class="cell" data-message="false" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div id="fig-events-compl" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-fig">
@@ -445,7 +446,7 @@ Figure&nbsp;4: Visual representation of <span class="math inline">\(A^c\)</span>
 \]</span></p>
 </div>
 <div class="fragment">
-<div id="cell-fig-cond-prob-illustration" class="cell" data-message="false" data-execution_count="5">
+<div id="cell-fig-cond-prob-illustration" class="cell" data-message="false" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <div id="fig-cond-prob-illustration" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-fig">
@@ -489,7 +490,11 @@ Figure&nbsp;5: The event <span class="math inline">\(AB\)</span>, which underlie
 </div>
 <div class="fragment">
 <p>Therefore, by the addition rule (for mutually exclusive events), <span class="math display">\[
-\P(A+B)=\P(A)+\P(B)=\frac{8\cdot 7\cdot 6}{20\cdot 19\cdot 18}+\frac{12\cdot 11\cdot 10}{20\cdot 19\cdot 18}=\frac{1656}{6840}=\frac{23}{95}.
+\begin{aligned}
+\P(A+B)&amp;=\P(A)+\P(B)\\&amp;
+=\frac{8\cdot 7\cdot 6}{20\cdot 19\cdot 18}+\frac{12\cdot 11\cdot 10}{20\cdot 19\cdot 18}\\
+&amp;=\frac{1656}{6840}=\frac{23}{95}.
+\end{aligned}
 \]</span></p>
 </div>
 </div>
@@ -518,7 +523,7 @@ Figure&nbsp;5: The event <span class="math inline">\(AB\)</span>, which underlie
 <section id="the-law-of-total-probability" class="slide level2">
 <h2>The Law of Total Probability</h2>
 <div class="fragment">
-<div id="cell-fig-total-prob" class="cell" data-message="false" data-execution_count="6">
+<div id="cell-fig-total-prob" class="cell" data-message="false" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div id="fig-total-prob" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-fig">
@@ -535,13 +540,17 @@ Figure&nbsp;6: Note that <span class="math inline">\(A=AB_1+\ldots +AB_n\)</span
 </div>
 <div class="Definition fragment">
 <p>Let <span class="math inline">\(B_1,\ldots,B_n\)</span> be pairwise exclusive events (i.e.&nbsp;<span class="math inline">\(B_iB_j=\emptyset\)</span> for all <span class="math inline">\(i\neq j\)</span>) such that <span class="math inline">\(B_1+B_2+\ldots+B_n=\Omega\)</span> with <span class="math inline">\(\P(B_i)\neq0\)</span> (it is said then that <span class="math inline">\(B_1,\ldots,B_n\)</span> form a <em>partition</em> of <span class="math inline">\(\Omega\)</span>). Then the <strong>law of total probability</strong> holds: <span class="math display">\[
-\P(A)=\P(A\mid B_1)\,\P(B_1)+\ldots+\P(A\mid B_n)\,\P(B_n).
+\begin{aligned}
+\P(A)&amp;=\P(A\mid B_1)\,\P(B_1)\\&amp;\quad+\ldots+\P(A\mid B_n)\,\P(B_n).
+\end{aligned}
 \]</span></p>
 </div>
 <div class="Remark fragment">
 <p>There is also a modification of the law of total probability for conditional probabilities. If <span class="math inline">\(B_1,\ldots,B_n\)</span> are as above and <span class="math inline">\(\P(C)\neq0\)</span>, then <span class="math display">\[
-\P(A\mid C) = \P(A\mid B_1 C)\P(B_1\mid C)+
+\begin{aligned}
+\P(A\mid C) &amp;= \P(A\mid B_1 C)\P(B_1\mid C)\\&amp;\quad+
 \ldots + \P(A\mid B_n C)\P(B_n\mid C).
+\end{aligned}
 \]</span></p>
 </div>
 </section>
@@ -549,7 +558,9 @@ Figure&nbsp;6: Note that <span class="math inline">\(A=AB_1+\ldots +AB_n\)</span
 <h2>Bayes’ Rule</h2>
 <div class="fragment">
 <p>From the conditional-probability definition, <span class="math display">\[
-\P(B) \P(A\mid B) = \P(AB)=\P(BA)=\P(A)\P(B\mid A).
+\begin{aligned}
+\P(B) \P(A\mid B) &amp;= \P(AB)=\P(BA)\\&amp;=\P(A)\P(B\mid A).
+\end{aligned}
 \]</span> This implies the following important statement.</p>
 </div>
 <!-- "Bayes' rule" (handwritten) -->
@@ -596,7 +607,7 @@ f(p) =  \frac{0.95 \cdot 0.001}{0.95 \cdot 0.001 + {\color{red}p} \cdot 0.999}.
 \]</span> Clearly <span class="math inline">\(f(0)=1\)</span> and <span class="math inline">\(f(1)\approx 0.00095\)</span>. As <span class="math inline">\(p\)</span> increases, <span class="math inline">\(f(p)\)</span> decreases — so to get a high probability that the patient actually has the disease given a positive result, the test needs a very small false-positive rate.</p>
 </div>
 <div class="fragment">
-<div id="cell-fig-sensitivity" class="cell" data-message="false" data-execution_count="7">
+<div id="cell-fig-sensitivity" class="cell" data-message="false" data-execution_count="8">
 <div class="cell-output cell-output-display">
 <div id="fig-sensitivity" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-fig">

@@ -1,0 +1,45 @@
+/* Colours of theorem-like blocks in the slides: same as the lecture notes
+   (styles.css / defs.tex) and the PDF version of the slides (_pdf-header.tex). */
+:root {
+  --Definition-color: #CC1914;
+  --Remark-color: #00A047;
+  --Example-color: #1D1470;
+}
+
+.reveal div.Definition,
+.reveal div.Remark,
+.reveal div.Example {
+  --c: var(--Definition-color);
+  border: 1px solid var(--c);
+  border-radius: 4px;
+  background-color: color-mix(in srgb, var(--c) 5%, white);
+  margin: 0.6em 0;
+  padding: 0 0.9em 0.5em 0.9em;
+  text-align: left;
+  overflow: hidden;
+}
+.reveal div.Remark  { --c: var(--Remark-color); }
+.reveal div.Example { --c: var(--Example-color); }
+
+/* title bar, like the tcolorbox title in the PDF */
+.reveal div.Definition::before,
+.reveal div.Remark::before,
+.reveal div.Example::before {
+  display: block;
+  margin: 0 -0.9em 0.5em -0.9em;
+  padding: 0.25em 0.9em;
+  background-color: var(--c);
+  color: white;
+  font-weight: bold;
+  font-size: 0.8em;
+}
+.reveal div.Definition::before { content: "Definition"; }
+.reveal div.Remark::before     { content: "Remark"; }
+.reveal div.Example::before    { content: "Example"; }
+
+/* Centre all figure captions */
+.reveal figcaption,
+.reveal .quarto-float-caption,
+.reveal .quarto-figure figcaption {
+  text-align: center !important;
+}
