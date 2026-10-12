@@ -376,7 +376,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<div id="cell-fig-polar" class="cell" data-message="false" data-execution_count="1">
+<div id="cell-fig-polar" class="cell" data-message="false" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div id="fig-polar" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -433,7 +433,7 @@ B=\{J{\color{red}\diamondsuit}, Q{\color{red}\diamondsuit}, K{\color{red}\diamon
 </div>
 </div>
 </div>
-<div id="cell-fig-events-sum" class="cell" data-message="false" data-execution_count="2">
+<div id="cell-fig-events-sum" class="cell" data-message="false" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div id="fig-events-sum" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -457,7 +457,7 @@ Figure&nbsp;2.2: Visual representation of <span class="math inline">\(A+ B\)</sp
 </div>
 </div>
 </div>
-<div id="cell-fig-events-prod" class="cell" data-message="false" data-execution_count="3">
+<div id="cell-fig-events-prod" class="cell" data-message="false" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div id="fig-events-prod" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -539,7 +539,7 @@ Figure&nbsp;2.3: Visual representation of <span class="math inline">\(AB\)</span
 </div>
 </div>
 </div>
-<div id="cell-fig-events-compl" class="cell" data-message="false" data-execution_count="4">
+<div id="cell-fig-events-compl" class="cell" data-message="false" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div id="fig-events-compl" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -657,7 +657,19 @@ Figure&nbsp;2.4: Visual representation of <span class="math inline">\(A^c\)</spa
 <div class="proof remark">
 <p><span class="proof-title"><em>Remark</em>. </span>If three (or more) events are pairwise independent: <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are independent, the same for <span class="math inline">\(B\)</span> and <span class="math inline">\(C\)</span>, and for <span class="math inline">\(A\)</span> and <span class="math inline">\(C\)</span>, it still may be that they are not independent in total, and then, in general, <span class="math inline">\(\P(ABC)\neq\P(A)\P(B)\P(C)\)</span> (see the multiplication rule).</p>
 </div>
-<div id="cell-fig-total-prob" class="cell" data-message="false" data-execution_count="6">
+<div id="cnb-23-Memorize" class="Memorize">
+<div class="callout callout-style-default no-icon callout-titled Memorize">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-title-container flex-fill">Memorize</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(B_1,\ldots,B_n\)</span> be pairwise exclusive events (i.e.&nbsp;<span class="math inline">\(B_iB_j=\emptyset\)</span> for all <span class="math inline">\(i\neq j\)</span>) such that <span class="math inline">\(B_1+B_2+\ldots+B_n=\Omega\)</span> with <span class="math inline">\(\P(B_i)\neq0\)</span> (it is said then that <span class="math inline">\(B_1,\ldots,B_n\)</span> form a <em>partition</em> of <span class="math inline">\(\Omega\)</span>). Then the <strong>law of total probability</strong> holds: <span class="math display">\[
+\P(A)=\P(A\mid B_1)\,\P(B_1)+\ldots+\P(A\mid B_n)\,\P(B_n).
+\]</span></p>
+</div>
+</div>
+</div>
+<div id="cell-fig-total-prob" class="cell" data-message="false" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div id="fig-total-prob" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -668,18 +680,6 @@ Figure&nbsp;2.4: Visual representation of <span class="math inline">\(A^c\)</spa
 Figure&nbsp;2.5: Note that <span class="math inline">\(A=AB_1+\ldots +AB_n\)</span>
 </figcaption>
 </figure>
-</div>
-</div>
-</div>
-<div id="cnb-23-Memorize" class="Memorize">
-<div class="callout callout-style-default no-icon callout-titled Memorize">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-title-container flex-fill">Memorize</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Let <span class="math inline">\(B_1,\ldots,B_n\)</span> be pairwise exclusive events (i.e.&nbsp;<span class="math inline">\(B_iB_j=\emptyset\)</span> for all <span class="math inline">\(i\neq j\)</span>) such that <span class="math inline">\(B_1+B_2+\ldots+B_n=\Omega\)</span> with <span class="math inline">\(\P(B_i)\neq0\)</span> (it is said then that <span class="math inline">\(B_1,\ldots,B_n\)</span> form a <em>partition</em> of <span class="math inline">\(\Omega\)</span>). Then the <strong>law of total probability</strong> holds: <span class="math display">\[
-\P(A)=\P(A\mid B_1)\,\P(B_1)+\ldots+\P(A\mid B_n)\,\P(B_n).
-\]</span></p>
 </div>
 </div>
 </div>
@@ -739,55 +739,12 @@ Figure&nbsp;2.5: Note that <span class="math inline">\(A=AB_1+\ldots +AB_n\)</sp
 <p><span class="proof-title"><em>Remark</em>. </span>The result is quite small because the percentage when the test is false positive (<span class="math inline">\(3\)</span>%) is quite high. Indeed, if the consider, for the fixed values of <span class="math inline">\(0.1\)</span>% and <span class="math inline">\(95\)</span>%, the value of <span class="math inline">\(\P(D|T)\)</span> as a function <span class="math inline">\(f(p)\)</span> of the probability <span class="math inline">\(p\in[0,1]\)</span> that the test incorrectly indicates the presence of the disease in the cases where it’s not actually present, then <span class="math display">\[
 f(p) =  \frac{0.95 \cdot 0.001}{0.95 \cdot 0.001 + {\color{red}p} \cdot (1 - 0.001)}.
 \]</span> Clearly, <span class="math inline">\(f(0)=1\)</span> and also <span class="math inline">\(f(1)= \frac{0.95 \cdot 0.001}{0.95 \cdot 0.001 +1\cdot (1 - 0.001)}\approx 0.00095\)</span>. With <span class="math inline">\(p\)</span> increases, <span class="math inline">\(f(p)\)</span> is getting smaller, i.e.&nbsp;<span class="math inline">\(f\)</span> is a decreasign function. Hence, to get the high probability that the patient actually has the disease, given that the result was positive, the test should have very small probability of being false positive.</p>
-<!--{python}
-import numpy as np
-import matplotlib.pyplot as plt
-
-# Define the function
-def f(p):
-    return (0.95 * 0.001) / (0.95 * 0.001 + p * (1 - 0.001))
-
-# Generate data
-p = np.linspace(0, 1, 500)
-y = f(p)
-
-# Compute key points
-p0, p1 = 0, 1
-f0, f1 = f(p0), f(p1)
-
-# Plot
-plt.figure(figsize=(6,4))
-plt.plot(p, y, color='blue', lw=2, label='f(p)')
-plt.scatter([p0, p1], [f0, f1], color='red', zorder=5)
-plt.annotate(r"$f(0)=1$", xy=(p0, f0), xytext=(0.1, 0.8),
-             arrowprops=dict(arrowstyle="->", color='black'))
-plt.annotate(r"$f(1)\approx0.00095$", xy=(p1, f1), xytext=(0.6, 0.3),
-             arrowprops=dict(arrowstyle="->", color='black'))
-
-plt.title(r"$f(p) = \dfrac{0.95 \cdot 0.001}{0.95 \cdot 0.001 + p(1 - 0.001)}$")
-plt.xlabel("p")
-plt.ylabel("f(p)")
-plt.grid(True)
-plt.legend()
-plt.show()
-``` -->
 </div>
 </div>
 </div>
 </div>
-<pre class="{ojs}"><code>
-viewof bill_length_min = Inputs.range(
-  [32, 50], 
-  {value: 35, step: 1, label: "Bill length (min):"}
-)
-viewof islands = Inputs.checkbox(
-  ["Torgersen", "Biscoe", "Dream"], 
-  { value: ["Torgersen", "Biscoe"], 
-    label: "Islands:"
-  }
-)</code></pre>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb2" data-startfrom="678" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 677;"><span id="cb2-678"><a href="#cb2-678" aria-hidden="true" tabindex="-1"></a>viewof a <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>]<span class="op">,</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"a"</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="fl">0.001</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="fl">0.001</span>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb1" data-startfrom="645" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 644;"><span id="cb1-645"><a href="#cb1-645" aria-hidden="true" tabindex="-1"></a>viewof a <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>]<span class="op">,</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"a"</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="fl">0.001</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="fl">0.001</span>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-1" data-nodetype="declaration">
 
