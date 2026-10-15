@@ -158,7 +158,7 @@ F_X(x) = \sum_{x_i\leq x} \P(X=x_i) = \P(X\leq x).
 \]</span></p>
 </div>
 <div class="fragment">
-<div id="cell-fig-cumdistr" class="cell" data-message="false" data-execution_count="1">
+<div id="cell-fig-cumdistr" class="cell" data-message="false" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div id="fig-cumdistr" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -239,7 +239,7 @@ F_X(x)=\begin{cases} 0, &amp; x&lt;2,\\
 </div>
 </div>
 <div class="fragment">
-<div id="cell-fig-cumdistr-twodice" class="cell" data-message="false" data-execution_count="2">
+<div id="cell-fig-cumdistr-twodice" class="cell" data-message="false" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div id="fig-cumdistr-twodice" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -526,9 +526,6 @@ p_X(k) = \P(X = k) = \binom{n}{k} p^k (1-p)^{n-k},
 <!-- Def. 3.16 (handwritten) -->
 <div class="Definition fragment">
 <p>The <strong>negative binomial distribution</strong> models the number of failures in a sequence of independent and identically distributed Bernoulli trials before a specified number of successes occurs. It is characterized by two parameters: <span class="math inline">\(r\)</span> (the number of successes) and <span class="math inline">\(p\)</span> (the probability of success in each trial). We denote this <span class="math inline">\(X\sim NB(r,p)\)</span>. If <span class="math inline">\(X=k\)</span> is the number of failures, the total number of trials is <span class="math inline">\(n=k+r\)</span>.</p>
-</div>
-<div class="fragment">
-<p><em>(Sketch: a sequence of trials <span class="math inline">\(f, f, \ldots, f, s\)</span> with <span class="math inline">\(k\)</span> failures then the <span class="math inline">\(r\)</span>-th success, showing <span class="math inline">\(n=k+r\)</span>.)</em></p>
 </div>
 <div class="Definition fragment">
 <p>The PMF of the negative binomial distribution is: <span class="math display">\[
