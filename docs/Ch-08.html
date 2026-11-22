@@ -281,7 +281,7 @@ window.Quarto = {
 <div class="callout-title-container flex-fill">Memorize</div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The maximum likelihood estimator <span class="math inline">\(\theta_*\)</span> of the parameter <span class="math inline">\(\theta\)</span> is the argument of the maximum of the likelihppd function: <span class="math display">\[
+<p>The maximum likelihood estimator <span class="math inline">\(\theta_*\)</span> of the parameter <span class="math inline">\(\theta\)</span> is the argument of the maximum of the likelihood function: <span class="math display">\[
 \theta_*=\mathop{\mathrm{argmax}}_\theta\mathcal{L}(\theta),
 \]</span> that means that <span class="math display">\[
 \mathcal{L}(\theta_*) = \max_{\theta}\mathcal{L}(\theta).
@@ -295,7 +295,7 @@ window.Quarto = {
 <div class="callout-title-container flex-fill">Remember</div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The standard approach to find <span class="math inline">\(\theta_*\)</span> is to consider the **log-likelihood* function <span class="math display">\[
+<p>The standard approach to find <span class="math inline">\(\theta_*\)</span> is to consider the <strong>log-likelihood</strong> function <span class="math display">\[
 \begin{aligned}
 L(\theta):&amp;=L(\theta\mid x_1,\ldots,x_n)=\ln \mathcal{L}(\theta\mid x_1,\ldots,x_n)
 \\&amp; =  \ln \P(X_1=x_1\mid \theta)+ \ldots + \ln \P(X_n=x_n\mid \theta).
@@ -307,7 +307,7 @@ L(\theta):&amp;=L(\theta\mid x_1,\ldots,x_n)=\ln \mathcal{L}(\theta\mid x_1,\ldo
 </div>
 </div>
 <div class="proof remark">
-<p><span class="proof-title"><em>Remark</em>. </span>The reason for this is the fact that the logarigthm <span class="math inline">\(y=\ln x\)</span> is an increasing function, and then <span class="math display">\[
+<p><span class="proof-title"><em>Remark</em>. </span>The reason for this is the fact that the logarithm <span class="math inline">\(y=\ln x\)</span> is an increasing function, and then <span class="math display">\[
 \mathcal{L}(\theta)\leq \mathcal{L}(\theta_*) \Longleftrightarrow L(\theta)\leq L(\theta_*).
 \]</span></p>
 </div>
@@ -333,9 +333,9 @@ L''(\theta_*)&lt;0.
 <div class="callout-title-container flex-fill">Example 8.1</div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Let <span class="math inline">\(X:\Omega\to\{0,1\}\)</span> be a Bernouilli random variable with <span class="math inline">\(\P(X=1)=\theta\)</span> and <span class="math inline">\(\P(X=0)=1-\theta\)</span>, where <span class="math inline">\(\theta\in[0,1]\)</span> is a parameter. Suppose that we are given a sample of the length <span class="math inline">\(n\)</span> of values of <span class="math inline">\(X\)</span> which contain <span class="math inline">\(k\)</span> ones and <span class="math inline">\(n-k\)</span> zeros (the sample has a particular order, e.g.&nbsp;<span class="math inline">\(010010111001\ldots\)</span>). Then the probability to get this particular sample, for any <span class="math inline">\(\theta\in[0,1]\)</span>, is <span class="math inline">\(\theta^k(1-\theta)^{n-k}\)</span>, i.e.&nbsp;the likelihood function for the given data is <span class="math display">\[
+<p>Let <span class="math inline">\(X:\Omega\to\{0,1\}\)</span> be a Bernoulli random variable with <span class="math inline">\(\P(X=1)=\theta\)</span> and <span class="math inline">\(\P(X=0)=1-\theta\)</span>, where <span class="math inline">\(\theta\in[0,1]\)</span> is a parameter. Suppose that we are given a sample of the length <span class="math inline">\(n\)</span> of values of <span class="math inline">\(X\)</span> which contain <span class="math inline">\(k\)</span> ones and <span class="math inline">\(n-k\)</span> zeros (the sample has a particular order, e.g.&nbsp;<span class="math inline">\(010010111001\ldots\)</span>). Then the probability to get this particular sample, for any <span class="math inline">\(\theta\in[0,1]\)</span>, is <span class="math inline">\(\theta^k(1-\theta)^{n-k}\)</span>, i.e.&nbsp;the likelihood function for the given data is <span class="math display">\[
 \mathcal{L}(\theta) = \theta^k(1-\theta)^{n-k}.
-\]</span> Hence, the log-likehood fgunction for the given data is <span class="math display">\[
+\]</span> Hence, the log-likelihood function for the given data is <span class="math display">\[
 \begin{aligned}
 L(\theta)&amp;=\ln \mathcal{L}(\theta) =\ln\bigl(\theta^k(1-\theta)^{n-k}\bigr)\\
 &amp;= \ln \theta^k + \ln (1-\theta)^{n-k}\\
@@ -355,16 +355,16 @@ L'(\theta)&amp; =\bigl( k\ln\theta +(n-k)\ln(1-\theta)\bigr)'\\
 L''(\theta)&amp;=(L'(\theta))' = \biggl( \frac{k}{\theta}-\frac{n-k}{1-\theta}\biggr)'
 \\&amp; = -\frac{k}{\theta^2}-\frac{n-k}{(1-\theta)^2}&lt;0
 \end{aligned}
-\]</span> for all <span class="math inline">\(\theta\in[0,1]\)</span>, in particular, for <span class="math inline">\(\theta_*=\dfrac{k}{n}\in[0,1]\)</span> (as <span class="math inline">\(0\leq k\leq n\)</span>). Therefore, <span class="math inline">\(\theta_*=\dfrac{k}{n}\)</span> is the point of maximum of <span class="math inline">\(L(\theta)\)</span>, and hence, it is the maximum likelihood estimator for the parameter <span class="math inline">\(\theta\)</span>.</p>
+\]</span> for all <span class="math inline">\(\theta\in(0,1)\)</span>, in particular, for <span class="math inline">\(\theta_*=\dfrac{k}{n}\in(0,1)\)</span> (as <span class="math inline">\(0\leq k\leq n\)</span>). Therefore, <span class="math inline">\(\theta_*=\dfrac{k}{n}\)</span> is the point of maximum of <span class="math inline">\(L(\theta)\)</span>, and hence, it is the maximum likelihood estimator for the parameter <span class="math inline">\(\theta\)</span>.</p>
 </div>
 </div>
 </div>
 <div class="proof remark">
-<p><span class="proof-title"><em>Remark</em>. </span>Note that <span class="math inline">\(S_n:=X_1+\ldots+X_n\sim Bin(n,\theta)\)</span> is the binomial random variable, and <span class="math inline">\(k\)</span> ones in <span class="math inline">\(n\)</span> Bernoulli trials means <span class="math inline">\(S_n=k\)</span>. Then the sample <span class="math inline">\(\overline{X_n}=\frac1{n}(X_1+\ldots+X_n)=S_n/n\)</span> takes the value <span class="math inline">\(\frac{k}{n}\)</span>. We have that <span class="math display">\[
+<p><span class="proof-title"><em>Remark</em>. </span>Note that <span class="math inline">\(S_n:=X_1+\ldots+X_n\sim Bin(n,\theta)\)</span> is the binomial random variable, and <span class="math inline">\(k\)</span> ones in <span class="math inline">\(n\)</span> Bernoulli trials means <span class="math inline">\(S_n=k\)</span>. Then the sample <span class="math inline">\(\overline{X}_n=\frac1{n}(X_1+\ldots+X_n)=S_n/n\)</span> takes the value <span class="math inline">\(\frac{k}{n}\)</span>. We have that <span class="math display">\[
 \E(X) = 1\cdot \theta+ 0\cdot(1-\theta)=\theta,
 \]</span> and the law of large numbers says that (in certain sense) <span class="math display">\[
 \overline{X}_n\to \theta, \quad n\to\infty.
-\]</span> In other words, the maximum likelihood estimator converges to the theoretical value is the size of the sample converges to infinity.</p>
+\]</span> In other words, the maximum likelihood estimator converges to the theoretical value as the sample size converges to infinity.</p>
 </div>
 <div id="Po-like" class="Example">
 <div class="callout callout-style-default no-icon callout-titled Example">

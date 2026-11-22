@@ -327,7 +327,7 @@ F_X(x) =\P(X\leq x).
 </div>
 </div>
 <div class="proof remark">
-<p><span class="proof-title"><em>Remark</em>. </span>As you can see, the same formula holds for a discrete random variables, however, for continuous r.v. it does not provide an expression to calculate the probability. For this, we need the probaility denisty funciton defined below.</p>
+<p><span class="proof-title"><em>Remark</em>. </span>As you can see, the same formula holds for a discrete random variable, however, for continuous r.v. it does not provide an expression to calculate the probability. For this, we need the probability denisty funciton defined below.</p>
 </div>
 <div id="cell-fig-c-pdf" class="cell" data-message="false" data-execution_count="2">
 <div class="cell-output cell-output-display">
@@ -368,7 +368,7 @@ Figure&nbsp;5.1: Visual representation of probabilities for a continuous random 
 <div class="callout-title-container flex-fill">Remember</div>
 </div>
 <div class="callout-body-container callout-body">
-<p>For conitnuous random variables, <span class="math display">\[
+<p>For continuous random variables, <span class="math display">\[
   \P(X=a)=0, \qquad a\in\mathbb{R}.
 \]</span> Therefore, <span class="math display">\[
 \begin{aligned}
@@ -525,7 +525,7 @@ c-3=\frac43, \qquad  c=\frac{13}{3}\in[1,5].
 <div class="callout-title-container flex-fill">Definition 5.3</div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Recall that the (discrete) Poisson random variable models the number of independent events occurring in a fixed interval of time.The exponential distribution is a continuous probability distribution that models the time between these independent events. It is commonly used to model waiting times.</p>
+<p>Recall that the (discrete) Poisson random variable models the number of independent events occurring in a fixed interval of time. The exponential distribution is a continuous probability distribution that models the time between these independent events. It is commonly used to model waiting times.</p>
 </div>
 </div>
 </div>
@@ -587,7 +587,7 @@ X\sim \mathrm{Exp}(\lambda).
 \]</span></p>
 <ol start="2" type="a">
 <li><p>We need to find <span class="math display">\[
-\P(X\geq15)=1-\P(X&lt;15)=1-F_X(10)=e^{-0.05\cdot 15}=e^{-0.75}\approx 0.4724.
+\P(X\geq15)=1-\P(X&lt;15)=1-F_X(15)=e^{-0.05\cdot 15}=e^{-0.75}\approx 0.4724.
 \]</span></p></li>
 <li><p>Since <span class="math display">\[
 \E(X)=\frac{1}{0.05}=20,
@@ -608,7 +608,7 @@ X\sim \mathrm{Exp}(\lambda).
 <ul>
 <li><p>The <strong>Normal Distribution</strong> is also known as the <strong>Gaussian Distribution</strong></p></li>
 <li><p>The shape of its PDF is symmetric and often called <em>bell-shaped</em>.</p></li>
-<li><p>The normal distribution is widely used in probability and statistics, especially, because of the central limit theorem which we will discuss later in this course. Its consequence is that the averages of large samples behave simialrly, i.e.&nbsp;“normally”, regardless of the individual behaviour of the elements in these samples.</p></li>
+<li><p>The normal distribution is widely used in probability and statistics, especially, because of the central limit theorem which we will discuss later in this course. Its consequence is that the averages of large samples behave similarly, i.e.&nbsp;“normally”, regardless of the individual behaviour of the elements in these samples.</p></li>
 </ul>
 </div>
 </div>
@@ -730,9 +730,9 @@ F_X(x)=\Phi(z), \qquad z=\frac{x-\mu}{\sigma}.
 <div class="callout-body-container callout-body">
 <p>Calculate the probability that a randomly selected individual has a height between <span class="math inline">\(162\)</span> cm and <span class="math inline">\(169\)</span> cm, given that the population mean height is <span class="math inline">\(165\)</span> cm and the standard deviation is <span class="math inline">\(10\)</span> cm, and that the heights follow the normal distribution.</p>
 <p><em>Solution:</em> Let <span class="math inline">\(X\)</span> be the random variable representing the height of an individual. It is given then that <span class="math inline">\(X\sim\mathcal{N}(\mu,\sigma^2)\)</span>, where <span class="math inline">\(\mu=165\)</span>, <span class="math inline">\(\sigma=10\)</span>. We need to find <span class="math display">\[
-\P(162 \leq X \leq 173).
+\P(162 \leq X \leq 169).
 \]</span></p>
-<p><em>First step.</em> We rewrite the required probabiligy in terms of the random variable <span class="math display">\[
+<p><em>First step.</em> We rewrite the required probability in terms of the random variable <span class="math display">\[
 Z=\frac{X-\mu}{\sigma}, \qquad Z\sim\mathrm{N}(0,1).
 \]</span> Namely, we have <span class="math display">\[
 \begin{aligned}

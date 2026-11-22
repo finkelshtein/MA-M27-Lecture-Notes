@@ -260,7 +260,7 @@ window.Quarto = {
 \newcommand{\dy}{\,\mathrm{d}y}
 \newcommand{\eps}{\varepsilon}
 \]</span></p>
-<p>This chapter follows chapter 17 of by G.M.Clarke and D.Cooke. Another useful resource is by S.Lakin.</p>
+<p>This chapter follows chapter 17 of by G. M. Clarke and D. Cooke. Another useful resource is by S. Lakin.</p>
 <p>In many situations of uncertainty we have to make a choice between two possible alternatives, for example, given a coin we might ask whether it is fair. In this section we deal with the problem of finding a method for choosing between two possible outcomes.</p>
 <div id="cnb-1-Definition" class="Definition">
 <div class="callout callout-style-default no-icon callout-titled Definition">
@@ -298,7 +298,7 @@ H_0:p=\frac12
 <div class="callout-title-container flex-fill">Remark 7.3</div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Some statisticians say that a hypothesis test can have one of two outcomes: you reject or accept <span class="math inline">\(H_0\)</span>. Other statisticians do not like the phrase “accept” and prefer to to say either that you reject or fail to reject <span class="math inline">\(H_0\)</span>.</p>
+<p>Some statisticians say that a hypothesis test can have one of two outcomes: you reject or accept <span class="math inline">\(H_0\)</span>. Other statisticians do not like the phrase <code>accept</code> and prefer to say either that you reject or fail to reject <span class="math inline">\(H_0\)</span>.</p>
 </div>
 </div>
 </div>
@@ -369,7 +369,7 @@ z=\frac{\bar{x}-\mu}{\frac{\sigma}{\sqrt{n}}}=\frac{0.989-1}{\frac{0.02}{5}}=-2.
 </div>
 </div>
 </div>
-<p>In particular, <span class="math inline">\(P(Z\geq -2.75)=0.003&lt;0.005 (\tfrac{\alpha}{2})\)</span> and therefore we reject <span class="math inline">\(H_0\)</span>.</p>
+<p>In particular, <span class="math inline">\(P(Z\leq -2.75)=0.003&lt;0.005 (\tfrac{\alpha}{2})\)</span> and therefore we reject <span class="math inline">\(H_0\)</span>.</p>
 </div>
 </div>
 </div>
@@ -445,7 +445,7 @@ z=\frac{\bar{x}-\mu}{\frac{\sigma}{\sqrt{n}}}=\frac{83.1-84.1}{\frac{2.6}{6}}=-2
 <div class="callout-title-container flex-fill">Definition 7.8</div>
 </div>
 <div class="callout-body-container callout-body">
-<p>If <span class="math inline">\(x_1,\ldots,x_n\)</span> is a family random variables of size <span class="math inline">\(n\geq 2\)</span> from the distribution <span class="math inline">\(X\sim N(\mu,\sigma^2)\)</span>, the random variable <span class="math display">\[
+<p>If <span class="math inline">\(x_1,\ldots,x_n\)</span> is a family of random variables of size <span class="math inline">\(n\geq 2\)</span> from the distribution <span class="math inline">\(X\sim N(\mu,\sigma^2)\)</span>, the random variable <span class="math display">\[
 T=\frac{\bar{x}-\mu}{\frac{s}{\sqrt{n}}}
 \]</span> is said to have a <strong><span class="math inline">\(t\)</span> distribution</strong> with <span class="math inline">\((n-1)\)</span> degrees of freedom.</p>
 </div>
@@ -578,7 +578,7 @@ t=\frac{\bar{D}-\mu_0}{\frac{s_D}{\sqrt{n}}}
 <p>Assuming the differences between these number-pairs to be normally distributed, test:</p>
 <ul>
 <li><p><span class="math inline">\(H_0:\mu_D=\mu_B-\mu_A=0\)</span></p></li>
-<li><p><span class="math inline">\(H_0:\mu_D=\mu_B-\mu_A\neq0\)</span> (two-tailed)</p></li>
+<li><p><span class="math inline">\(H_1:\mu_D=\mu_B-\mu_A\neq0\)</span> (two-tailed)</p></li>
 <li><p><span class="math inline">\(\alpha=0.05\)</span></p></li>
 </ul>
 <p>The sample mean and variances of the two processes are given by: <span class="math display">\[

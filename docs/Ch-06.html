@@ -310,7 +310,7 @@ F_{X,Y}(x,y)=\P(X\leq x, Y\leq y).
 </div>
 </div>
 <div class="proof remark">
-<p><span class="proof-title"><em>Remark</em>. </span>In some cases, the joint CDF can be calculated manually from the description of the problem. However, in general, to calculate the joint CDF, we need to have additional information: joint probaility mass function in discrete case and joint probability density function in continuous case.</p>
+<p><span class="proof-title"><em>Remark</em>. </span>In some cases, the joint CDF can be calculated manually from the description of the problem. However, in general, to calculate the joint CDF, we need to have additional information: joint probability mass function in discrete case and joint probability density function in continuous case.</p>
 </div>
 <div id="cnb-2-Memorize" class="Memorize">
 <div class="callout callout-style-default no-icon callout-titled Memorize">
@@ -332,7 +332,7 @@ F_{X,Y}(x,y) =\sum_{x_i\leq x}\sum_{y_j\leq y}p_{X,Y}(x_i,y_j).
 <div class="callout-title-container flex-fill">Memorize</div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Let <span class="math inline">\(X,Y:\Omega\to\R\)</span> be two <em>continuous random variable</em> with the joint CDF <span class="math inline">\(F_{X,Y}\)</span>. Their <strong>joint probability density function</strong> (<strong>joint PDF</strong>) is the function <span class="math inline">\(f_{X,Y}:\R^2\to\R\)</span> such that <span class="math display">\[
+<p>Let <span class="math inline">\(X,Y:\Omega\to\R\)</span> be two <em>continuous random variables</em> with the joint CDF <span class="math inline">\(F_{X,Y}\)</span>. Their <strong>joint probability density function</strong> (<strong>joint PDF</strong>) is the function <span class="math inline">\(f_{X,Y}:\R^2\to\R\)</span> such that <span class="math display">\[
 F_{X,Y}(x,y) = \int_{-\infty}^x\biggl(\int_{-\infty}^y f_{X,Y}(u,v)\,\mathrm{d}v \biggr) \mathrm{d}u.
 \]</span> Note that <span class="math display">\[
 \int_{-\infty}^\infty\biggl(\int_{-\infty}^\infty f_{X,Y}(u,v)\,\mathrm{d}v \biggr) \mathrm{d}u = 1.
@@ -352,11 +352,11 @@ F_{X,Y}(x,y)&amp; = \P(X\leq x, X^2\leq y)=\P(0\leq X\leq x, X^2\leq y) \\ &amp;
   \P(0\leq X\leq x, -\sqrt{y}\leq X\leq \sqrt{y})\\
   &amp;=\P(0\leq X\leq \min\{x,\sqrt{y}\})\\
   &amp; = \begin{cases}
-    1, &amp; \text{if } \min\{x,y\}\geq 1,\\
-    \min\{x,\sqrt{y}\}, &amp; \text{if } \min\{x,y\}&lt; 1.
+    1, &amp; \text{if } \min\{x,\sqrt{y}\}\geq 1,\\
+    \min\{x,\sqrt{y}\}, &amp; \text{if } \min\{x,\sqrt{y}\}&lt; 1.
   \end{cases}
 \end{aligned}
-\]</span> However, if we just have two random variables, e.g.&nbsp;<span class="math inline">\(X\sim U(0,1)\)</span> and <span class="math inline">\(Y=\sim(0,1)\)</span>, then we can’t <em>calculate</em> <span class="math inline">\(F_{X,Y}\)</span>, unless we explicitly <em>define</em> the function <span class="math inline">\(f_{X,Y}\)</span>.</p>
+\]</span> However, if we just have two random variables, e.g.&nbsp;<span class="math inline">\(X\sim U(0,1)\)</span> and <span class="math inline">\(Y=\sim U(0,1)\)</span>, then we can’t <em>calculate</em> <span class="math inline">\(F_{X,Y}\)</span>, unless we explicitly <em>define</em> the function <span class="math inline">\(f_{X,Y}\)</span>.</p>
 </div>
 </div>
 </div>
@@ -585,9 +585,9 @@ F_{X_1,\ldots,X_n}(x_1,\ldots,x_n) = F_{X_1}(x_1)\ldots F_{X_n}(x_n).
 </div>
 </div>
 <div class="proof remark">
-<p><span class="proof-title"><em>Remark</em>. </span>In other words, the bigger <span class="math inline">\(n\)</span> you take, the smaller chances are for the event <span class="math inline">\(\{|\bar{X}_n-\mu|&gt;\varepsilon\}\)</span>. Equivalently, one can state that <span class="math display">\[
+<p><span class="proof-title"><em>Remark</em>. </span>In other words, if one takes a sufficiently large <span class="math inline">\(n\)</span>, the chances for the event <span class="math inline">\(\{|\bar{X}_n-\mu|&gt;\varepsilon\}\)</span> are close to <span class="math inline">\(0\)</span>. Equivalently, one can state that <span class="math display">\[
 \lim_{n\to\infty} \P(|\bar{X}_n-\mu|\leq \varepsilon) = 1,
-\]</span> i.e.&nbsp;the bigger <span class="math inline">\(n\)</span> you take, the <em>larger</em> chances are for the event <span class="math inline">\(|\bar{X}_n-\mu|\leq \varepsilon\)</span> that is equivalent to <span class="math inline">\(\mu-\varepsilon&lt;\bar{X}_n&lt;\mu+\varepsilon\)</span>. Thus, informally speaking, with <span class="math inline">\(n\)</span> growing, there are good chances to find <span class="math inline">\(\bar{X}_n\)</span> around <span class="math inline">\(\mu\)</span>. We can choose <span class="math inline">\(\varepsilon\)</span> arbitrary small, i.e.&nbsp;we can require that <span class="math inline">\(\bar{X}_n\)</span> must very close to <span class="math inline">\(\mu\)</span>, and the law of large numbers states that there is high probability (close to <span class="math inline">\(1\)</span>) to achieve this if we take <span class="math inline">\(n\)</span> alrge enough.</p>
+\]</span> i.e.&nbsp;if one takes a sufficiently large <span class="math inline">\(n\)</span>, the chances for the event <span class="math inline">\(|\bar{X}_n-\mu|\leq \varepsilon\)</span> or, equivalently, <span class="math inline">\(\mu-\varepsilon&lt;\bar{X}_n&lt;\mu+\varepsilon\)</span>, are close to <span class="math inline">\(1\)</span>. Thus, informally speaking, with <span class="math inline">\(n\)</span> growing, there are good chances to find <span class="math inline">\(\bar{X}_n\)</span> around <span class="math inline">\(\mu\)</span>. We can choose <span class="math inline">\(\varepsilon\)</span> arbitrary small, i.e.&nbsp;we can require that <span class="math inline">\(\bar{X}_n\)</span> must be very close to <span class="math inline">\(\mu\)</span>, and the law of large numbers states that there is high probability (close to <span class="math inline">\(1\)</span>) to achieve this if we take <span class="math inline">\(n\)</span> large enough.</p>
 </div>
 <div id="cnb-17-Remember" class="Remember">
 <div class="callout callout-style-default no-icon callout-titled Remember">
@@ -597,7 +597,7 @@ F_{X_1,\ldots,X_n}(x_1,\ldots,x_n) = F_{X_1}(x_1)\ldots F_{X_n}(x_n).
 <div class="callout-body-container callout-body">
 <p>Let <span class="math inline">\(A\)</span> be a random event as a result of an experiment; let <span class="math inline">\(\P(A) =p\)</span>. Consider the Bernoulli random variable <span class="math inline">\(X\)</span> with <span class="math inline">\(X=1\)</span> if <span class="math inline">\(A\)</span> holds and <span class="math inline">\(X=0\)</span> otherwise. Let <span class="math inline">\(X_1,\ldots,X_n,\ldots\)</span> be i.i.d. r.v. with <span class="math inline">\(X_n\sim X\)</span>. Then <span class="math display">\[
 \mu=\E(X) = 1\cdot p +0\cdot (1-p)=p.
-\]</span> Next, the sample average <span class="math inline">\(\bar{X}_n=\frac1n(X_1+\ldots+X_n)\)</span> is the number of times when <span class="math inline">\(A\)</span> took place when we repeated the experiment <span class="math inline">\(n\)</span> times. (Note that <span class="math inline">\(X_1+\ldots+X_n\sim Bin(n,p)\)</span>.) Therefore, <span class="math inline">\(\bar{X}_n\)</span> is the frequency of the event <span class="math inline">\(A\)</span> took place among <span class="math inline">\(n\)</span> trials. Then LLN states that <span class="math display">\[
+\]</span> Next, the sample average <span class="math inline">\(\bar{X}_n=\frac1n(X_1+\ldots+X_n)\)</span> is the proportion of the number of times when <span class="math inline">\(A\)</span> took place when we repeated the experiment <span class="math inline">\(n\)</span> times. (Note that <span class="math inline">\(X_1+\ldots+X_n\sim Bin(n,p)\)</span>.) Therefore, <span class="math inline">\(\bar{X}_n\)</span> is the frequency of the event <span class="math inline">\(A\)</span> took place among <span class="math inline">\(n\)</span> trials. Then LLN states that <span class="math display">\[
 \frac{\text{number of trials when $A$ happened}}{\text{number $n$ of all trial}}\to \P(A)
 \]</span> in a proper sense (as <span class="math inline">\(n\to\infty\)</span>). This corresponds to our “intuitive” understanding of the probability.</p>
 </div>
@@ -609,7 +609,7 @@ F_{X_1,\ldots,X_n}(x_1,\ldots,x_n) = F_{X_1}(x_1)\ldots F_{X_n}(x_n).
 <div class="callout-title-container flex-fill">Example 6.3</div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Consider many rolls of a fair <span class="math inline">\(6\)</span>-sides dice. Let <span class="math inline">\(X_j\)</span> be the score of the <span class="math inline">\(j\)</span>-th roll, and <span class="math inline">\(S_n=X_1+\ldots+X_n\)</span> be the sum of the scores in the first <span class="math inline">\(n\)</span> rolls. All <span class="math inline">\(X_j\)</span> are i.i.d. r.v. with <span class="math display">\[
+<p>Consider many rolls of a fair six-sided die. Let <span class="math inline">\(X_j\)</span> be the score of the <span class="math inline">\(j\)</span>-th roll, and <span class="math inline">\(S_n=X_1+\ldots+X_n\)</span> be the sum of the scores in the first <span class="math inline">\(n\)</span> rolls. All <span class="math inline">\(X_j\)</span> are i.i.d. r.v. with <span class="math display">\[
 \E(X)=1\cdot \frac16 + 2\cdot \frac16 + \ldots + 6\cdot \frac16=\frac{7\cdot 6}{2}\cdot \frac16 = \frac72.
 \]</span> Therefore, by LLN, for any small <span class="math inline">\(\eps&gt;0\)</span>, <span class="math display">\[
 \lim_{n\to\infty}\P\Biggl( \biggl\lvert \frac{S_n}{n} - \frac72\biggr\rvert \leq \eps \Biggr) = 1,
@@ -656,7 +656,7 @@ Z_n:= \frac{\overline{X}_n - \E(\overline{X}_n)}{\sigma(\overline{X}_n )} = \fra
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Let <span class="math inline">\(X_1,\ldots,X_n,\ldots\)</span> be i.i.d. r.v. with <span class="math inline">\(X_n\sim X\)</span>, <span class="math inline">\(\mu:=\E(X)\)</span>, <span class="math inline">\(\sigma^2:=\var{X}&lt;\infty\)</span>. Let <span class="math inline">\(Z_n\)</span> be defined as above. Then <span class="math display">\[
+<p>Let <span class="math inline">\(X_1,\ldots,X_n,\ldots\)</span> be i.i.d. r.v. with <span class="math inline">\(X_n\sim X\)</span>, <span class="math inline">\(\mu:=\E(X)\)</span>, <span class="math inline">\(\sigma^2:=\var(X)\in(0,\infty)\)</span>. Let <span class="math inline">\(Z_n\)</span> be defined as above. Then <span class="math display">\[
 Z_n\to Z\sim \mathcal{N}(0,1), \quad n\to\infty,
 \]</span> where the convergence is <em>in distribution</em>; the latter means that <span class="math display">\[
 \lim_{n\to\infty}\P(Z_n\leq z)= \Phi(z), \quad z\in\R,
@@ -676,8 +676,8 @@ Z_n\to Z\sim \mathcal{N}(0,1), \quad n\to\infty,
 <div class="callout-title-container flex-fill">Example 6.4</div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The average teacher’s salary in New Jersey in 2023 is $63178. Suppose that the salaries are distributed normallly with standard deviation $7500. Hence, we have that <span class="math inline">\(X\sim \mathcal{N}(63178,7500^2)\)</span>.</p>
-<p>Lets first find the probability that a randomly selected teacher makes less than $60000 per year. We have</p>
+<p>The average teacher’s salary in New Jersey in 2023 is $63178. Suppose that the salaries are distributed normally with standard deviation $7500. Hence, we have that <span class="math inline">\(X\sim \mathcal{N}(63178,7500^2)\)</span>.</p>
+<p>Let’s first find the probability that a randomly selected teacher makes less than $60000 per year. We have</p>
 <p><span class="math display">\[
 \begin{aligned}
 \P(X&lt;60000)&amp;=\P\biggl(\frac{X-63178}{7500}&lt;\frac{60000-63178}{7500}\biggr)\\
@@ -710,7 +710,7 @@ Z_n\to Z\sim \mathcal{N}(0,1), \quad n\to\infty,
   \biggr) \\
   &amp;= \P(\overline{Z}_{100}&lt;-4.2)\approx\Phi(-4.2)
 \end{aligned}
-\]</span> where the latter approximate equality is accroding to CLT. Since</p>
+\]</span> where the latter approximate equality is according to CLT. Since</p>
 <div id="23e0829b" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>norm.cdf(<span class="op">-</span><span class="fl">4.2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="2">

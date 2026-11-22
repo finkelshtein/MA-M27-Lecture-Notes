@@ -263,7 +263,7 @@ window.Quarto = {
 <p>Useful resources for linear regression are <em>Theory and Problems of Probability and Statistics</em> by M.R.Spiegel and <em>How to Use Statistics</em> by S.Lakin. Furthermore, useful resources for logistic regression are <em>Generalised Linear Models</em> by P.McCullagh and J.A.Nelder, and <em>Using Multivariate Statistics</em> by B.G.Tabachnick and L.S.Fidell. The material taught in this chapter will also be met from a machine learning perspective in <em>MA-M28 Modelling and Machine Learning</em> — please see chapters 5 and 6 of <em>Essential Math for Data Science</em> by T.Nield if you would like an insight into this.</p>
 <div id="cell-fig-scatter-data-lin-regr" class="cell" data-message="false" data-execution_count="2">
 <div class="cell-output cell-output-display">
-<div id="fig-scatter-data-lin-regr" class="quarto-float quarto-figure quarto-figure-center anchored" width="332" height="223">
+<div id="fig-scatter-data-lin-regr" class="quarto-float quarto-figure quarto-figure-center anchored" height="223" width="332">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-scatter-data-lin-regr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="Ch-04_files/figure-html/fig-scatter-data-lin-regr-output-1.png" id="fig-scatter-data-lin-regr" width="332" height="223" class="figure-img">
@@ -282,7 +282,7 @@ Figure&nbsp;4.1
 <p>Once a statistical model has been set up, its parameters must be estimated from the data. The method of least squares can provide good such estimates. The method minimises the sum of squared residuals, i.e.&nbsp;it minimises the sum of the square of the differences between an observed value and the value produced by the model. We will concentrate on linear least squares which will provide the theory behind simple linear regression.</p>
 <div id="cell-fig-Residuals" class="cell" data-message="false" data-execution_count="3">
 <div class="cell-output cell-output-display">
-<div id="fig-residuals" class="quarto-float quarto-figure quarto-figure-center anchored" width="308" height="203">
+<div id="fig-residuals" class="quarto-float quarto-figure quarto-figure-center anchored" height="203" width="308">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-residuals-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="Ch-04_files/figure-html/fig-residuals-output-1.png" id="fig-residuals" width="308" height="203" class="figure-img">
@@ -373,7 +373,7 @@ Note that correlation does not necessarily imply causation — variables may be 
 \hat{y}=3.743x+14.829.
 \]</span> The Pearson correlation coefficient is given by <span class="math display">\[
 r=\frac{S_{xy}}{\sqrt{S_{xx}S_{yy}}}=\frac{837}{\sqrt{223.6}\sqrt{4340}}=0.85,
-\]</span> indicating a strong positive correlation. The value of <span class="math inline">\(r^2\)</span> is 0.723 indicating that <span class="math inline">\(72.3\%\)</span> of the variance of the Marks is explained by Revision. We conclude therefore that the regression model fits the data well in this case.</p>
+\]</span> indicating a strong positive correlation. The value of <span class="math inline">\(r^2\)</span> is <span class="math inline">\(0.7219\)</span> indicating that <span class="math inline">\(72.19\%\)</span> of the variance of the Marks is explained by Revision. We conclude therefore that the regression model fits the data well in this case.</p>
 <p>The regression line can then be used to estimate the value of <span class="math inline">\(y\)</span> for a given <span class="math inline">\(x\)</span>, for example, if we wanted to predict the exam mark obtained for 11 hours of revision we obtain, <span class="math display">\[
 \hat{y}=3.743\times11+14.829\approx56.
 \]</span> Common sense should be used when predicting using the regression model; we cannot predict outside the possible range of the <span class="math inline">\(x\)</span> values, we would not, for example, try to predict what happens if a student were to revise for -5 hours.</p>
@@ -404,7 +404,7 @@ S_{yy}&amp;=\sum_{i=1}^n(y_i-\bar{y})^2=4340.
 \hat{y}=-2.238x+87.650.
 \]</span> and the correlation coefficient by <span class="math display">\[
 r=\frac{S_{xy}}{\sqrt{S_{xx}S_{yy}}}=\frac{-1839}{\sqrt{821.6}\sqrt{4340}}=-0.97,
-\]</span> indicating a very strong negative correlation. <span class="math inline">\(r^2=0.941\)</span>, indicating that <span class="math inline">\(94.1\%\)</span> of the variance of Marks is explained by Classes Missed and we conclude that the regression model fits the data very well.</p>
+\]</span> indicating a very strong negative correlation. <span class="math inline">\(r^2=0.948\)</span>, indicating that <span class="math inline">\(94.8\%\)</span> of the variance of Marks is explained by Classes Missed and we conclude that the regression model fits the data very well.</p>
 </div>
 </div>
 </div>
@@ -440,7 +440,7 @@ V=\beta_0'+\beta_1u_1+\beta_2u_2+e.
 \]</span> The constant term changes from <span class="math inline">\(\beta_0\)</span> to <span class="math inline">\(\beta_0'\)</span>. Again the method of least squares is used where the quantity to be minimised with respect to variation in <span class="math inline">\(\beta_0'\)</span>, <span class="math inline">\(\beta_1\)</span> and <span class="math inline">\(\beta_2\)</span> is <span class="math display">\[
 Q=\sum_{i=1}^n(v_i-\beta_0'-\beta_1u_{1i}-\beta_2u_{2i})^2.
 \]</span></p>
-<p>Again, we will not go into the details of this process as it uses methods that are beyond the scope of this module. Essentially the process results with the equations: <span class="math display">\[
+<p>Again, we will not go into the details of this process as it uses methods that are beyond the scope of this module. Essentially the process results in the equations: <span class="math display">\[
 \begin{aligned}
 \hat{\beta}_1\sum_{i=1}^n u^2_{1i}+\hat{\beta}_2\sum_{i=1}^n u_{1i}u_{2i}&amp;=\sum_{i=1}^n u_{1i}v_i,\\
 \hat{\beta}_1\sum_{i=1}^n u_{1i}u_{2i}+\hat{\beta}_2\sum_{i=1}^n u_{2i}^2&amp;=\sum_{i=1}^n u_{2i}v_i.
@@ -503,7 +503,7 @@ D&amp;=58.1\times120.4-(16.2)^2=6732.8\\[3mm]
 <section id="binary-logistic-regression" class="level2" data-number="4.4">
 <h2 data-number="4.4" class="anchored" data-anchor-id="binary-logistic-regression"><span class="header-section-number">4.4</span> (Binary) Logistic Regression</h2>
 <p>The main use of logistic regression is to predict a binary outcome from a linear combination of independent variables. For example, we may wish to predict the probability of passing an exam from the independent variables attendance at lectures and hours of revision. This is also used in insurance to calculate the propensity to claim.</p>
-<p>Firstly, the dependent variable <span class="math inline">\(Y\sim Bin(1,p)\)</span>, and we want to use the a linear combination of the independent variables to predict <span class="math inline">\(p\)</span>.</p>
+<p>Firstly, the dependent variable <span class="math inline">\(Y\sim Bin(1,p)\)</span>, and we want to use a linear combination of the independent variables to predict <span class="math inline">\(p\)</span>.</p>
 <p>For this method we make use of the <strong>logit</strong> function, which is the <strong>log odds</strong>. In particular, we have<br>
 <span class="math display">\[      
 odds=\frac{p}{1-p}.      
@@ -515,7 +515,7 @@ Then, the link function we use is<br>
 The graph of this function is as follows:</p>
 <div id="cell-fig-logit" class="cell" data-message="false" data-execution_count="4">
 <div class="cell-output cell-output-display">
-<div id="fig-logit" class="quarto-float quarto-figure quarto-figure-center anchored" width="320" height="217">
+<div id="fig-logit" class="quarto-float quarto-figure quarto-figure-center anchored" height="217" width="320">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-logit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="Ch-04_files/figure-html/fig-logit-output-1.png" id="fig-logit" width="320" height="217" class="figure-img">
@@ -546,7 +546,7 @@ y=\beta_0+\beta_1x_1+\cdots+\beta_nx_n,
 <p>This is an example of a sigmoid function, the graph of which is as follows:</p>
 <div id="cell-fig-sigmoid" class="cell" data-message="false" data-execution_count="5">
 <div class="cell-output cell-output-display">
-<div id="fig-sigmoid" class="quarto-float quarto-figure quarto-figure-center anchored" width="265" height="180">
+<div id="fig-sigmoid" class="quarto-float quarto-figure quarto-figure-center anchored" height="180" width="265">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-sigmoid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="Ch-04_files/figure-html/fig-sigmoid-output-1.png" id="fig-sigmoid" width="265" height="180" class="figure-img">

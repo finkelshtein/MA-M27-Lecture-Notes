@@ -356,7 +356,7 @@ X_1,X_2,X_3,\ldots, X_n, \ldots \in\R.
 <div class="callout-title-container flex-fill">Remember</div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The standard example of white noise is a colelction of i.i.d.r.v. <span class="math inline">\(Z_n\sim\mathcal{N}(0,\sigma^2)\)</span>.</p>
+<p>The standard example of white noise is a collection of i.i.d.r.v. <span class="math inline">\(Z_n\sim\mathcal{N}(0,\sigma^2)\)</span>.</p>
 </div>
 </div>
 </div>
@@ -364,16 +364,16 @@ X_1,X_2,X_3,\ldots, X_n, \ldots \in\R.
 <h2 data-number="9.1" class="anchored" data-anchor-id="autoregressive-model-ar1"><span class="header-section-number">9.1</span> Autoregressive model <span class="math inline">\(AR(1)\)</span></h2>
 <p>We consider a time series <span class="math inline">\(\{X_n\}\)</span> which satisfies <span class="math display">\[
 X_n=\mu+\alpha (X_{n-1}-\mu)+Z_n,
-\]</span> whre <span class="math inline">\(\mu\in\R\)</span> is a constant, <span class="math inline">\(\{Z_n\}\)</span> is a white noise, and <span class="math inline">\(\alpha\in\R\)</span> is a parameter. <strong>We will always assume that <span class="math inline">\(\{Z_n\}\)</span> is independent from <span class="math inline">\(\{X_n\}\)</span>.</strong> We denote <span class="math inline">\(Y_n=X_n-\mu\)</span>, then <span class="math display">\[
+\]</span> where <span class="math inline">\(\mu\in\R\)</span> is a constant, <span class="math inline">\(\{Z_n\}\)</span> is a white noise, and <span class="math inline">\(\alpha\in\R\)</span> is a parameter. <strong>We will always assume that <span class="math inline">\(\{Z_n\}\)</span> is independent from <span class="math inline">\(\{X_m\}\)</span>, <span class="math inline">\(m&lt;n\)</span>.</strong> We denote <span class="math inline">\(Y_n=X_n-\mu\)</span>, then <span class="math display">\[
 Y_n=\alpha Y_{n-1}+Z_n.
 \]</span> We are going to find conditions to have <span class="math inline">\(X_n\)</span> stationary. In particular, one needs that <span class="math inline">\(\E(X_n)\)</span> and <span class="math inline">\(\var(X_n)\)</span> are constants.</p>
 <p>Since <span class="math inline">\(\E(Y_n)=\E(X_n-\mu)=\E(X_n)-\mu\)</span> and <span class="math inline">\(\var(Y_n)=\var(X_n-\mu)=\var(X_n)\)</span>, we must then have both <span class="math inline">\(\E(Y_n)=:k\)</span> and <span class="math inline">\(\var(Y_n)=:v\)</span> constants. We can write <span class="math display">\[
 \E(Y_n)=\E(\alpha Y_{n-1}+Z_n)=\alpha \E(Y_{n-1})+\E(Z_n),
-\]</span> i.e.&nbsp;<span class="math inline">\(k=\alpha k+0\)</span>, and hence, either <span class="math inline">\(\alpha=1\)</span> or <span class="math inline">\(k=0\)</span>. Next, since Z_n is independent from <span class="math inline">\(\{X_n\}\)</span> (and hence, from <span class="math inline">\(\{Y_n\}\)</span>), we get <span class="math display">\[
+\]</span> i.e.&nbsp;<span class="math inline">\(k=\alpha k+0\)</span>, and hence, either <span class="math inline">\(\alpha=1\)</span> or <span class="math inline">\(k=0\)</span>. Next, since <span class="math inline">\(Z_n\)</span> is independent from <span class="math inline">\(\{X_m\}\)</span>, <span class="math inline">\(m&lt;n\)</span> (and hence, from <span class="math inline">\(\{Y_m\}\)</span>, <span class="math inline">\(m&lt;n\)</span>), we get <span class="math display">\[
 \var(Y_n)=\var(\alpha Y_{n-1}+Z_n)=\alpha^2\var(Y_{n-1})+\var(Z_n),
 \]</span> i.e. <span class="math display">\[
 v (1-\alpha^2)=\sigma^2.
-\]</span> If <span class="math inline">\(1-\alpha^2=0\)</span>, i.e.&nbsp;<span class="math inline">\(\alpha=\pm 1\)</span>, then <span class="math inline">\(\sigma=0\)</span>, that is impossible. Hence <span class="math inline">\(\alpha\neq\pm1\)</span> (and thus, <span class="math inline">\(\E(X_n)=0\)</span> for all <span class="math inline">\(n\)</span>). Moreover, for <span class="math inline">\(\alpha\neq\pm1\)</span>, we have <span class="math display">\[
+\]</span> If <span class="math inline">\(1-\alpha^2=0\)</span>, i.e.&nbsp;<span class="math inline">\(\alpha=\pm 1\)</span>, then <span class="math inline">\(\sigma=0\)</span>, that is impossible. Hence <span class="math inline">\(\alpha\neq\pm1\)</span> (and thus, <span class="math inline">\(\E(Y_n)=0\)</span>, hence <span class="math inline">\(\E(X_n)=\mu\)</span> for all <span class="math inline">\(n\)</span>). Moreover, for <span class="math inline">\(\alpha\neq\pm1\)</span>, we have <span class="math display">\[
 \var(X_n)=v=\frac{\sigma^2}{1-\alpha^2}.  
 \]</span> Since <span class="math inline">\(\var(X_n)\geq0\)</span>, we require <span class="math inline">\(1-\alpha^2&gt;0\)</span>, i.e. <span class="math display">\[
 |\alpha|&lt;1 \Longleftrightarrow -1&lt;\alpha&lt;1.
@@ -388,7 +388,7 @@ v (1-\alpha^2)=\sigma^2.
 X_n=\alpha X_{n-1}+Z_n
 \]</span> we consider the equation <span class="math display">\[
 1- \alpha \lambda =0.
-\]</span> The time series is staionary if and only if <span class="math inline">\(|\lambda|{\color{red}&gt;}1\)</span> (note that here <span class="math inline">\(\lambda=\dfrac1\alpha\)</span>).</p>
+\]</span> The time series is stationary if and only if <span class="math inline">\(|\lambda|{\color{red}&gt;}1\)</span> (note that here <span class="math inline">\(\lambda=\dfrac1\alpha\)</span>).</p>
 </div>
 </div>
 </div>
@@ -422,8 +422,9 @@ X_n=\mu  + \alpha_1 (X_{n-1}-\mu)
 <div class="callout-body-container callout-body">
 <p>The <strong>characteristic equation</strong> of (<a href="#eq-AR2" class="quarto-xref"><span>9.1</span></a>) is <span class="math display">\[
 1-\alpha_1\lambda -\alpha_2\lambda^2=0.
-\]</span> This equation has two roots (they are, possibly, complex numbers): <span class="math inline">\(\lambda_1, \lambda_2\)</span>. The time series (<a href="#eq-AR2" class="quarto-xref"><span>9.1</span></a>) is <em>stationary</em> if and only if <span class="math display">\[
-|\lambda_1|&gt;1 \quad\text{**and**}\quad |\lambda_2|&gt;1.
+\]</span> This equation has two roots (they are, possibly, complex numbers): <span class="math inline">\(\lambda_1, \lambda_2\)</span>. The time series (<a href="#eq-AR2" class="quarto-xref"><span>9.1</span></a>) is <em>stationary</em> if and only if</p>
+<p><span class="math display">\[
+|\lambda_1|&gt;1 \quad\text{\textbf{and}}\quad |\lambda_2|&gt;1.
 \]</span></p>
 </div>
 </div>
@@ -444,8 +445,8 @@ x_1= \frac{-b-\sqrt{D}}{2a}, \qquad
 x_2= \frac{-b+\sqrt{D}}{2a},
 \]</span> where the <em>discriminant</em> <span class="math inline">\(D\)</span> is given by <span class="math display">\[
 D=b^2-4ac.
-\]</span> If <span class="math inline">\(D\leq 0\)</span> the roots are real numbers (and they are equal if <span class="math inline">\(D=0\)</span>. If <span class="math inline">\(D&lt;0\)</span> the roots are complex numbers: <span class="math inline">\(x_{1,2}= p\pm qi\)</span>, where <span class="math inline">\(i^2=-1\)</span>.</p></li>
-<li><p>Two complex numbers <span class="math inline">\(p+ qi\)</span> and <span class="math inline">\(p - qi\)</span> has the same absolute value: <span class="math display">\[
+\]</span> If <span class="math inline">\(D\geq 0\)</span> the roots are real numbers (and they are equal if <span class="math inline">\(D=0\)</span>). If <span class="math inline">\(D&lt;0\)</span> the roots are complex numbers: <span class="math inline">\(x_{1,2}= p\pm qi\)</span>, where <span class="math inline">\(i^2=-1\)</span>.</p></li>
+<li><p>Two complex numbers <span class="math inline">\(p+ qi\)</span> and <span class="math inline">\(p - qi\)</span> have the same absolute value: <span class="math display">\[
 |p\pm qi|=\sqrt{p^2+q^2}.
 \]</span></p></li>
 </ul>
@@ -460,7 +461,7 @@ D=b^2-4ac.
 <p>Consider the time series <span class="math display">\[
 X_n=\frac1{12}X_{n-1}+\frac12X_{n-2}+Z_n,
 \]</span> where <span class="math inline">\(\{Z_n\}\)</span> is a white noise. Is <span class="math inline">\(\{X_n\}\)</span> stationary?</p>
-<p><em>Solution:</em> Consoder the characteristic equation <span class="math display">\[
+<p><em>Solution:</em> Consider the characteristic equation <span class="math display">\[
 \begin{gathered}
 1= \frac1{12}\lambda+\frac12\lambda^2,\\
 \lambda^2 +\frac16\lambda-2=0,\\
@@ -542,7 +543,7 @@ X_n=\mu  &amp;+ \alpha_1 (X_{n-1}-\mu)
 <div class="callout-title-container flex-fill">Remember</div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The characteristic equation and the coinditions for stationarity for <span class="math inline">\(ARMA(p,q)\)</span> coincide with such for its <span class="math inline">\(AR(p)\)</span> component.</p>
+<p>The characteristic equation and the conditions for stationarity for <span class="math inline">\(ARMA(p,q)\)</span> coincide with such for its <span class="math inline">\(AR(p)\)</span> component.</p>
 </div>
 </div>
 </div>

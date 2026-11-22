@@ -260,7 +260,7 @@ window.Quarto = {
 \newcommand{\dy}{\,\mathrm{d}y}
 \newcommand{\eps}{\varepsilon}
 \]</span></p>
-<p>This section will follow closely Chapter 3 of <em>Essential Math for Data Science</em> by T.Nield (see the Reading List on Canvas).</p>
+<p>This section will follow closely Chapter 3 of <em>Essential Math for Data Science</em> by T. Nield (see the Reading List on Canvas).</p>
 <p>In simple terms, statistics is the collection, analysis and interpretation of data. Data can be qualitative (e.g.&nbsp;hair colour, make of car, etc.) or quantitative (numerical). Data can also be discrete or continuous, where discrete data is distinct, e.g.&nbsp;hair colour and continuous data takes a range of values, e.g.&nbsp;height.</p>
 <p>Probability often plays a large role in statistics, as we use data to estimate how likely an event is to happen.</p>
 <p>Statistics is the heart of many data-driven innovations. Machine learning in itself is a statistical tool, searching for possible hypotheses to correlate relationships between different variables in data.</p>
@@ -359,7 +359,7 @@ window.Quarto = {
 <div class="callout-body-container callout-body">
 <p>Eight people from the general UK population were polled on the number of pets they own. The results are shown below: <span class="math display">\[
 1, 3, 2, 5, 7, 0, 2, 3.
-\]</span> These are the <span class="math inline">\(x_1, \ldots, x_8\)</span> terms as in the previous definition of the sample mean.Therefore, the sample mean is then given by: <span class="math display">\[
+\]</span> These are the <span class="math inline">\(x_1, \ldots, x_8\)</span> terms as in the previous definition of the sample mean. Therefore, the sample mean is then given by: <span class="math display">\[
 \bar{x}=\frac{1+3+2+5+7+0+2+3}{8}=\frac{23}{8}=2.875.
 \]</span></p>
 </div>
@@ -512,15 +512,15 @@ s=\sqrt{\frac{\sum_{i=1}^n(x_i-\bar{x})^2}{n-1}.}
 <div class="callout-body-container callout-body">
 <p>In this example we are interested in studying the number of pets owned by members of staff in a certain shop (note that this is our population, not a sample). The data are as follows: <span class="math display">\[
 0,14,5,9,7,10,1.
-\]</span> The mean of this sample is 6.571, hence the variance is given by</p>
+\]</span> The mean of this population is <span class="math inline">\(6.571\)</span>, hence the variance is given by</p>
 <p><span class="math display">\[
 \begin{aligned}
 \sigma^2&amp;=\frac{\sum_{i=1}^N(x_i-\mu)^2}{N}\\
 &amp;=\text{\scriptsize{$\dfrac{(0-6.571)^2+(14-6.571)^2+(5-6.571)^2+(9-6.571)^2+(7-6.571)^2+(10-6.571)^2+(1-6.571)^2}{7}$}}\\
-&amp;=21.29.
+&amp;=21.39.
 \end{aligned}
 \]</span></p>
-<p>Therefore the standard deviation is given by <span class="math inline">\(\sigma=\sqrt{21.38}=4.62\)</span>. (All to 2dp.)</p>
+<p>Therefore the standard deviation is given by <span class="math inline">\(\sigma=\sqrt{21.39}=4.62\)</span>. (All to 2dp.)</p>
 </div>
 </div>
 </div>
@@ -537,7 +537,7 @@ s^2&amp;=\frac{\sum_{i=1}^n(x_i-\bar{x})^2}{n-1}\\
 &amp;=24.95.
 \end{aligned}
 \]</span></p>
-<p>Therefore the sample standard deviation is given by <span class="math inline">\(\sigma=\sqrt{24.95}=4.99\)</span>. (All to 2dp.)</p>
+<p>Therefore the sample standard deviation is given by <span class="math inline">\(s=\sqrt{24.95}=4.99\)</span>. (All to 2dp.)</p>
 </div>
 </div>
 </div>
@@ -632,9 +632,9 @@ Figure&nbsp;1.2
 <div class="callout-title-container flex-fill">Remark 1.27</div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Recall that the box plot visualises, in particular, the rectangle bound by the lower and upper quartiles: <span class="math inline">\(Q_1\)</span> and <span class="math inline">\(Q_3\)</span>, whereas the coloured line represents the median <span class="math inline">\(Q_2\)</span>. We know that <span class="math inline">\(Q_2\)</span> is calculated differently if the sample has even or odd number of elements. By definition, recall, <span class="math inline">\(Q_1\)</span> and <span class="math inline">\(Q_3\)</span> are medians of the lower half and upper halves of the ordered sample. However, it’s a question of agreement whether to include the median <span class="math inline">\(Q_2\)</span> to both halves or not, in the case when the number of elelements is odd. For example, let the data be <span class="math display">\[
+<p>Recall that the box plot visualises, in particular, the rectangle bound by the lower and upper quartiles: <span class="math inline">\(Q_1\)</span> and <span class="math inline">\(Q_3\)</span>, whereas the coloured line represents the median <span class="math inline">\(Q_2\)</span>. We know that <span class="math inline">\(Q_2\)</span> is calculated differently if the sample has even or odd number of elements. By definition, recall, <span class="math inline">\(Q_1\)</span> and <span class="math inline">\(Q_3\)</span> are medians of the lower half and upper halves of the ordered sample. However, it’s a question of agreement whether to include the median <span class="math inline">\(Q_2\)</span> to both halves or not, in the case when the number of elements is odd. For example, let the data be <span class="math display">\[
 1,2,3,4,5,6,7.
-\]</span> The median is <span class="math inline">\(4\)</span>, i.e.&nbsp;<span class="math inline">\(Q_2=4\)</span>. Now, we may say that the lower half is <span class="math inline">\(1,2,3\)</span>, its median is <span class="math inline">\(2\)</span>, i.e.&nbsp;<span class="math inline">\(Q_1=2\)</span>, similarly then the upper half is <span class="math inline">\(5,6,7\)</span>, hence, <span class="math inline">\(Q_3=6\)</span>. Another approach is to say that the lower part is <span class="math inline">\(1,2,3,4\)</span> (including <span class="math inline">\(Q_2=4\)</span>), and it’s median is <span class="math inline">\(\frac{2+3}{2}=2.5\)</span>, i.e.&nbsp;<span class="math inline">\(Q_1=2.5\)</span>; similarly then the upper half is <span class="math inline">\(4,5,6,7\)</span>, and hence, <span class="math inline">\(Q_3=5.5\)</span>. (<em>Python in Mathplotlib uses the second approach.</em>)</p>
+\]</span> The median is <span class="math inline">\(4\)</span>, i.e.&nbsp;<span class="math inline">\(Q_2=4\)</span>. Now, we may say that the lower half is <span class="math inline">\(1,2,3\)</span>, its median is <span class="math inline">\(2\)</span>, i.e.&nbsp;<span class="math inline">\(Q_1=2\)</span>, similarly then the upper half is <span class="math inline">\(5,6,7\)</span>, hence, <span class="math inline">\(Q_3=6\)</span>. Another approach is to say that the lower part is <span class="math inline">\(1,2,3,4\)</span> (including <span class="math inline">\(Q_2=4\)</span>), and its median is <span class="math inline">\(\frac{2+3}{2}=2.5\)</span>, i.e.&nbsp;<span class="math inline">\(Q_1=2.5\)</span>; similarly then the upper half is <span class="math inline">\(4,5,6,7\)</span>, and hence, <span class="math inline">\(Q_3=5.5\)</span>. (<em>Python in Matplotlib uses the second approach.</em>)</p>
 </div>
 </div>
 </div>

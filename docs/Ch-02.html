@@ -310,7 +310,7 @@ window.Quarto = {
 <div class="callout-title-container flex-fill">Example 2.1</div>
 </div>
 <div class="callout-body-container callout-body">
-<p>When we throw a coin ones, the possible outcomes are <span class="math inline">\(H, T\)</span> (stand for ‘head’ and ‘tail’).</p>
+<p>When we throw a coin once, the possible outcomes are <span class="math inline">\(H, T\)</span> (stand for ‘heads’ and ‘tails’).</p>
 <p>Therefore, <span class="math inline">\(\Omega=\{H, T\}\)</span>.</p>
 <p>There are <span class="math inline">\(4\)</span> events one can consider: <span class="math inline">\(\{H\}, \{T\}, \{H,T\}, \emptyset\)</span>.</p>
 </div>
@@ -322,7 +322,7 @@ window.Quarto = {
 <div class="callout-title-container flex-fill">Example 2.2</div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Consider rolling a fair six-sided dice.</p>
+<p>Consider rolling a fair six-sided die.</p>
 <p>The possible outcomes then are <span class="math inline">\(1,2,3,4,5,6\)</span>.</p>
 <p>Therefore, <span class="math inline">\(\Omega=\{1,2,3,4,5,6\}\)</span>.</p>
 <p>Consider the event <span class="math inline">\(A\)</span> of getting an even number: <span class="math inline">\(A = \{2, 4, 6\}\)</span>.</p>
@@ -396,7 +396,7 @@ Figure&nbsp;2.1: Visual representation of <span class="math inline">\(\P(A)=\dfr
 <div class="callout-title-container flex-fill">Example 2.3</div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Consider rolling twice a fair six-sided dice. Then outcomes are <span class="math inline">\(\omega=(a,b)\)</span> where <span class="math inline">\(a,b\in \{1, 2, 3, 4, 5, 6\}\)</span>, i.e. <span class="math display">\[
+<p>Consider rolling a fair six-sided die twice. Then outcomes are <span class="math inline">\(\omega=(a,b)\)</span> where <span class="math inline">\(a,b\in \{1, 2, 3, 4, 5, 6\}\)</span>, i.e. <span class="math display">\[
 \Omega = \bigl\{  (a,b) \mid a,b\in \{1, 2, 3, 4, 5, 6\} \bigr\}.
 \]</span> Then <span class="math inline">\(\sharp(\Omega)=6\cdot 6=36\)</span>. Let <span class="math inline">\(A\)</span> be the event of having the sum of the numbers in two rollings bigger than <span class="math inline">\(10\)</span>. Then <span class="math display">\[
 A=\bigl\{  (5,6), (6,5), (6,6) \bigr\}.
@@ -498,7 +498,7 @@ Figure&nbsp;2.3: Visual representation of <span class="math inline">\(AB\)</span
 <div class="callout-body-container callout-body">
 <p>The <strong>addition rule</strong> states that <span class="math display">\[
 \P(A + B) = \P(A) + \P(B) - \P(A B).
-\]</span> It can be easily interpretted using the visual representations of <span class="math inline">\(\P(A + B)\)</span> and <span class="math inline">\(\P(AB)\)</span>.</p>
+\]</span> It can be easily interpreted using the visual representations of <span class="math inline">\(\P(A + B)\)</span> and <span class="math inline">\(\P(AB)\)</span>.</p>
 </div>
 </div>
 </div>
@@ -626,7 +626,7 @@ Figure&nbsp;2.4: Visual representation of <span class="math inline">\(A^c\)</spa
 <div class="callout-title-container flex-fill">Definition 2.12</div>
 </div>
 <div class="callout-body-container callout-body">
-<p>An event <span class="math inline">\(A\)</span> is said to be <strong>independent</strong> on an event <span class="math inline">\(B\)</span> if the occurrence of <span class="math inline">\(B\)</span> does not affect the probability of occurrence of <span class="math inline">\(A\)</span>. In other words, <span class="math inline">\(A\)</span> is independent on <span class="math inline">\(B\)</span> iff <span class="math display">\[
+<p>An event <span class="math inline">\(A\)</span> is said to be <strong>independent</strong> on an event <span class="math inline">\(B\)</span> if the occurrence of <span class="math inline">\(B\)</span> does not affect the probability of occurrence of <span class="math inline">\(A\)</span>. In other words, <span class="math inline">\(A\)</span> is independent of <span class="math inline">\(B\)</span> iff <span class="math display">\[
 \P(A\mid B) = \P(A).
 \]</span></p>
 </div>
@@ -638,7 +638,7 @@ Figure&nbsp;2.4: Visual representation of <span class="math inline">\(A^c\)</spa
 <div class="callout-title-container flex-fill">Example 2.13</div>
 </div>
 <div class="callout-body-container callout-body">
-<p>A fair coin is tossing twice. Let <span class="math inline">\(A\)</span>: a head appeared in the first tossing, and <span class="math inline">\(B\)</span>: a tail appeared in the second tossing. Then <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are independent. <span class="math inline">\(A=\{HH,HT\}\)</span>, <span class="math inline">\(B=\{HT,TT\}\)</span>, and hence, <span class="math inline">\(AB=\{HT\}\)</span>. Then <span class="math inline">\(\P(AB)=\frac14=\frac12\cdot\frac12=\P(A)\P(B)\)</span>.</p>
+<p>A fair coin is tossed twice. Let <span class="math inline">\(A\)</span>: a head appeared in the first tossing, and <span class="math inline">\(B\)</span>: a tail appeared in the second tossing. Then <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are independent. <span class="math inline">\(A=\{HH,HT\}\)</span>, <span class="math inline">\(B=\{HT,TT\}\)</span>, and hence, <span class="math inline">\(AB=\{HT\}\)</span>. Then <span class="math inline">\(\P(AB)=\frac14=\frac12\cdot\frac12=\P(A)\P(B)\)</span>.</p>
 </div>
 </div>
 </div>
@@ -663,7 +663,7 @@ Figure&nbsp;2.4: Visual representation of <span class="math inline">\(A^c\)</spa
 <div class="callout-title-container flex-fill">Memorize</div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Let <span class="math inline">\(B_1,\ldots,B_n\)</span> be pairwise exclusive events (i.e.&nbsp;<span class="math inline">\(B_iB_j=\emptyset\)</span> for all <span class="math inline">\(i\neq j\)</span>) such that <span class="math inline">\(B_1+B_2+\ldots+B_n=\Omega\)</span> with <span class="math inline">\(\P(B_i)\neq0\)</span> (it is said then that <span class="math inline">\(B_1,\ldots,B_n\)</span> form a <em>partition</em> of <span class="math inline">\(\Omega\)</span>). Then the <strong>law of total probability</strong> holds: <span class="math display">\[
+<p>Let <span class="math inline">\(B_1,\ldots,B_n\)</span> be pairwise mutually exclusive events (i.e.&nbsp;<span class="math inline">\(B_iB_j=\emptyset\)</span> for all <span class="math inline">\(i\neq j\)</span>) such that <span class="math inline">\(B_1+B_2+\ldots+B_n=\Omega\)</span> with <span class="math inline">\(\P(B_i)\neq0\)</span> (it is said then that <span class="math inline">\(B_1,\ldots,B_n\)</span> form a <em>partition</em> of <span class="math inline">\(\Omega\)</span>). Then the <strong>law of total probability</strong> holds: <span class="math display">\[
 \P(A)=\P(A\mid B_1)\,\P(B_1)+\ldots+\P(A\mid B_n)\,\P(B_n).
 \]</span></p>
 </div>
@@ -689,7 +689,7 @@ Figure&nbsp;2.5: Note that <span class="math inline">\(A=AB_1+\ldots +AB_n\)</sp
 <div class="callout-title-container flex-fill">Remember</div>
 </div>
 <div class="callout-body-container callout-body">
-<p>There is also a modification of the law of total probability for conditional probabilioties. If <span class="math inline">\(B_1,\ldots,B_n\)</span> are as above and <span class="math inline">\(\P(C)\neq0\)</span>, then <span class="math display">\[
+<p>There is also a modification of the law of total probability for conditional probabilities. If <span class="math inline">\(B_1,\ldots,B_n\)</span> are as above and <span class="math inline">\(\P(C)\neq0\)</span>, then <span class="math display">\[
 \P(A\mid C) = \P(A\mid B_1 C)\P(B_1\mid C)+
 \ldots + \P(A\mid B_n C)\P(B_n\mid C).
 \]</span></p>
@@ -707,7 +707,7 @@ Figure&nbsp;2.5: Note that <span class="math inline">\(A=AB_1+\ldots +AB_n\)</sp
 <div class="callout-body-container callout-body">
 <p>Let <span class="math inline">\(\P(A)\neq0\)</span> and <span class="math inline">\(\P(B)\neq0\)</span>. Then <strong>Bayes’ rule</strong> (a.k.a. Bayes’ formula or Bayes’ theorem) holds: <span class="math display">\[
 \P(A\mid B) = \frac{\P(A)\P(B\mid A)}{\P(B)}.
-\]</span> It describe the <em>a posteriori</em> probability of the event <span class="math inline">\(A\)</span>, after an experiment with the known outcome <span class="math inline">\(B\)</span>, using the <em>a priori</em> information about the outcome <span class="math inline">\(B\)</span>.</p>
+\]</span> It describes the <em>a posteriori</em> probability of the event <span class="math inline">\(A\)</span>, after an experiment with the known outcome <span class="math inline">\(B\)</span>, using the <em>a priori</em> information about the outcome <span class="math inline">\(B\)</span>.</p>
 </div>
 </div>
 </div>
@@ -730,15 +730,15 @@ Figure&nbsp;2.5: Note that <span class="math inline">\(A=AB_1+\ldots +AB_n\)</sp
 </div>
 <div class="callout-body-container callout-body">
 <p>A patient has taken a test for a rare disease. The prevalence of the disease in the population is known to be very low, only <span class="math inline">\(0.1\)</span>%. The test correctly identifies the disease in <span class="math inline">\(95\)</span>% of cases when it’s present. The test incorrectly indicates the presence of the disease in <span class="math inline">\(3\)</span>%, of cases where it’s not actually present. The patient has just received a positive test result for the disease. What is the probability that he actually has the disease?</p>
-<p><em>Solution:</em> Let <span class="math inline">\(D\)</span> denote the event of having the desease for a member of the population, then <span class="math inline">\(\P(D) = 0.001\)</span> (<span class="math inline">\(0.1\)</span>%). Let <span class="math inline">\(T\)</span> denote the event of the positive test result. Then we know that <span class="math display">\[
+<p><em>Solution:</em> Let <span class="math inline">\(D\)</span> denote the event of having the disease for a member of the population, then <span class="math inline">\(\P(D) = 0.001\)</span> (<span class="math inline">\(0.1\)</span>%). Let <span class="math inline">\(T\)</span> denote the event of the positive test result. Then we know that <span class="math display">\[
 \P(T|D) = 0.95, \qquad \P(T|D^c) = 0.03.
 \]</span> By the very definition, <span class="math inline">\(D\)</span> and <span class="math inline">\(D^c\)</span> form a partition of <span class="math inline">\(\Omega\)</span>. Then <span class="math display">\[
 \P(D|T) = \frac{\P(T|D) \cdot \P(D)}{\P(T|D) \cdot \P(D) + \P(T|D^c) \cdot \P(D^c)} = \frac{0.95 \cdot 0.001}{0.95 \cdot 0.001 + 0.03 \cdot (1 - 0.001)} \approx 0.0306.
 \]</span> So, given a positive test result for the disease, the probability that the patient actually has the disease is just <span class="math inline">\(3.06\)</span>%.</p>
 <div class="proof remark">
-<p><span class="proof-title"><em>Remark</em>. </span>The result is quite small because the percentage when the test is false positive (<span class="math inline">\(3\)</span>%) is quite high. Indeed, if the consider, for the fixed values of <span class="math inline">\(0.1\)</span>% and <span class="math inline">\(95\)</span>%, the value of <span class="math inline">\(\P(D|T)\)</span> as a function <span class="math inline">\(f(p)\)</span> of the probability <span class="math inline">\(p\in[0,1]\)</span> that the test incorrectly indicates the presence of the disease in the cases where it’s not actually present, then <span class="math display">\[
+<p><span class="proof-title"><em>Remark</em>. </span>The result is quite small because the percentage when the test is false positive (<span class="math inline">\(3\)</span>%) is quite high. Indeed, if we consider, for the fixed values of <span class="math inline">\(0.1\)</span>% and <span class="math inline">\(95\)</span>%, the value of <span class="math inline">\(\P(D|T)\)</span> as a function <span class="math inline">\(f(p)\)</span> of the probability <span class="math inline">\(p\in[0,1]\)</span> that the test incorrectly indicates the presence of the disease in the cases where it’s not actually present, then <span class="math display">\[
 f(p) =  \frac{0.95 \cdot 0.001}{0.95 \cdot 0.001 + {\color{red}p} \cdot (1 - 0.001)}.
-\]</span> Clearly, <span class="math inline">\(f(0)=1\)</span> and also <span class="math inline">\(f(1)= \frac{0.95 \cdot 0.001}{0.95 \cdot 0.001 +1\cdot (1 - 0.001)}\approx 0.00095\)</span>. With <span class="math inline">\(p\)</span> increases, <span class="math inline">\(f(p)\)</span> is getting smaller, i.e.&nbsp;<span class="math inline">\(f\)</span> is a decreasign function. Hence, to get the high probability that the patient actually has the disease, given that the result was positive, the test should have very small probability of being false positive.</p>
+\]</span> Clearly, <span class="math inline">\(f(0)=1\)</span> and also <span class="math inline">\(f(1)= \frac{0.95 \cdot 0.001}{0.95 \cdot 0.001 +1\cdot (1 - 0.001)}\approx 0.00095\)</span>. With <span class="math inline">\(p\)</span> increases, <span class="math inline">\(f(p)\)</span> is getting smaller, i.e.&nbsp;<span class="math inline">\(f\)</span> is a decreasing function. Hence, to get the high probability that the patient actually has the disease, given that the result was positive, the test should have very small probability of being false positive.</p>
 </div>
 </div>
 </div>

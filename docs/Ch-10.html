@@ -346,7 +346,7 @@ A=V\sqrt{L}.
 </div>
 </div>
 </div>
-<p>In Python, there are various methods of “extracting” the factors, the main one being <strong>Principle Axis Factoring</strong> which finds the least number of factors that account for the common variance of a set of variables.</p>
+<p>In Python, there are various methods of “extracting” the factors, the main one being <strong>Principal Axis Factoring</strong> which finds the least number of factors that account for the common variance of a set of variables.</p>
 <section id="evaluating-factors" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="evaluating-factors">Evaluating Factors</h3>
 <p>There are various means of evaluating and extracting the factors, including:</p>
@@ -380,7 +380,7 @@ A_{\text{rotated}}=A\Lambda,
 </section>
 <section id="varimax-rotation" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="varimax-rotation">Varimax Rotation</h3>
-<p>Varimax is often the most common used rotation which involves a variance maximising procedure. The goal of varimax rotation is to maximise the variance of factor loadings by making high loadings higher and low ones lower for each factor.</p>
+<p>Varimax is often the most commonly used rotation which involves a variance maximising procedure. The goal of varimax rotation is to maximise the variance of factor loadings by making high loadings higher and low ones lower for each factor.</p>
 </section>
 <section id="quartimax-rotation" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="quartimax-rotation">Quartimax Rotation</h3>
@@ -506,7 +506,7 @@ C_m&amp;=e_{m1}X_1+e_{m2}X_2+\cdots+e_{mn}X_n,
 \end{aligned}
 \]</span> where <span class="math inline">\(C_1,\ldots, C_m\)</span> represent the components, <span class="math inline">\(X_1,\ldots, X_n\)</span> are the variables and <span class="math inline">\(e_{ij}\)</span> are the regression coefficients, or weights of the variables. Similar to (<a href="#eq-LinearModel" class="quarto-xref"><span>10.2</span></a>), we can rewrite this system in matrix form as below, <span class="math display">\[
 C=EX.
-\]</span> In the case of factor analysis, the factor loadings were given by the eigenvectors and eigenvalues, however, in principal component analysis, the weightings of the variables are given by the eigenvectors and eigenvalues of the covariance matrix. The largest eigenvalue and associated eigenvector is applied to the first principal component, with the next largest applied to the second principal component etc.</p>
+\]</span> In the case of factor analysis, the factor loadings were given by the eigenvectors and eigenvalues, however, in Principal Component Analysis, the weightings of the variables are given by the eigenvectors and eigenvalues of the covariance matrix. The largest eigenvalue and associated eigenvector is applied to the first principal component, with the next largest applied to the second principal component etc.</p>
 <section id="choosing-principal-components" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="choosing-principal-components">Choosing Principal Components</h3>
 <p>The principal components are chosen in the following way:</p>
@@ -537,7 +537,7 @@ C_i=e_{i1}X_1+e_{i2}X_2+\cdots+e_{in}X_n,
 </section>
 <section id="number-of-components-and-rotations" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="number-of-components-and-rotations">Number of Components and Rotations</h3>
-<p>We will use the same guidelines for determining the number of components as we did for factors in factor analysis, i.e.&nbsp;by evaluating eigenvalues, scree plots, communalities and factor loadings. Similarly, we will use rotations in the same way for principal component analysis as we did in factor analysis, i.e.&nbsp;if components are not clear from the unrotated results, we next perform an oblique rotation. If there is not enough correlation between the principal components to warrant the use of an oblique rotation, we then perform an orthogonal rotation.</p>
+<p>We will use the same guidelines for determining the number of components as we did for factors in factor analysis, i.e.&nbsp;by evaluating eigenvalues, scree plots, communalities and factor loadings. Similarly, we will use rotations in the same way for Principal Component Analysis as we did in factor analysis, i.e.&nbsp;if components are not clear from the unrotated results, we next perform an oblique rotation. If there is not enough correlation between the principal components to warrant the use of an oblique rotation, we then perform an orthogonal rotation.</p>
 </section>
 <section id="deciding-between-pca-and-fa" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="deciding-between-pca-and-fa">Deciding between PCA and FA</h3>
